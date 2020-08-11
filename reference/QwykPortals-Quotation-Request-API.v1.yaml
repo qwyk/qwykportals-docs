@@ -1,0 +1,512 @@
+openapi: 3.0.0
+info:
+  title: QwykPortals Quotation Request API
+  version: '1.0'
+servers:
+  - url: 'https://your-server-address-here'
+paths:
+  /:
+    parameters: []
+    post:
+      summary: Quotation Request Webhook
+      operationId: post
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    transport_mode:
+                      type: string
+                      enum:
+                        - OCEAN
+                        - AIR
+                        - TRUCK
+                    load_type:
+                      type: string
+                      enum:
+                        - fcl
+                        - lcl
+                      maxLength: 3
+                      minLength: 3
+                    carrier_scac:
+                      type:
+                        - string
+                        - 'null'
+                      minLength: 4
+                      maxLength: 4
+                    carrier_name:
+                      type:
+                        - string
+                        - 'null'
+                      maxLength: 191
+                    pol_locode:
+                      type: string
+                      minLength: 5
+                      maxLength: 5
+                    pod_locode:
+                      type: string
+                      minLength: 5
+                      maxLength: 5
+                    rate_name:
+                      type:
+                        - string
+                        - 'null'
+                      maxLength: 191
+                    transit_time:
+                      type: integer
+                      minimum: 0
+                    currency:
+                      type: string
+                      minLength: 3
+                      maxLength: 3
+                    total_amount:
+                      type: number
+                    breakdown:
+                      type: array
+                      items:
+                        type: object
+                        minProperties: 1
+                        properties:
+                          segment:
+                            type: string
+                            enum:
+                              - pickup
+                              - origin
+                              - freight
+                              - destination
+                              - delivery
+                          charge_code:
+                            type: string
+                            maxLength: 3
+                          charge_description:
+                            type: string
+                            maxLength: 191
+                          base_currency:
+                            type: string
+                            minLength: 3
+                            maxLength: 3
+                          base_rate:
+                            type: number
+                          base_calculation_id:
+                            type: integer
+                          base_minimum:
+                            type: number
+                          total_amount:
+                            type: number
+                          exchange_rate:
+                            type: number
+                          total_amount_quotation:
+                            type: number
+                          remarks:
+                            type: string
+                            maxLength: 5000
+                        required:
+                          - segment
+                          - charge_code
+                          - charge_description
+                          - base_currency
+                          - base_rate
+                          - base_calculation_id
+                          - base_minimum
+                          - total_amount
+                          - exchange_rate
+                          - total_amount_quotation
+                          - remarks
+                    valid_from:
+                      type:
+                        - string
+                        - 'null'
+                      format: date-time
+                    valid_until:
+                      type:
+                        - string
+                        - 'null'
+                      format: date-time
+                    remarks:
+                      type:
+                        - string
+                        - 'null'
+                      maxLength: 5000
+                  required:
+                    - transport_mode
+                    - load_type
+                    - carrier_scac
+                    - carrier_name
+                    - pol_locode
+                    - pod_locode
+                    - rate_name
+                    - transit_time
+                    - currency
+                    - total_amount
+                    - breakdown
+                    - valid_from
+                    - valid_until
+                    - remarks
+      description: 'Upon a customer creating a quotation, Qwyk will make this request to a configured endpoint, and synchronously wait for the response for a maximum of 60 seconds (including the initial request duration). The responded rates will then be appended to the quotation.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                owner:
+                  type: object
+                  required:
+                    - id
+                    - type
+                    - name
+                    - email
+                    - team_id
+                    - team_name
+                    - job_title
+                    - company
+                    - location
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    team_id:
+                      type: string
+                    team_name:
+                      type: string
+                    job_title:
+                      type: string
+                    company:
+                      type:
+                        - string
+                        - 'null'
+                    location:
+                      type:
+                        - string
+                        - 'null'
+                owner_reference:
+                  type:
+                    - string
+                    - 'null'
+                origin:
+                  $ref: '#/components/schemas/QuotationRequestLocation'
+                destination:
+                  $ref: '#/components/schemas/QuotationRequestLocation'
+                transport_mode:
+                  type: string
+                  enum:
+                    - OCEAN
+                    - AIR
+                    - TRUCK
+                load_type:
+                  type: string
+                  enum:
+                    - fcl
+                    - lcl
+                  description: always fcl or lcl but means ftl and ltl when transport_mode=TRUCK
+                cargo_ready:
+                  type: string
+                  format: date-time
+                commodity:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    code:
+                      type: string
+                    description:
+                      type: string
+                currency:
+                  type: string
+                  minLength: 3
+                  maxLength: 3
+                  example: USD
+                  description: Currency the customer has requested the rate to be in
+                packages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      quantity:
+                        type: integer
+                      packaging:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          code:
+                            type: string
+                          description:
+                            type: string
+                      unit_weight:
+                        type:
+                          - number
+                          - 'null'
+                        description: only guaranteed when load_type = lcl
+                      unit_length:
+                        type:
+                          - number
+                          - 'null'
+                        description: only guaranteed when load_type = lcl
+                      unit_width:
+                        type:
+                          - number
+                          - 'null'
+                        description: only guaranteed when load_type = lcl
+                      unit_height:
+                        type:
+                          - number
+                          - 'null'
+                        description: only guaranteed when load_type = lcl
+                      unit_volume:
+                        type:
+                          - number
+                          - 'null'
+                        description: only guaranteed when load_type = lcl
+                      uom:
+                        type:
+                          - string
+                          - 'null'
+                        enum:
+                          - metric
+                          - imperial
+                        description: only guaranteed when load_type = lcl
+                      total_weight_kgs:
+                        type: number
+                      total_volume_cbm:
+                        type: number
+                total_quantity:
+                  type: integer
+                total_weight_kgs:
+                  type: number
+                total_volume_cbm:
+                  type: number
+                created_at:
+                  type: string
+                  format: date-time
+              required:
+                - id
+                - owner
+            examples:
+              Port to Port Ocean FCL:
+                value:
+                  id: 913cff5e-ab12-4a80-bdad-4a47bce25254
+                  owner:
+                    id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                    type: portals-user
+                    name: Martyn Verhaegen
+                    email: martyn@qwyk.io
+                    team_id: 5233d8dc-df75-4c5f-8766-4f766def1833
+                    team_name: Qwyk
+                    job_title: CEO
+                    company: Qwyk
+                    location: Dordrecht
+                  owner_reference: null
+                  origin:
+                    type: port
+                    code: AEKHL
+                    locode: AEKHL
+                    name: Mina Khalifa/Abu Dhabi
+                    country_code: AE
+                  destination:
+                    type: port
+                    code: BEANR
+                    name: 'Antwerpen, VAN'
+                    locode: BEANR
+                    country_code: BE
+                  transport_mode: OCEAN
+                  load_type: fcl
+                  cargo_ready: '2020-08-08T18:34:38+00:00'
+                  commodity:
+                    id: 1
+                    code: FAK0
+                    description: Freight All Kinds - Non Hazardous
+                    is_preferred: 1
+                  currency: USD
+                  packages:
+                    - id: 184
+                      quantity: 3
+                      packaging:
+                        id: 1
+                        code: '20'
+                        description: "20' Container"
+                        transport_mode: OCEAN
+                        load_type: fcl
+                      unit_weight: null
+                      unit_volume: null
+                      unit_length: null
+                      unit_width: null
+                      unit_height: null
+                      uom: null
+                      total_weight_kgs: 0
+                      total_volume_cbm: 0
+                  total_quantity: 3
+                  total_weight_kgs: 0
+                  total_volume_cbm: 0
+                  created_at: '2020-08-08T18:34:44+00:00'
+              Port to Port Ocean LCL:
+                value:
+                  id: 913cf60d-6b14-4112-9ddc-a3d7af2f0948
+                  owner:
+                    id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                    type: portals-user
+                    name: Martyn Verhaegen
+                    email: martyn@qwyk.io
+                    team_id: 5233d8dc-df75-4c5f-8766-4f766def1833
+                    team_name: Qwyk
+                    job_title: CEO
+                    company: Qwyk
+                    location: Dordrecht
+                  owner_reference: null
+                  origin:
+                    type: port
+                    code: USCHI
+                    locode: USCHI
+                    name: 'Chicago, IL'
+                    country_code: US
+                  destination:
+                    type: port
+                    code: GBLON
+                    name: 'London, LND'
+                    locode: GBLON
+                    country_code: GB
+                  transport_mode: OCEAN
+                  load_type: lcl
+                  cargo_ready: '2020-08-08T18:08:01+00:00'
+                  commodity:
+                    id: 1
+                    code: FAK0
+                    description: Freight All Kinds - Non Hazardous
+                    is_preferred: 1
+                  currency: USD
+                  packages:
+                    - id: 181
+                      quantity: 1
+                      packaging:
+                        id: 3
+                        code: CARTON
+                        description: Carton(s)
+                        transport_mode: OCEAN
+                        load_type: lcl
+                      unit_weight: 434
+                      unit_volume: 0.039
+                      unit_length: 34
+                      unit_width: 34
+                      unit_height: 34
+                      uom: metric
+                      total_weight_kgs: 434
+                      total_volume_cbm: 0.039
+                  total_quantity: 1
+                  total_weight_kgs: 434
+                  total_volume_cbm: 0.039
+                  created_at: '2020-08-08T18:08:41+00:00'
+              Door to Port Ocean FCL:
+                value:
+                  id: 91425284-c425-4e12-b044-500b7dc8d6d1
+                  owner:
+                    id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                    type: portals-user
+                    name: Martyn Verhaegen
+                    email: martyn@qwyk.io
+                    team_id: 5233d8dc-df75-4c5f-8766-4f766def1833
+                    team_name: Qwyk
+                    job_title: CEO
+                    company: Qwyk
+                    location: Dordrecht
+                  owner_reference: null
+                  origin:
+                    type: place
+                    code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311 XR'
+                    locode: NLDOR
+                    name: 'Nieuwstraat 7, 3311 XR Dordrecht, Netherlands'
+                    country_code: NL
+                  destination:
+                    type: port
+                    code: SGSIN
+                    name: Singapore
+                    locode: SGSIN
+                    country_code: SG
+                  transport_mode: OCEAN
+                  load_type: fcl
+                  cargo_ready: '2020-08-11T10:04:20+00:00'
+                  commodity:
+                    id: 1
+                    code: FAK0
+                    description: Freight All Kinds - Non Hazardous
+                    is_preferred: 1
+                  currency: USD
+                  packages:
+                    - id: 186
+                      quantity: 1
+                      packaging:
+                        id: 1
+                        code: '20'
+                        description: "20' Container"
+                        transport_mode: OCEAN
+                        load_type: fcl
+                      unit_weight: null
+                      unit_volume: null
+                      unit_length: null
+                      unit_width: null
+                      unit_height: null
+                      uom: null
+                      total_weight_kgs: 0
+                      total_volume_cbm: 0
+                  total_quantity: 1
+                  total_weight_kgs: 0
+                  total_volume_cbm: 0
+                  created_at: '2020-08-11T10:06:23+00:00'
+        description: ''
+components:
+  schemas:
+    QuotationRequestLocation:
+      title: QuotationRequestLocation
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - port
+            - place
+          description: '`port` for a port move, `place` for a door move'
+        code:
+          type: string
+          description: |-
+            locode when type is port, structured data when type is place
+
+            structured data:
+            G:|X:|Y:|C:|P:
+
+            Where:
+            G: Google Places ID
+            X: Longtitude
+            Y: Latitude
+            C: Country code
+            P: Postal code
+          example: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+        name:
+          type: string
+        locode:
+          type: string
+          minLength: 5
+          maxLength: 5
+        country_code:
+          type: string
+          minLength: 2
+          maxLength: 2
+      required:
+        - type
+        - code
+        - name
+        - locode
+        - country_code
