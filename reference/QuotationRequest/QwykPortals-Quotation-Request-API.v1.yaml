@@ -484,6 +484,8 @@ paths:
                   total_volume_cbm: 0
                   created_at: '2020-08-11T10:06:23+00:00'
         description: ''
+      tags:
+        - Methods
 components:
   schemas:
     QuotationRequestLocation:
@@ -527,3 +529,5 @@ components:
         - name
         - locode
         - country_code
+      x-tags:
+        - Models
