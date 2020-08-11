@@ -3,6 +3,14 @@ info:
   title: Quotation Request API
   version: '1.0'
   description: |-
+    ### UN Locodes
+
+    We always follow the latest published version of the UN Locodes database, and recommend you do so as well.
+    For example, CNSHA has been changed since 2016 and now refers to an Airport, if you respond to an Ocean Request with this code, expect your customer to see ''
+    Don't have a database yet? Check out our github repo with a sample database as well as code for generating your own: https://github.com/qwyk/unlocodes-python
+
+
+
     ### Available base_calculation_id
 
     These are the base_calculation_id values that can be used in the response `breakdown` object's `base_calculation_id` attribute:
