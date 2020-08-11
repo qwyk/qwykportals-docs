@@ -165,6 +165,58 @@ paths:
                     - valid_from
                     - valid_until
                     - remarks
+              examples:
+                Example response:
+                  value:
+                    - transport_mode: OCEAN
+                      load_type: fcl
+                      carrier_scac: MAEU
+                      carrier_name: Maersk Line
+                      pol_locode: NLRTM
+                      pod_locode: SGSIN
+                      rate_name: Maersk FAK Rates EU-AS
+                      transit_time: 28
+                      currency: USD
+                      total_amount: 1440.39
+                      breakdown:
+                        - segment: origin
+                          charge_code: THC
+                          charge_description: Terminal Handling Charges
+                          base_currency: EUR
+                          base_rate: 200
+                          base_calculation_id: 2
+                          base_minimum: 200
+                          total_amount: 200
+                          exchange_rate: 1.2
+                          total_amount_quotation: 240
+                          remarks: Includes documentation
+                        - segment: freight
+                          charge_code: OFR
+                          charge_description: Ocean Freight
+                          base_currency: USD
+                          base_rate: 1000
+                          base_calculation_id: 2
+                          base_minimum: 1000
+                          total_amount: 1000
+                          exchange_rate: 1
+                          total_amount_quotation: 1000
+                          remarks: 'Includes BAF, CAF, other things'
+                        - segment: destination
+                          charge_code: DOR
+                          charge_description: Delivery Order
+                          base_currency: SGD
+                          base_rate: 274.73
+                          base_calculation_id: 1
+                          base_minimum: 274.73
+                          total_amount: 274.73
+                          exchange_rate: 0.7311
+                          total_amount_quotation: 200.69
+                          remarks: 'Includes BAF, CAF, other things'
+                      remarks: |-
+                        Does not include overweight charges
+                        Hazardous charges may apply
+                      valid_from: '2020-08-01T00:00:00+00:00'
+                      valid_until: '2020-08-30T23:59:59+00:00'
       description: 'Upon a customer creating a quotation, Qwyk will make this request to a configured endpoint, and synchronously wait for the response for a maximum of 60 seconds (including the initial request duration). The responded rates will then be appended to the quotation.'
       requestBody:
         content:
