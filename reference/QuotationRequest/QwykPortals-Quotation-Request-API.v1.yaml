@@ -236,6 +236,8 @@ paths:
               properties:
                 id:
                   type: string
+                  pattern: '/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i'
+                  example: 913cff5e-ab12-4a80-bdad-4a47bce25254
                 owner:
                   type: object
                   required:
@@ -251,30 +253,41 @@ paths:
                   properties:
                     id:
                       type: string
+                      pattern: '/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i'
+                      example: ea93fe35-2dc6-4751-a7db-a84a998dcc48
                     type:
                       type: string
+                      example: portals-user
                     name:
                       type: string
+                      example: Martyn
                     email:
                       type: string
+                      example: o
                     team_id:
                       type: string
+                      example: 5233d8dc-df75-4c5f-8766-4f766def1833
                     team_name:
                       type: string
+                      example: Qwyk
                     job_title:
                       type: string
+                      example: Keyboard Monkey
                     company:
                       type:
                         - string
                         - 'null'
+                      example: Qwyk
                     location:
                       type:
                         - string
                         - 'null'
+                      example: 'Dordt, ZH, NL'
                 owner_reference:
                   type:
                     - string
                     - 'null'
+                  example: This is a test quote
                 origin:
                   $ref: '#/components/schemas/QuotationRequestLocation'
                 destination:
@@ -299,10 +312,13 @@ paths:
                   properties:
                     id:
                       type: integer
+                      example: 1
                     code:
                       type: string
+                      example: FAK0
                     description:
                       type: string
+                      example: Freight All Kinds - Non Hazardous
                 currency:
                   type: string
                   minLength: 3
@@ -318,6 +334,8 @@ paths:
                         type: integer
                       quantity:
                         type: integer
+                        example: 1
+                        minimum: 1
                       packaging:
                         type: object
                         properties:
@@ -325,13 +343,16 @@ paths:
                             type: integer
                           code:
                             type: string
+                            example: '20'
                           description:
                             type: string
+                            example: "20' Container"
                       unit_weight:
                         type:
                           - number
                           - 'null'
                         description: only guaranteed when load_type = lcl
+                        example: 2000
                       unit_length:
                         type:
                           - number
@@ -360,16 +381,21 @@ paths:
                           - metric
                           - imperial
                         description: only guaranteed when load_type = lcl
+                        example: metric
                       total_weight_kgs:
                         type: number
                       total_volume_cbm:
                         type: number
+                        example: 2000
                 total_quantity:
                   type: integer
+                  example: 1
                 total_weight_kgs:
                   type: number
+                  example: 2000
                 total_volume_cbm:
                   type: number
+                  example: 0
                 created_at:
                   type: string
                   format: date-time
@@ -553,6 +579,8 @@ components:
     QuotationRequestLocation:
       title: QuotationRequestLocation
       type: object
+      x-tags:
+        - Models
       properties:
         type:
           type: string
@@ -560,6 +588,7 @@ components:
             - port
             - place
           description: '`port` for a port move, `place` for a door move'
+          example: port
         code:
           type: string
           description: |-
@@ -577,19 +606,20 @@ components:
           example: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
         name:
           type: string
+          example: 'Rotterdam, Netherlands'
         locode:
           type: string
           minLength: 5
           maxLength: 5
+          example: NLRTM
         country_code:
           type: string
           minLength: 2
           maxLength: 2
+          example: NL
       required:
         - type
         - code
         - name
         - locode
         - country_code
-      x-tags:
-        - Models
