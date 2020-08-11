@@ -217,6 +217,16 @@ paths:
                         Hazardous charges may apply
                       valid_from: '2020-08-01T00:00:00+00:00'
                       valid_until: '2020-08-30T23:59:59+00:00'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+              examples:
+                Example:
+                  value: []
       description: 'Upon a customer creating a quotation, Qwyk will make this request to a configured endpoint, and synchronously wait for the response for a maximum of 60 seconds (including the initial request duration). The responded rates will then be appended to the quotation.'
       requestBody:
         content:
