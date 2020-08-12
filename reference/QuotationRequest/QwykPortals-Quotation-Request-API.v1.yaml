@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Quotation Request API
   version: '1.0'
-  description: |-
+  description: |
     ### UN Locodes
 
     We always follow the latest published version of the UN Locodes database, and recommend you do so as well.
@@ -19,7 +19,7 @@ info:
 
     ID | Name | Description | Expression
     ---------|----------|---------|---------
-     1|BL|Charge that applies per Bill of Lading|`max($RATE, $MINIMUM)`
+    1|BL|Charge that applies per Bill of Lading|`max($RATE, $MINIMUM)`
     2|CONTAINER|Charge that applies per container|`max($RATE * $QUANTITY, $MINIMUM)`
     3|WM|Weight Measure for LCL|`max($RATE * $WEIGHT_KGS / 1000, $RATE * $VOLUME_CBM, $MINIMUM)`
     4|W|Charge per Ton|`max($RATE * ($WEIGHT_KGS / 1000), $MINIMUM)`
@@ -28,6 +28,44 @@ info:
     7|KG|Charge per kilogram|`max($RATE * $WEIGHT_KGS, $MINIMUM)`
 
     If you need more charge codes, please send your request to support@qwyk.io
+
+    ### Supported currencies
+    At present the following currencies are supported
+
+    |Code|Sign|Name|
+    |---|---|--------------------|
+    |AUD|$  |Australian dollar   |
+    |BGN|лв |Bulgarian lev       |
+    |BRL|R$ |Brazilian real      |
+    |CAD|$  |Canadian dollar     |
+    |CHF|Fr |Swiss franc         |
+    |CNY|¥  |Chinese Yuan        |
+    |CZK|Kč |Czech koruna        |
+    |DKK|kr |Danish krone        |
+    |EUR|€  |Euro                |
+    |GBP|£  |British Pound       |
+    |HKD|$  |Hong Kong dollar    |
+    |HUF|Ft |Hungarian forint    |
+    |IDR|Rp |Indonesian rupiah   |
+    |ILS|₪  |Israeli new shekel  |
+    |INR|₹  |Indian Rupee        |
+    |ISK|kr |Icelandic króna     |
+    |JPY|¥  |Japanese yen        |
+    |KRW|₩  |South Korean won    |
+    |MXN|$  |Mexican peso        |
+    |MYR|RM |Malaysian ringgit   |
+    |NOK|kr |Norwegian krone     |
+    |NZD|$  |New Zealand dollar  |
+    |PHP|₱  |Philippine peso     |
+    |PLN|zł |Polish złoty        |
+    |RON|le |Romanian leu        |
+    |RUB|₽  |Russian ruble       |
+    |SEK|kr |Swedish krona       |
+    |SGD|$  |Singapore dollar    |
+    |THB|฿  |Thai baht           |
+    |TRY|₺  |Turkish lira        |
+    |USD|$  |United States Dollar|
+    |ZAR|$  |South African rand  |
   contact:
     name: Qwyk
     url: 'https://www.qwyk.io'
@@ -97,13 +135,17 @@ paths:
                       type: string
                       minLength: 3
                       maxLength: 3
+                      description: Ideally matches the `currency` from the request. But can be any of the currencies documented
                     total_amount:
                       type: number
+                      description: The total amount fo the quotation in the `currency` provided
                     breakdown:
                       type: array
+                      minItems: 1
+                      description: 'A list of charges, at least 1 is required'
                       items:
                         type: object
-                        minProperties: 1
+                        description: A charge object defining a charge line item on the quotation
                         properties:
                           segment:
                             type: string
@@ -127,6 +169,7 @@ paths:
                             type: number
                           base_calculation_id:
                             type: integer
+                            description: Check documentation for options
                           base_minimum:
                             type: number
                           total_amount:
@@ -346,6 +389,7 @@ paths:
                   description: Currency the customer has requested the rate to be in
                 packages:
                   type: array
+                  minItems: 1
                   items:
                     type: object
                     properties:
