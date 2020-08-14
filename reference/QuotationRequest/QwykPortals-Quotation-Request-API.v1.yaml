@@ -663,6 +663,62 @@ paths:
                   total_weight_kgs: 0
                   total_volume_cbm: 0
                   created_at: '2020-08-11T10:06:23+00:00'
+              Door to Door Truck FTL:
+                value:
+                  id: 914814ee-4625-4f82-a7be-431cf3f321bb
+                  owner:
+                    id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                    type: portals-user
+                    name: Martyn Verhaegen
+                    email: martyn@qwyk.io
+                    team_id: 5233d8dc-df75-4c5f-8766-4f766def1833
+                    team_name: Qwyk
+                    job_title: CEO
+                    company: Qwyk
+                    location: Dordrecht
+                  owner_reference: null
+                  origin:
+                    type: place
+                    code: 'G:ChIJvfEkd2fwwIcRXaijSRtCGz8|X:-94.5822881|Y:39.0986507|C:US|P:64106'
+                    locode: USMKC
+                    name: '50 E 13th St, Kansas City, MO 64106, USA'
+                    country_code: US
+                  destination:
+                    type: place
+                    code: 'G:ChIJCa5EURCxD4gR0Yv46b3dfDA|X:-87.960511|Y:42.0085447|C:US|P:60007'
+                    name: '1200 Busse Rd, Elk Grove Village, IL 60007, USA'
+                    locode: USCHI
+                    country_code: US
+                  transport_mode: TRUCK
+                  load_type: fcl
+                  cargo_ready: '2020-08-14T06:48:14+00:00'
+                  commodity:
+                    id: 1
+                    code: FAK0
+                    description: Freight All Kinds - Non Hazardous
+                    is_preferred: 1
+                  currency: USD
+                  packages:
+                    - id: 209
+                      quantity: 1
+                      packaging:
+                        id: 9
+                        code: '53'
+                        description: "53' Trailer"
+                        transport_mode: TRUCK
+                        load_type: fcl
+                      unit_weight: null
+                      unit_volume: null
+                      unit_length: null
+                      unit_width: null
+                      unit_height: null
+                      uom: null
+                      total_weight_kgs: 0
+                      total_volume_cbm: 0
+                  total_quantity: 1
+                  total_weight_kgs: 0
+                  total_volume_cbm: 0
+                  created_at: '2020-08-14T06:49:08+00:00'
         description: ''
       tags:
         - Methods
