@@ -10,20 +10,55 @@ info:
 servers:
   - url: 'https://api.qwykportals.com'
     description: QwykPortals API (stable)
-  - url: 'https://your-server.example.com'
-    description: Your server
   - url: 'https://api.next.qwykportals.com'
     description: QwykPortals API (next)
 paths:
   /webhooks/portals/shipments/timeline-event:
     post:
-      summary: ''
+      summary: Post Milestone Update
       operationId: post-webhooks-portals-shipments-booking-confirmation
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
       security:
         - Bearer Token: []
+      description: ''
+      tags:
+        - Methods
+      parameters:
+        - schema:
+            type: string
+            example: 'Bearer [YOUR TOKEN]'
+          in: header
+          name: Authentication
+          description: Pre-assigned bearer token
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doc_type:
+                  type: string
+                  default: event_json
+                version:
+                  type: string
+                  default: '1.0'
+                events:
+                  type: array
+                  minItems: 1
+                  items:
+                    $ref: '#/components/schemas/ShipmentEvent'
+              required:
+                - doc_type
+                - version
+                - events
+        description: ''
     parameters: []
   /webhooks/portals/shipments/booking-confirmation:
     post:
@@ -35,13 +70,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                  transactionId:
-                    type: string
-                    example: "Qwyk's ID belonging to this transaction"
+                $ref: '#/components/schemas/WebhookResponse'
       parameters:
         - schema:
             type: string
@@ -49,6 +78,7 @@ paths:
           in: header
           name: Authentication
           required: true
+          description: Pre-assigned bearer token
       security:
         - Bearer Token: []
       requestBody:
@@ -106,9 +136,101 @@ paths:
                 - doc_type
                 - booking_responses
       description: ''
+      tags:
+        - Methods
     parameters: []
+  '/{your-endpoint}':
+    parameters:
+      - schema:
+          type: string
+        name: your-endpoint
+        in: path
+        required: true
+    post:
+      summary: ''
+      operationId: post-your-endpoint
+      responses:
+        '200':
+          description: OK
+      tags:
+        - Webhooks
 components:
-  schemas: {}
+  schemas:
+    WebhookResponse:
+      title: WebhookResponse
+      type: object
+      x-tags:
+        - Models
+      properties:
+        transactionId:
+          type: string
+          description: Qwyk transaction id
+          format: uuid
+        message:
+          type: string
+    ShipmentEvent:
+      title: ShipmentEvent
+      type: object
+      x-tags:
+        - Models
+      properties:
+        source_system_shipment_uid:
+          type: string
+          description: "Qwyk's shipment id"
+        event_code:
+          type: string
+          description: To be mapped during setup
+        estimated_date:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        actual_date:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        notes:
+          type:
+            - string
+            - 'null'
+        vessel_name:
+          type:
+            - string
+            - 'null'
+          maxLength: 191
+        voyage_number:
+          type:
+            - string
+            - 'null'
+          maxLength: 191
+        house_bill:
+          type:
+            - string
+            - 'null'
+          maxLength: 191
+        master_bill:
+          type:
+            - string
+            - 'null'
+          maxLength: 191
+        forwarder_reference:
+          type:
+            - string
+            - 'null'
+          maxLength: 191
+        event_unlocode:
+          type: object
+          properties:
+            unlocode:
+              type: string
+              minLength: 5
+              maxLength: 5
+            description:
+              type: string
+      required:
+        - source_system_shipment_uid
+        - event_code
   securitySchemes:
     Bearer Token:
       name: Authentication
