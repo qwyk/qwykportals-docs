@@ -191,6 +191,160 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ShipmentJson'
+            examples:
+              Example:
+                value:
+                  doc_type: shipment_json
+                  version: '1.6'
+                  shipments:
+                    - source_account_id: 1
+                      source_system_uid: 91402ea5-bfef-44a9-bb3e-b66419a7dd61
+                      transmission_uid: 5f4644354be71146d9448526
+                      sent_date: '2020-08-26T11:15:01+00:00'
+                      booking_submitted_actual: '2020-08-26T11:15:01+00:00'
+                      created_by:
+                        email: martyn@qwyk.io
+                        first_name: Martyn Verhaegen
+                        last_name: null
+                        username: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                      created_on: '2020-08-26T11:15:01+00:00'
+                      agent_reference: null
+                      shipper_reference: Shipper Ref
+                      forwarder_reference: Forwarder Ref
+                      house_bill: null
+                      master_bill: null
+                      lading_port:
+                        unlocode: USCHI
+                        description: 'Chicago, IL, US'
+                      arrival_port:
+                        unlocode: GBLON
+                        description: 'London, LND, GB'
+                      final_destination_port:
+                        unlocode: GBLON
+                        description: 'London, LND, GB'
+                      ship_from:
+                        name: null
+                        address_1: null
+                        address_2: null
+                        address_type: null
+                        postal_code: null
+                        city: null
+                        state: null
+                        state_name: null
+                        country: null
+                        country_name: null
+                        phone_number: null
+                        unlocode: null
+                        source_party_id: 544
+                        target_party_id: null
+                      shipper:
+                        name: Qwyk B.V.
+                        address_1: Nieuwstraat 7
+                        address_2: Suite 1
+                        address_type: null
+                        postal_code: 3311XR
+                        city: Dordrecht
+                        state: null
+                        state_name: null
+                        country: NL
+                        country_name: Netherlands (the)
+                        phone_number: 555-555-1234
+                        unlocode: NLDOR
+                        source_party_id: 546
+                        target_party_id: null
+                      consignee:
+                        name: null
+                        address_1: null
+                        address_2: null
+                        address_type: null
+                        postal_code: null
+                        city: null
+                        state: null
+                        state_name: null
+                        country: null
+                        country_name: null
+                        phone_number: null
+                        unlocode: null
+                        source_party_id: 547
+                        target_party_id: null
+                      notify_party:
+                        name: null
+                        address_1: null
+                        address_2: null
+                        address_type: null
+                        postal_code: null
+                        city: null
+                        state: null
+                        state_name: null
+                        country: null
+                        country_name: null
+                        phone_number: null
+                        unlocode: null
+                        source_party_id: 548
+                        target_party_id: null
+                      ship_to:
+                        name: null
+                        address_1: null
+                        address_2: null
+                        address_type: null
+                        postal_code: null
+                        city: null
+                        state: null
+                        state_name: null
+                        country: null
+                        country_name: null
+                        phone_number: null
+                        unlocode: null
+                        source_party_id: 545
+                        target_party_id: null
+                      transport_mode: OCEAN
+                      vessel_name: CSCL MERCURY
+                      voyage_number: 0PFD2E1MA
+                      departure_estimated: '2020-08-31T05:00:00+00:00'
+                      arrival_estimated: '2020-09-30T00:00:00+00:00'
+                      cutoff_time_bol: null
+                      cutoff_time_physical: null
+                      containerization_type: null
+                      cargo_ready_estimated: '2020-08-08T18:05:17+00:00'
+                      carrier_instructions: Here are some instructions
+                      freight_payment_terms: PREPAID
+                      inco_term: EXW
+                      package_group:
+                        - chargeable_weight_kgs: null
+                          commodity_type: HS Code
+                          description_of_goods: Freight All Kinds - Non Hazardous
+                          gross_weight_kgs: 30000
+                          marks_and_numbers: null
+                          pack_items:
+                            - customer_product_id: Product ID
+                              customer_sku: Product SKU
+                              po_line_id: PO Line
+                              po_number: PO Number
+                              product_description: Freight All Kinds - Non Hazardous
+                              product_import_hts: HS Code
+                              product_name: Product Name
+                              source_pack_item_id: 190
+                              source_po_line_id: PO Line
+                              total_item_quantity: 1
+                              unit_of_measure: null
+                              unit_of_measure_description: null
+                          package_height_cms: null
+                          package_length_cms: null
+                          package_width_cms: null
+                          package_quantity: 1
+                          package_type_code: "20' Container"
+                          package_type_description: "20' Container"
+                          product_code: Product ID
+                          product_import_hts: HS Code
+                          source_container_id: null
+                          source_package_group_id: 190
+                          volume_cbms: 20
+                      attachments:
+                        - content: BASE64-ENCODED DATA
+                          file_name: BL.pdf
+                          file_type_code: null
+                          file_type_description: BL
+                          media_type: application/pdf
       parameters:
         - schema:
             type: string
