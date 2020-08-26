@@ -10,7 +10,7 @@ info:
     The Shipment Exchange API allows your own systems to interact with Shipments that exist in your QwykPortals instance. It consists of two parts:
 
     #### Webhooks:
-    [Receive a new Shipment](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1{your-endpoint})
+    [Receive a new Shipment](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1{your-endpoint}/post)
     This webhook will be called (provided it's configured) each time a new shipment has been posted in QwykPortals to notify you of the instruction.
 
     #### Methods:
