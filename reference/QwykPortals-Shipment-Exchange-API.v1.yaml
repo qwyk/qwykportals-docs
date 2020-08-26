@@ -6,10 +6,25 @@ info:
     name: Qwyk
     url: qwyk.io
     email: support@qwyk.io
-  description: |-
-    Describes exchanges related to shipments
+  description: |+
+    The Shipment Exchange API allows your own systems to interact with Shipments that exist in your QwykPortals instance. It consists of two parts:
 
-    [Post a shipment status](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1webhooks~1portals~1shipments~1timeline-event/post)
+    #### Webhooks:
+    [Receive a new Shipment](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1{your-endpoint})
+    This webhook will be called (provided it's configured) each time a new shipment has been posted in QwykPortals to notify you of the instruction.
+
+    #### Methods:
+    [Post Booking Confirmation](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1webhooks~1portals~1shipments~1booking-confirmation/post)
+    Call this method to confirm a shipment you have received via our Receive a Shipment webhook and let your portal users know their instruction has been accepted.
+
+
+
+    [Post Milestone Update](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1webhooks~1portals~1shipments~1timeline-event/post)
+    Update shipment milestones through the method by posting a milestone ID along with timestamps so we can update your shipment's status.
+
+
+
+
 servers:
   - url: 'https://api.qwykportals.com'
     description: QwykPortals API (stable)
