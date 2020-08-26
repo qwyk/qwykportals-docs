@@ -6,7 +6,10 @@ info:
     name: Qwyk
     url: qwyk.io
     email: support@qwyk.io
-  description: Describes exchanges related to shipments
+  description: |-
+    Describes exchanges related to shipments
+
+    [Post a shipment status](./paths/~1webhooks~1portals~1shipments~1timeline-event/post)
 servers:
   - url: 'https://api.qwykportals.com'
     description: QwykPortals API (stable)
