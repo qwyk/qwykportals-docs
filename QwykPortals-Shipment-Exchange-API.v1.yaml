@@ -1,0 +1,117 @@
+openapi: 3.0.0
+info:
+  title: Shipment Exchange API
+  version: '1.0'
+  contact:
+    name: Qwyk
+    url: qwyk.io
+    email: support@qwyk.io
+  description: Describes exchanges related to shipments
+servers:
+  - url: 'https://api.qwykportals.com'
+    description: QwykPortals API (stable)
+  - url: 'https://your-server.example.com'
+    description: Your server
+  - url: 'https://api.next.qwykportals.com'
+    description: QwykPortals API (next)
+paths:
+  /webhooks/portals/shipments/timeline-event:
+    post:
+      summary: ''
+      operationId: post-webhooks-portals-shipments-booking-confirmation
+      responses:
+        '200':
+          description: OK
+      security:
+        - Bearer Token: []
+    parameters: []
+  /webhooks/portals/shipments/booking-confirmation:
+    post:
+      summary: Post Booking Confirmation
+      operationId: post-webhooks-portals-shipments-timeline-event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  transactionId:
+                    type: string
+                    example: "Qwyk's ID belonging to this transaction"
+      parameters:
+        - schema:
+            type: string
+            example: 'Bearer [YOUR TOKEN]'
+          in: header
+          name: Authentication
+          required: true
+      security:
+        - Bearer Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                version:
+                  type: string
+                  default: '1.0'
+                doc_type:
+                  type: string
+                  default: chainio_booking_response
+                booking_responses:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    properties:
+                      notes:
+                        type: string
+                        example: Booking accepted
+                      requesting_party_shipment_reference:
+                        type: string
+                        description: "Qwyk's internal shipment ID"
+                        format: uuid
+                        example: f4d2a948-219d-4370-8f4e-b2a8a5ae0ba2
+                      responding_party_shipment_reference:
+                        type: string
+                        maxLength: 255
+                        description: Your shipment reference / booking number
+                        example: BOL123048882
+                      response_date:
+                        type: string
+                        format: date-time
+                        example: '2020-01-29T08:30:07.599Z'
+                      response_type:
+                        type: string
+                        enum:
+                          - accept
+                          - reject
+                        default: accept
+                        example: accept
+                      transmission_uid:
+                        type: string
+                    required:
+                      - notes
+                      - requesting_party_shipment_reference
+                      - responding_party_shipment_reference
+                      - response_date
+                      - response_type
+              required:
+                - version
+                - doc_type
+                - booking_responses
+      description: ''
+    parameters: []
+components:
+  schemas: {}
+  securitySchemes:
+    Bearer Token:
+      name: Authentication
+      type: apiKey
+      in: header
+      description: ''
