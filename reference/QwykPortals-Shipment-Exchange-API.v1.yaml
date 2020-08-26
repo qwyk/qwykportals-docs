@@ -9,7 +9,7 @@ info:
   description: |-
     Describes exchanges related to shipments
 
-    [Post a shipment status](./paths/~1webhooks~1portals~1shipments~1timeline-event/post)
+    [Post a shipment status](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1webhooks~1portals~1shipments~1timeline-event/post)
 servers:
   - url: 'https://api.qwykportals.com'
     description: QwykPortals API (stable)
