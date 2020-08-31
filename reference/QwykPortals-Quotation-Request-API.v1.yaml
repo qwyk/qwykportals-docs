@@ -483,6 +483,40 @@ paths:
                 created_at:
                   type: string
                   format: date-time
+                additionals:
+                  type: object
+                  deprecated: true
+                  properties:
+                    call_before_delivery:
+                      type: boolean
+                    cargo_insurance:
+                      type: boolean
+                    customs_clearance:
+                      type: boolean
+                    delivery_appointment_required:
+                      type: boolean
+                    flatbed_required:
+                      type: boolean
+                    hazardous_cargo:
+                      type: boolean
+                    liftgate_delivery:
+                      type: boolean
+                    liftgate_pickup:
+                      type: boolean
+                    limited_access_delivery:
+                      type: boolean
+                    limited_access_pickup:
+                      type: boolean
+                    refrigerated:
+                      type: boolean
+                    residential_delivery:
+                      type: boolean
+                    residential_pickup:
+                      type: boolean
+                    stackable:
+                      type: boolean
+                    white_glove:
+                      type: boolean
               required:
                 - id
                 - owner
