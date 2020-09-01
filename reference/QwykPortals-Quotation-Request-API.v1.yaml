@@ -418,7 +418,7 @@ paths:
                             example: '20'
                           description:
                             type: string
-                            example: "20' Container"
+                            example: 20' Container
                       unit_weight:
                         type:
                           - number
@@ -483,6 +483,40 @@ paths:
                 created_at:
                   type: string
                   format: date-time
+                additionals:
+                  type: object
+                  deprecated: true
+                  properties:
+                    call_before_delivery:
+                      type: boolean
+                    cargo_insurance:
+                      type: boolean
+                    customs_clearance:
+                      type: boolean
+                    delivery_appointment_required:
+                      type: boolean
+                    flatbed_required:
+                      type: boolean
+                    hazardous_cargo:
+                      type: boolean
+                    liftgate_delivery:
+                      type: boolean
+                    liftgate_pickup:
+                      type: boolean
+                    limited_access_delivery:
+                      type: boolean
+                    limited_access_pickup:
+                      type: boolean
+                    refrigerated:
+                      type: boolean
+                    residential_delivery:
+                      type: boolean
+                    residential_pickup:
+                      type: boolean
+                    stackable:
+                      type: boolean
+                    white_glove:
+                      type: boolean
               required:
                 - id
                 - owner
@@ -541,7 +575,7 @@ paths:
                       packaging:
                         id: 1
                         code: '20'
-                        description: "20' Container"
+                        description: 20' Container
                         transport_mode: OCEAN
                         load_type: fcl
                       unit_weight: null
@@ -556,6 +590,22 @@ paths:
                   total_weight_kgs: 0
                   total_volume_cbm: 0
                   created_at: '2020-08-08T18:34:44+00:00'
+                  additionals:
+                    call_before_delivery: false
+                    cargo_insurance: false
+                    customs_clearance: false
+                    delivery_appointment_required: false
+                    flatbed_required: false
+                    hazardous_cargo: false
+                    liftgate_delivery: false
+                    liftgate_pickup: false
+                    limited_access_delivery: false
+                    limited_access_pickup: false
+                    refrigerated: false
+                    residential_delivery: false
+                    residential_pickup: false
+                    stackable: false
+                    white_glove: false
               Port to Port Ocean LCL:
                 value:
                   id: 913cf60d-6b14-4112-9ddc-a3d7af2f0948
@@ -612,6 +662,22 @@ paths:
                   total_weight_kgs: 434
                   total_volume_cbm: 0.039
                   created_at: '2020-08-08T18:08:41+00:00'
+                  additionals:
+                    call_before_delivery: false
+                    cargo_insurance: false
+                    customs_clearance: false
+                    delivery_appointment_required: false
+                    flatbed_required: false
+                    hazardous_cargo: false
+                    liftgate_delivery: false
+                    liftgate_pickup: false
+                    limited_access_delivery: false
+                    limited_access_pickup: false
+                    refrigerated: false
+                    residential_delivery: false
+                    residential_pickup: false
+                    stackable: false
+                    white_glove: false
               Door to Port Ocean FCL:
                 value:
                   id: 91425284-c425-4e12-b044-500b7dc8d6d1
@@ -653,7 +719,7 @@ paths:
                       packaging:
                         id: 1
                         code: '20'
-                        description: "20' Container"
+                        description: 20' Container
                         transport_mode: OCEAN
                         load_type: fcl
                       unit_weight: null
@@ -668,6 +734,22 @@ paths:
                   total_weight_kgs: 0
                   total_volume_cbm: 0
                   created_at: '2020-08-11T10:06:23+00:00'
+                  additionals:
+                    call_before_delivery: false
+                    cargo_insurance: false
+                    customs_clearance: false
+                    delivery_appointment_required: false
+                    flatbed_required: false
+                    hazardous_cargo: false
+                    liftgate_delivery: false
+                    liftgate_pickup: false
+                    limited_access_delivery: false
+                    limited_access_pickup: false
+                    refrigerated: false
+                    residential_delivery: false
+                    residential_pickup: false
+                    stackable: false
+                    white_glove: false
               Door to Door Truck FTL:
                 value:
                   id: 914814ee-4625-4f82-a7be-431cf3f321bb
@@ -709,7 +791,7 @@ paths:
                       packaging:
                         id: 9
                         code: '53'
-                        description: "53' Trailer"
+                        description: 53' Trailer
                         transport_mode: TRUCK
                         load_type: fcl
                       unit_weight: null
@@ -724,6 +806,22 @@ paths:
                   total_weight_kgs: 0
                   total_volume_cbm: 0
                   created_at: '2020-08-14T06:49:08+00:00'
+                  additionals:
+                    call_before_delivery: false
+                    cargo_insurance: false
+                    customs_clearance: false
+                    delivery_appointment_required: false
+                    flatbed_required: false
+                    hazardous_cargo: false
+                    liftgate_delivery: false
+                    liftgate_pickup: false
+                    limited_access_delivery: false
+                    limited_access_pickup: false
+                    refrigerated: false
+                    residential_delivery: false
+                    residential_pickup: false
+                    stackable: false
+                    white_glove: false
         description: ''
       tags:
         - Webhooks
