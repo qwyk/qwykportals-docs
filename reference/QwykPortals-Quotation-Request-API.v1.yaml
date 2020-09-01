@@ -485,7 +485,6 @@ paths:
                   format: date-time
                 additionals:
                   type: object
-                  deprecated: true
                   properties:
                     call_before_delivery:
                       type: boolean
