@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Quotations API
-  version: '1.0'
+  version: '3.0'
   contact:
     name: Support
     url: 'https://docs.qwykportals.com'
@@ -9,6 +9,7 @@ info:
   termsOfService: 'http://docs.qwyk.io/docs/legal-terms-of-use.html'
   license:
     name: Proprietary
+  description: ''
 servers:
   - url: 'https://api.next.qwykportals.com/api/portals'
     description: Next branch
