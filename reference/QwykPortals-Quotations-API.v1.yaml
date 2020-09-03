@@ -425,6 +425,8 @@ components:
         created_at:
           type: string
           format: date-time
+      x-tags:
+        - Models
     QuotationOfferLine:
       title: QuotationOfferLine
       type: object
