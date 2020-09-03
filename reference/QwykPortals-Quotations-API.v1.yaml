@@ -318,6 +318,7 @@ components:
           description: See MasterData currencies for available ones
         packages:
           type: array
+          description: Only 1 when load_type=fcl
           items:
             $ref: '#/components/schemas/QuotationRequestPackages'
         additionals:
