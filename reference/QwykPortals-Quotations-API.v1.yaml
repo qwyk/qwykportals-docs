@@ -18,7 +18,7 @@ servers:
 paths:
   /quotations:
     post:
-      summary: Create a new quotation request
+      summary: Create a new quotation
       operationId: post-quotations
       responses:
         '201':
@@ -27,6 +27,101 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Quotation'
+              examples:
+                Example:
+                  value:
+                    data:
+                      id: 9170e41a-8309-49e5-91ae-23a4003132ff
+                      owner:
+                        id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                        type: portals-user
+                        name: Martyn Verhaegen
+                        email: martyn@qwyk.io
+                        team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                        team_name: Qwyk Demo
+                        job_title: Keyboard Monkey
+                        company: Qwyk Demo
+                        location: 'Dordrecht, Netherlands'
+                      creator:
+                        id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                        type: portals-user
+                        name: Martyn Verhaegen
+                        email: martyn@qwyk.io
+                        team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                        team_name: Qwyk Demo
+                        job_title: Keyboard Monkey
+                        company: Qwyk Demo
+                        location: 'Dordrecht, Netherlands'
+                      request:
+                        owner_reference: null
+                        origin:
+                          type: port
+                          code: NLRTM
+                          locode: NLRTM
+                          name: 'Rotterdam, ZH'
+                          country_code: NL
+                        destination:
+                          type: port
+                          code: SGSIN
+                          name: Singapore
+                          locode: SGSIN
+                          country_code: SG
+                        transport_mode: OCEAN
+                        load_type: fcl
+                        cargo_ready: '2020-09-03T12:32:06+00:00'
+                        commodity:
+                          id: 1
+                          code: FAK0
+                          description: Freight All Kinds - Non Hazardous
+                          is_preferred: 1
+                        currency: EUR
+                        additionals:
+                          customs_clearance: true
+                          cargo_insurance: false
+                          hazardous_cargo: false
+                          liftgate_pickup: false
+                          refrigerated: false
+                          white_glove: false
+                          residential_delivery: false
+                          residential_pickup: false
+                          liftgate_delivery: false
+                          call_before_delivery: false
+                          delivery_appointment_required: false
+                          flatbed_required: false
+                          limited_access_delivery: false
+                          limited_access_pickup: false
+                          stackable: false
+                        packages:
+                          - id: 223
+                            quantity: 1
+                            packaging:
+                              id: 1
+                              code: '20'
+                              description: 20' Container
+                              transport_mode: OCEAN
+                              load_type: fcl
+                            unit_weight: null
+                            unit_volume: null
+                            unit_length: null
+                            unit_width: null
+                            unit_height: null
+                            uom: null
+                            total_weight_kgs: 0
+                            total_volume_cbm: 0
+                        total_quantity: 1
+                        total_weight_kgs: 0
+                        total_volume_cbm: 0
+                        created_at: '2020-09-03T13:41:33+00:00'
+                      results: []
+                      rate_requests: []
+                      last_rate_request: null
+                      shipments: []
+                      booked_shipments: []
+                      is_demo: false
+                      is_owner: true
+                      is_shared_with: false
+                      shared_users: []
+                      is_draft: null
         '422':
           description: Unprocessable Entity
           content:
@@ -59,14 +154,78 @@ paths:
         - schema:
             type: boolean
             default: 'true'
+            example: 'true'
           in: query
           name: autorate
           description: Whether to auto-rate the quotation using the configured connections.
+        - schema:
+            type: string
+            default: application/json
+            example: application/json
+          in: header
+          name: Content-Type
+          required: true
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/QuotationRequest'
+            examples:
+              Example:
+                value:
+                  owner_reference: null
+                  origin:
+                    type: port
+                    code: NLRTM
+                    locode: NLRTM
+                    name: 'Rotterdam, Netherlands'
+                    country_code: NL
+                  destination:
+                    type: port
+                    code: SGSIN
+                    locode: SGSIN
+                    name: 'Singapore, Singapore'
+                    country_code: SG
+                  transport_mode: OCEAN
+                  load_type: fcl
+                  cargo_ready: '2020-09-03T12:32:06.202Z'
+                  commodity:
+                    id: 1
+                    code: FAK0
+                    description: Freight All Kinds - Non Hazardous
+                    is_preferred: 1
+                  currency: EUR
+                  packages:
+                    - quantity: 1
+                      packaging:
+                        id: 1
+                        code: '20'
+                        description: 20' Container
+                        transport_mode: OCEAN
+                        load_type: fcl
+                      unit_weight: null
+                      unit_volume: null
+                      unit_width: null
+                      unit_length: null
+                      unit_height: null
+                      uom: null
+                      id: 0
+                  additionals:
+                    customs_clearance: true
+                    cargo_insurance: false
+                    hazardous_cargo: false
+                    liftgate_pickup: false
+                    refrigerated: false
+                    white_glove: false
+                    residential_delivery: false
+                    residential_pickup: false
+                    liftgate_delivery: false
+                    call_before_delivery: false
+                    delivery_appointment_required: false
+                    flatbed_required: false
+                    limited_access_delivery: false
+                    limited_access_pickup: false
+                    stackable: false
       tags:
         - Methods
 components:
