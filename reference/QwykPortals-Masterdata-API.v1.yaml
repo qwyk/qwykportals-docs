@@ -1,0 +1,212 @@
+openapi: 3.0.0
+info:
+  title: QwykPortals-Masterdata
+  version: '1.0'
+  contact:
+    name: Support
+    url: 'https://docs.qwykportals.com'
+    email: support@qwyk.io
+  termsOfService: 'http://docs.qwyk.io/docs/legal-terms-of-use.html'
+  license:
+    name: Proprietary
+servers:
+  - url: 'https://api.next.qwykportals.com/api/masters'
+    description: Next branch
+  - url: 'https://api.qwykportals.com/api/masters'
+    description: Stable branch
+paths:
+  /currencies:
+    get:
+      summary: List all currencies
+      tags:
+        - Methods
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Currency'
+                required:
+                  - data
+      operationId: get-api-masters-currencies
+      description: Lists all available currencies
+      security: []
+  /commodities:
+    get:
+      summary: List all commodities
+      tags:
+        - Methods
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Commodity'
+                required:
+                  - data
+      operationId: get-api-masters-commodities
+      description: Lists all available commodities
+      security: []
+    parameters: []
+  '/packagings/{transport_mode}/{load_type}':
+    get:
+      summary: List all packagings
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Packaging'
+                required:
+                  - data
+      operationId: 'get-api-masters-packagings-:transport_mode-:load_type'
+      parameters: []
+      description: ''
+      security: []
+    parameters:
+      - schema:
+          type: string
+          enum:
+            - OCEAN
+            - AIR
+            - TRUCK
+          example: OCEAN
+        name: transport_mode
+        in: path
+        required: true
+        description: The transport mode for which to get the packagings
+      - schema:
+          type: string
+          enum:
+            - fcl
+            - lcl
+          example: fcl
+        name: load_type
+        in: path
+        required: true
+        description: The load type for which to fetch packagings
+components:
+  schemas:
+    Commodity:
+      title: Commodity
+      type: object
+      description: Represents a commodity option for a quotation
+      x-examples:
+        Example commodity:
+          id: 0
+          code: AGCL
+          description: Agriculture (Fruits and Vegetables)
+          is_preferred: false
+      x-tags:
+        - Models
+      properties:
+        id:
+          type: integer
+        code:
+          type: string
+          minLength: 4
+          maxLength: 4
+        description:
+          type: string
+        is_preferred:
+          type:
+            - boolean
+            - integer
+          description: Used by Qwyk to give preference in dropdowns
+      required:
+        - id
+        - code
+        - description
+        - is_preferred
+    Currency:
+      title: Currency
+      type: object
+      description: Represents a currency option for a quotation
+      x-examples:
+        Example currency:
+          code: AUD
+          name: Australian dollar
+          sign: $
+          is_preferred: 0
+      x-tags:
+        - Models
+      properties:
+        code:
+          type: string
+          description: 3-letter currency code
+        name:
+          type: string
+        sign:
+          type: string
+          description: Sign for the currency (e.g. $)
+        is_preferred:
+          type:
+            - boolean
+            - integer
+          description: Used by Qwyk to give preference in dropdowns
+      required:
+        - code
+        - name
+        - sign
+        - is_preferred
+    Packaging:
+      title: Packaging
+      type: object
+      x-tags:
+        - Models
+      x-examples:
+        Example Packaging:
+          id: 0
+          code: '20'
+          description: 20' Container
+          load_type: fcl
+          transport_mode: OCEAN
+      properties:
+        id:
+          type: integer
+        code:
+          type: string
+          example: '20'
+        description:
+          type: string
+          example: 20' Container
+        load_type:
+          type: string
+          enum:
+            - fcl
+            - lcl
+          example: fcl
+        transport_mode:
+          type: string
+          enum:
+            - OCEAN
+            - AIR
+            - TRUCK
+          example: OCEAN
+      required:
+        - id
+        - code
+        - description
+        - load_type
+        - transport_mode
+tags:
+  - name: Methods
