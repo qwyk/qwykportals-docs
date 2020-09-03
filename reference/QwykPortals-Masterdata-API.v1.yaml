@@ -423,5 +423,39 @@ components:
           type: boolean
         is_road_terminal:
           type: boolean
+    PaginationLinks:
+      title: PaginationLinks
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        prev:
+          type: string
+        next:
+          type: string
+      x-tags:
+        - Models
+    PaginationMeta:
+      title: PaginationMeta
+      type: object
+      x-tags:
+        - Models
+      properties:
+        current_page:
+          type: string
+        from:
+          type: integer
+        last_page:
+          type: integer
+        path:
+          type: string
+        per_page:
+          type: integer
+        to:
+          type: integer
+        total:
+          type: integer
 tags:
   - name: Methods

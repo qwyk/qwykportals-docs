@@ -228,6 +228,91 @@ paths:
                     stackable: false
       tags:
         - Methods
+    get:
+      summary: Get a user's quotations
+      operationId: get-quotations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Quotation'
+                  links:
+                    $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/PaginationLinks
+                  meta:
+                    $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/PaginationMeta
+              examples: {}
+      description: ''
+      parameters:
+        - schema:
+            type: string
+            default: created_at
+          in: query
+          name: sort
+          description: Defines the sort key of the results
+        - schema:
+            type: string
+            default: desc
+          in: query
+          name: direction
+          description: Defines the sort direction of the results
+        - schema:
+            type: string
+            enum:
+              - fcl
+              - lcl
+          in: query
+          name: load_type
+        - schema:
+            type: string
+            enum:
+              - OCEAN
+              - AIR
+              - TRUCK
+          in: query
+          name: transport_mode
+        - schema:
+            type: string
+            minLength: 5
+            maxLength: 5
+          in: query
+          name: origin_locode
+        - schema:
+            type: string
+            minLength: 5
+            maxLength: 5
+          in: query
+          name: destination_locode
+      tags:
+        - Methods
+  '/quotations/{quotationId}':
+    parameters:
+      - schema:
+          type: string
+        name: quotationId
+        in: path
+        required: true
+        description: ID of the quotation to look up
+    get:
+      summary: Get a quotation by its ID
+      tags:
+        - Methods
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quotation'
+        '404':
+          description: Not Found
+      operationId: get-quotations-quotationId
 components:
   schemas:
     QuotationRequest:
