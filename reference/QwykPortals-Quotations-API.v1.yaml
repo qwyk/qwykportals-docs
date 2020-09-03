@@ -21,8 +21,39 @@ paths:
       summary: Create a new quotation request
       operationId: post-quotations
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quotation'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  errors:
+                    type: object
+                    properties:
+                      '[property]':
+                        type: array
+                        items:
+                          type: string
+              examples:
+                Example error:
+                  value:
+                    message: The given data was invalid.
+                    errors:
+                      origin.type:
+                        - The origin.type field is required.
+                      currency:
+                        - The selected currency is invalid.
+                      packages:
+                        - packages can only have 1 item
       description: Creates a new quotation and auto-rates
       parameters:
         - schema:
@@ -36,6 +67,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/QuotationRequest'
+      tags:
+        - Methods
 components:
   schemas:
     QuotationRequest:
@@ -97,6 +130,8 @@ components:
             limited_access_pickup: false
             stackable: false
       description: ''
+      x-tags:
+        - Models
       properties:
         owner_reference:
           type:
@@ -159,6 +194,10 @@ components:
               type: boolean
             stackable:
               type: boolean
+        created_at:
+          type: string
+          description: Only in response
+          format: date-time
       required:
         - owner_reference
         - origin
@@ -284,9 +323,153 @@ components:
           unit_height: null
           uom: null
           id: 0
+      x-tags:
+        - Models
+    Quotation:
+      title: Quotation
+      type: object
+      x-tags:
+        - Models
+      properties:
+        id:
+          type: string
+        owner:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
+        creator:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
+        request:
+          $ref: '#/components/schemas/QuotationRequest'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuotationOffer'
+        rate_requests:
+          type: string
+        last_rate_request:
+          type: string
+        shipments:
+          type: array
+          items:
+            type: object
+        booked_shipments:
+          type: array
+          items:
+            type: object
+        is_demo:
+          type: boolean
+        is_owner:
+          type: boolean
+        is_shared_with:
+          type: boolean
+        shared_users:
+          type: string
+        is_draft:
+          type: boolean
+    QuotationOffer:
+      title: QuotationOffer
+      type: object
+      properties:
+        id:
+          type: string
+        quotation_id:
+          type: string
+        transport_mode:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/TransportMode
+        load_type:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/LoadType
+        carrier:
+          oneOf:
+            - $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Carrier
+            - type: 'null'
+        carrier_name:
+          type: string
+        pol:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
+        pod:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
+        rate_name:
+          type: string
+        transit_time:
+          type: integer
+        currency:
+          type: string
+        total_amount:
+          type: number
+        breakdown:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuotationOfferLine'
+        grouped_breakdown:
+          type: array
+          items:
+            type: object
+            properties:
+              sort:
+                type: integer
+              group:
+                type: string
+              lines:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QuotationOfferLine'
+              total:
+                type: number
+        valid_from:
+          type: string
+          format: date-time
+        valid_until:
+          type: string
+          format: date-time
+        remarks:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    QuotationOfferLine:
+      title: QuotationOfferLine
+      type: object
+      x-tags:
+        - Models
+      properties:
+        id:
+          type: string
+        segment:
+          type: string
+          enum:
+            - pickup
+            - origin
+            - freight
+            - destination
+            - delivery
+          example: freight
+        charge_code:
+          type: string
+          example: OFR
+        charge_description:
+          type: string
+          example: Ocean Freight
+        base_currency:
+          type: string
+          example: USD
+        base_rate:
+          type: number
+        base_calculation:
+          type: string
+        base_minimum:
+          type: number
+        total_amount:
+          type: number
+        exchange_rate:
+          type: number
+        total_amount_quotation:
+          type: number
+        remarks:
+          type: string
   securitySchemes:
     Bearer token:
       type: http
       scheme: bearer
 security:
   - Bearer token: []
+tags:
+  - name: Methods
