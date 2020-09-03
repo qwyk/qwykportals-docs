@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: QwykPortals-Masterdata
+  title: Masterdata APIs
   version: '1.0'
   contact:
     name: Support
@@ -9,6 +9,7 @@ info:
   termsOfService: 'http://docs.qwyk.io/docs/legal-terms-of-use.html'
   license:
     name: Proprietary
+  description: 'Publically accessible APIs that give access to non-specific master data  '
 servers:
   - url: 'https://api.next.qwykportals.com/api/masters'
     description: Next branch
@@ -34,6 +35,38 @@ paths:
                       $ref: '#/components/schemas/Currency'
                 required:
                   - data
+              examples:
+                Example:
+                  value:
+                    data:
+                      - code: AUD
+                        sign: $
+                        is_preferred: 0
+                        name: Australian dollar
+                      - code: BGN
+                        sign: лв
+                        is_preferred: 0
+                        name: Bulgarian lev
+                      - code: BRL
+                        sign: R$
+                        is_preferred: 0
+                        name: Brazilian real
+                      - code: EUR
+                        sign: €
+                        is_preferred: 1
+                        name: Euro
+                      - code: GBP
+                        sign: £
+                        is_preferred: 1
+                        name: British Pound
+                      - code: USD
+                        sign: $
+                        is_preferred: 1
+                        name: United States Dollar
+                      - code: ZAR
+                        sign: $
+                        is_preferred: 0
+                        name: South African rand
       operationId: get-api-masters-currencies
       description: Lists all available currencies
       security: []
@@ -56,6 +89,34 @@ paths:
                       $ref: '#/components/schemas/Commodity'
                 required:
                   - data
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 56
+                        code: AGCL
+                        description: Agriculture (Fruits and Vegetables)
+                        is_preferred: 0
+                      - id: 57
+                        code: ALCO
+                        description: Alcoholic Beverages
+                        is_preferred: 0
+                      - id: 38
+                        code: APRL
+                        description: Apparel
+                        is_preferred: 0
+                      - id: 61
+                        code: WASTE
+                        description: Waste and Scrap Materials
+                        is_preferred: 0
+                      - id: 62
+                        code: PAPR
+                        description: Waste Paper
+                        is_preferred: 0
+                      - id: 63
+                        code: WTCH
+                        description: 'Watches, Timepieces, Jewelry, Eyewear'
+                        is_preferred: 0
       operationId: get-api-masters-commodities
       description: Lists all available commodities
       security: []
@@ -63,7 +124,8 @@ paths:
   '/packagings/{transport_mode}/{load_type}':
     get:
       summary: List all packagings
-      tags: []
+      tags:
+        - Methods
       responses:
         '200':
           description: OK
@@ -78,6 +140,30 @@ paths:
                       $ref: '#/components/schemas/Packaging'
                 required:
                   - data
+              examples:
+                Example:
+                  value:
+                    data:
+                      - id: 1
+                        code: '20'
+                        description: 20' Container
+                        transport_mode: OCEAN
+                        load_type: fcl
+                      - id: 6
+                        code: '40'
+                        description: 40' Container
+                        transport_mode: OCEAN
+                        load_type: fcl
+                      - id: 7
+                        code: 40HC
+                        description: 40'HC Container
+                        transport_mode: OCEAN
+                        load_type: fcl
+                      - id: 8
+                        code: '45'
+                        description: 45' Container
+                        transport_mode: OCEAN
+                        load_type: fcl
       operationId: 'get-api-masters-packagings-:transport_mode-:load_type'
       parameters: []
       description: ''
