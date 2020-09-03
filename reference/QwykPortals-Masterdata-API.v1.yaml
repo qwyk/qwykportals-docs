@@ -292,5 +292,28 @@ components:
         - description
         - load_type
         - transport_mode
+    TransportMode:
+      type: string
+      title: TransportMode
+      enum:
+        - OCEAN
+        - AIR
+        - TRUCK
+      example: OCEAN
+    LoadType:
+      type: string
+      title: LoadType
+      default: fcl
+      enum:
+        - fcl
+        - lcl
+      example: fcl
+    UnitOfMeasure:
+      type: string
+      title: UnitOfMeasure
+      enum:
+        - metric
+        - imperial
+      example: metric
 tags:
   - name: Methods

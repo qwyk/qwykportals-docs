@@ -1,0 +1,291 @@
+openapi: 3.0.0
+info:
+  title: Quotations API
+  version: '1.0'
+  contact:
+    name: Support
+    url: 'https://docs.qwykportals.com'
+    email: support@qwyk.io
+  termsOfService: 'http://docs.qwyk.io/docs/legal-terms-of-use.html'
+  license:
+    name: Proprietary
+servers:
+  - url: 'https://api.next.qwykportals.com/api/portals'
+    description: Next branch
+  - url: 'https://api.qwykportals.com/api/portals'
+    description: Stable branch
+paths:
+  /quotations:
+    post:
+      summary: Create a new quotation request
+      operationId: post-quotations
+      responses:
+        '200':
+          description: OK
+      description: Creates a new quotation and auto-rates
+      parameters:
+        - schema:
+            type: boolean
+            default: 'true'
+          in: query
+          name: autorate
+          description: Whether to auto-rate the quotation using the configured connections.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuotationRequest'
+components:
+  schemas:
+    QuotationRequest:
+      title: QuotationRequest
+      type: object
+      x-examples:
+        FCL Example:
+          owner_reference: null
+          origin:
+            type: port
+            code: NLRTM
+            locode: NLRTM
+            name: 'Rotterdam, Netherlands'
+            country_code: NL
+          destination:
+            type: port
+            code: SGSIN
+            locode: SGSIN
+            name: 'Singapore, Singapore'
+            country_code: SG
+          transport_mode: OCEAN
+          load_type: fcl
+          cargo_ready: '2020-09-03T12:32:06.202Z'
+          commodity:
+            id: 1
+            code: FAK0
+            description: Freight All Kinds - Non Hazardous
+            is_preferred: 1
+          currency: EUR
+          packages:
+            - quantity: 1
+              packaging:
+                id: 1
+                code: '20'
+                description: 20' Container
+                transport_mode: OCEAN
+                load_type: fcl
+              unit_weight: null
+              unit_volume: null
+              unit_width: null
+              unit_length: null
+              unit_height: null
+              uom: null
+              id: 0
+          additionals:
+            customs_clearance: true
+            cargo_insurance: false
+            hazardous_cargo: false
+            liftgate_pickup: false
+            refrigerated: false
+            white_glove: false
+            residential_delivery: false
+            residential_pickup: false
+            liftgate_delivery: false
+            call_before_delivery: false
+            delivery_appointment_required: false
+            flatbed_required: false
+            limited_access_delivery: false
+            limited_access_pickup: false
+            stackable: false
+      description: ''
+      properties:
+        owner_reference:
+          type:
+            - string
+            - 'null'
+        origin:
+          $ref: ./QwykPortals-Quotation-Webhook-API.v1.yaml#/components/schemas/QuotationRequestLocation
+        destination:
+          $ref: ./QwykPortals-Quotation-Webhook-API.v1.yaml#/components/schemas/QuotationRequestLocation
+        transport_mode:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/TransportMode
+        load_type:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/LoadType
+        cargo_ready:
+          type: string
+          format: date-time
+          example: '2020-08-03T12:32:06.202Z'
+        commodity:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Commodity
+        currency:
+          type: string
+          example: USD
+          minLength: 3
+          maxLength: 3
+          description: See MasterData currencies for available ones
+        packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuotationRequestPackages'
+        additionals:
+          type: object
+          properties:
+            customs_clearance:
+              type: boolean
+            cargo_insurance:
+              type: boolean
+            hazardous_cargo:
+              type: boolean
+            liftgate_pickup:
+              type: boolean
+            refrigerated:
+              type: boolean
+            white_glove:
+              type: boolean
+            residential_delivery:
+              type: boolean
+            residential_pickup:
+              type: boolean
+            liftgate_delivery:
+              type: boolean
+            call_before_delivery:
+              type: boolean
+            delivery_appointment_required:
+              type: boolean
+            flatbed_required:
+              type: boolean
+            limited_access_delivery:
+              type: boolean
+            limited_access_pickup:
+              type: boolean
+            stackable:
+              type: boolean
+      required:
+        - owner_reference
+        - origin
+        - destination
+        - transport_mode
+        - load_type
+        - cargo_ready
+        - commodity
+        - currency
+        - packages
+        - additionals
+    QuotationRequestLocation:
+      title: QuotationRequestLocation
+      type: object
+      x-tags:
+        - Models
+      properties:
+        type:
+          type: string
+          enum:
+            - port
+            - place
+          description: '`port` for a port move, `place` for a door move'
+          example: port
+        code:
+          type: string
+          description: |-
+            locode when type is port, structured data when type is place
+
+            structured data:
+            G:|X:|Y:|C:|P:
+
+            Where:
+            G: Google Places ID
+            X: Longtitude
+            Y: Latitude
+            C: Country code
+            P: Postal code
+          example: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+        name:
+          type: string
+          example: 'Rotterdam, Netherlands'
+        locode:
+          type: string
+          minLength: 5
+          maxLength: 5
+          example: NLRTM
+        country_code:
+          type: string
+          minLength: 2
+          maxLength: 2
+          example: NL
+      required:
+        - type
+        - code
+        - name
+        - locode
+        - country_code
+    QuotationRequestPackages:
+      title: QuotationRequestPackages
+      type: object
+      properties:
+        id:
+          type: integer
+          default: 0
+        quantity:
+          type: integer
+        packaging:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Packaging
+        unit_weight:
+          type:
+            - number
+            - 'null'
+          description: Required when load_type=lcl
+          default: 0
+          minimum: 0.01
+          example: 300
+        unit_volume:
+          type:
+            - number
+            - 'null'
+          description: Required when load_type=lcl
+          minimum: 0.001
+          example: 1.69
+        unit_width:
+          type:
+            - number
+            - 'null'
+          description: Required when load_type=lcl
+          minimum: 0.001
+          example: 120
+        unit_length:
+          type:
+            - number
+            - 'null'
+          description: Required when load_type=lcl
+          minimum: 0.001
+          example: 80
+        unit_height:
+          type:
+            - number
+            - 'null'
+          description: Required when load_type=lcl
+          minimum: 0.001
+          example: 100
+        uom:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UnitOfMeasure
+      required:
+        - uom
+      x-examples:
+        FCL Example:
+          quantity: 1
+          packaging:
+            id: 1
+            code: '20'
+            description: 20' Container
+            transport_mode: OCEAN
+            load_type: fcl
+          unit_weight: null
+          unit_volume: null
+          unit_width: null
+          unit_length: null
+          unit_height: null
+          uom: null
+          id: 0
+  securitySchemes:
+    Bearer token:
+      type: http
+      scheme: bearer
+security:
+  - Bearer token: []

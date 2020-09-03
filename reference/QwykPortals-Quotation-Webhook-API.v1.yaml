@@ -354,9 +354,9 @@ paths:
                     - 'null'
                   example: This is a test quote
                 origin:
-                  $ref: '#/components/schemas/QuotationRequestLocation'
+                  $ref: ./QwykPortals-Quotations-API.v1.yaml#/components/schemas/QuotationRequestLocation
                 destination:
-                  $ref: '#/components/schemas/QuotationRequestLocation'
+                  $ref: ./QwykPortals-Quotations-API.v1.yaml#/components/schemas/QuotationRequestLocation
                 transport_mode:
                   type: string
                   enum:
