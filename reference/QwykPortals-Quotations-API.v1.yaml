@@ -247,7 +247,524 @@ paths:
                     $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/PaginationLinks
                   meta:
                     $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/PaginationMeta
-              examples: {}
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 916268e3-4f6f-42d0-8248-491b56897794
+                        owner:
+                          id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                          type: portals-users
+                          name: Martyn Verhaegen
+                          email: m@qwyk.io
+                          team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                          team_name: Qwyk
+                          job_title: Keyboard Monkey
+                          company: Qwyk
+                          location: 'Dordrecht, Netherlands'
+                        creator:
+                          id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                          type: portals-users
+                          name: Martyn Verhaegen
+                          email: m@qwyk.io
+                          team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                          team_name: Qwyk
+                          job_title: Keyboard Monkey
+                          company: Qwyk
+                          location: 'Dordrecht, Netherlands'
+                        request:
+                          owner_reference: null
+                          origin:
+                            type: port
+                            code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+                            name: 'Rotterdam, Netherlands'
+                            locode: NLRTM
+                            country_code: NL
+                          destination:
+                            type: port
+                            code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+                            name: 'Rotterdam, Netherlands'
+                            locode: NLRTM
+                            country_code: NL
+                          transport_mode: OCEAN
+                          load_type: fcl
+                          cargo_ready: '2020-08-03T12:32:06.202Z'
+                          commodity:
+                            id: 0
+                            code: stri
+                            description: string
+                            is_preferred: null
+                          currency: USD
+                          packages:
+                            - id: 0
+                              quantity: 1
+                              packaging:
+                                id: 1
+                                code: '20'
+                                description: 20' Container
+                                load_type: fcl
+                                transport_mode: OCEAN
+                              unit_weight: 300
+                              unit_volume: 1.69
+                              unit_width: 120
+                              unit_length: 80
+                              unit_height: 100
+                              uom: metric
+                          additionals:
+                            customs_clearance: true
+                            cargo_insurance: true
+                            hazardous_cargo: true
+                            liftgate_pickup: true
+                            refrigerated: true
+                            white_glove: true
+                            residential_delivery: true
+                            residential_pickup: true
+                            liftgate_delivery: true
+                            call_before_delivery: true
+                            delivery_appointment_required: true
+                            flatbed_required: true
+                            limited_access_delivery: true
+                            limited_access_pickup: true
+                            stackable: true
+                          created_at: '2019-08-24T14:15:22Z'
+                        results:
+                          - id: 916268e3-4f6f-42d0-8248-491b56897794
+                            quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+                            transport_mode: OCEAN
+                            load_type: fcl
+                            carrier:
+                              scac: MAEU
+                              name: Maersk Line
+                            carrier_name: Maersk Line
+                            pol:
+                              _id: 5e9c1dcb282811aa256bb8f3
+                              locode: NLRTM
+                              name: Rotterdam
+                              display_name: 'Rotterdam, ZH'
+                              name_wo_diacritics: Rotterdam
+                              display_name_wo_diacritics: 'Rotterdam, ZH'
+                              country_code: NL
+                              country_name: Netherlands (the)
+                              iata: RTM
+                              subdivision: ZH
+                              timezone: Europe/Amsterdam
+                              latitude_dec: 51.95
+                              longitude_dec: 4.5
+                              latitude_dms: 5155N
+                              longitude_dms: 00430E
+                              location:
+                                type: Point
+                                coordinates:
+                                  - 4.5
+                                  - 4.5
+                              position:
+                                - 51.92
+                                - 51.92
+                              is_airport: true
+                              is_borderxing: true
+                              is_fixed_transport: true
+                              is_icd: true
+                              is_port: true
+                              is_postal_exchange: true
+                              is_rail_terminal: true
+                              is_road_terminal: true
+                            pod:
+                              _id: 5e9c1dcb282811aa256bb8f3
+                              locode: NLRTM
+                              name: Rotterdam
+                              display_name: 'Rotterdam, ZH'
+                              name_wo_diacritics: Rotterdam
+                              display_name_wo_diacritics: 'Rotterdam, ZH'
+                              country_code: NL
+                              country_name: Netherlands (the)
+                              iata: RTM
+                              subdivision: ZH
+                              timezone: Europe/Amsterdam
+                              latitude_dec: 51.95
+                              longitude_dec: 4.5
+                              latitude_dms: 5155N
+                              longitude_dms: 00430E
+                              location:
+                                type: Point
+                                coordinates:
+                                  - 4.5
+                                  - 4.5
+                              position:
+                                - 51.92
+                                - 51.92
+                              is_airport: true
+                              is_borderxing: true
+                              is_fixed_transport: true
+                              is_icd: true
+                              is_port: true
+                              is_postal_exchange: true
+                              is_rail_terminal: true
+                              is_road_terminal: true
+                            rate_name: APACWB Rates FAK
+                            transit_time: 15
+                            currency: USD
+                            total_amount: 1400.5
+                            breakdown:
+                              - id: 1
+                                segment: freight
+                                charge_code: OFR
+                                charge_description: Ocean Freight
+                                base_currency: USD
+                                base_rate: 1000
+                                base_calculation:
+                                  id: 1
+                                  name: CONTAINER
+                                  description: Charge that applies per number of containers
+                                  is_percentage: true
+                                base_minimum: 1000
+                                total_amount: 1000
+                                exchange_rate: 0.89
+                                total_amount_quotation: 890
+                                remarks: Here are some charge remarks
+                            grouped_breakdown:
+                              - sort: 1
+                                group: freight
+                                lines:
+                                  - id: 1
+                                    segment: freight
+                                    charge_code: OFR
+                                    charge_description: Ocean Freight
+                                    base_currency: USD
+                                    base_rate: 1000
+                                    base_calculation:
+                                      id: 1
+                                      name: CONTAINER
+                                      description: Charge that applies per number of containers
+                                      is_percentage: true
+                                    base_minimum: 1000
+                                    total_amount: 1000
+                                    exchange_rate: 0.89
+                                    total_amount_quotation: 890
+                                    remarks: Here are some charge remarks
+                                total: 450
+                            valid_from: '2020-08-30T23:59:59+00:00'
+                            valid_until: '2020-08-30T23:59:59+00:00'
+                            remarks: Here are some rate remarks
+                            created_at: '2020-08-30T23:59:59+00:00'
+                        rate_requests:
+                          - id: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+                            quotation_id: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+                            creator:
+                              id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                              type: portals-users
+                              name: Martyn Verhaegen
+                              email: m@qwyk.io
+                              team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                              team_name: Qwyk
+                              job_title: Keyboard Monkey
+                              company: Qwyk
+                              location: 'Dordrecht, Netherlands'
+                            open: true
+                            reason: I need a better rate
+                            remarks: Please give me a better rate
+                            responser:
+                              id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                              type: portals-users
+                              name: Martyn Verhaegen
+                              email: m@qwyk.io
+                              team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                              team_name: Qwyk
+                              job_title: Keyboard Monkey
+                              company: Qwyk
+                              location: 'Dordrecht, Netherlands'
+                            offer:
+                              id: 916268e3-4f6f-42d0-8248-491b56897794
+                              quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+                              transport_mode: OCEAN
+                              load_type: fcl
+                              carrier:
+                                scac: MAEU
+                                name: Maersk Line
+                              carrier_name: Maersk Line
+                              pol:
+                                _id: 5e9c1dcb282811aa256bb8f3
+                                locode: NLRTM
+                                name: Rotterdam
+                                display_name: 'Rotterdam, ZH'
+                                name_wo_diacritics: Rotterdam
+                                display_name_wo_diacritics: 'Rotterdam, ZH'
+                                country_code: NL
+                                country_name: Netherlands (the)
+                                iata: RTM
+                                subdivision: ZH
+                                timezone: Europe/Amsterdam
+                                latitude_dec: 51.95
+                                longitude_dec: 4.5
+                                latitude_dms: 5155N
+                                longitude_dms: 00430E
+                                location:
+                                  type: Point
+                                  coordinates:
+                                    - 4.5
+                                    - 4.5
+                                position:
+                                  - 51.92
+                                  - 51.92
+                                is_airport: true
+                                is_borderxing: true
+                                is_fixed_transport: true
+                                is_icd: true
+                                is_port: true
+                                is_postal_exchange: true
+                                is_rail_terminal: true
+                                is_road_terminal: true
+                              pod:
+                                _id: 5e9c1dcb282811aa256bb8f3
+                                locode: NLRTM
+                                name: Rotterdam
+                                display_name: 'Rotterdam, ZH'
+                                name_wo_diacritics: Rotterdam
+                                display_name_wo_diacritics: 'Rotterdam, ZH'
+                                country_code: NL
+                                country_name: Netherlands (the)
+                                iata: RTM
+                                subdivision: ZH
+                                timezone: Europe/Amsterdam
+                                latitude_dec: 51.95
+                                longitude_dec: 4.5
+                                latitude_dms: 5155N
+                                longitude_dms: 00430E
+                                location:
+                                  type: Point
+                                  coordinates:
+                                    - 4.5
+                                    - 4.5
+                                position:
+                                  - 51.92
+                                  - 51.92
+                                is_airport: true
+                                is_borderxing: true
+                                is_fixed_transport: true
+                                is_icd: true
+                                is_port: true
+                                is_postal_exchange: true
+                                is_rail_terminal: true
+                                is_road_terminal: true
+                              rate_name: APACWB Rates FAK
+                              transit_time: 15
+                              currency: USD
+                              total_amount: 1400.5
+                              breakdown:
+                                - id: 1
+                                  segment: freight
+                                  charge_code: OFR
+                                  charge_description: Ocean Freight
+                                  base_currency: USD
+                                  base_rate: 1000
+                                  base_calculation:
+                                    id: 1
+                                    name: CONTAINER
+                                    description: Charge that applies per number of containers
+                                    is_percentage: true
+                                  base_minimum: 1000
+                                  total_amount: 1000
+                                  exchange_rate: 0.89
+                                  total_amount_quotation: 890
+                                  remarks: Here are some charge remarks
+                              grouped_breakdown:
+                                - sort: 1
+                                  group: freight
+                                  lines:
+                                    - id: 1
+                                      segment: freight
+                                      charge_code: OFR
+                                      charge_description: Ocean Freight
+                                      base_currency: USD
+                                      base_rate: 1000
+                                      base_calculation:
+                                        id: 1
+                                        name: CONTAINER
+                                        description: Charge that applies per number of containers
+                                        is_percentage: true
+                                      base_minimum: 1000
+                                      total_amount: 1000
+                                      exchange_rate: 0.89
+                                      total_amount_quotation: 890
+                                      remarks: Here are some charge remarks
+                                  total: 450
+                              valid_from: '2020-08-30T23:59:59+00:00'
+                              valid_until: '2020-08-30T23:59:59+00:00'
+                              remarks: Here are some rate remarks
+                              created_at: '2020-08-30T23:59:59+00:00'
+                            response_message: Here is a better rate
+                            created_at: '2020-08-27T08:55:25+00:00'
+                            updated_at: '2020-08-27T08:55:25+00:00'
+                        last_rate_request:
+                          id: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+                          quotation_id: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+                          creator:
+                            id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                            type: portals-users
+                            name: Martyn Verhaegen
+                            email: m@qwyk.io
+                            team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                            team_name: Qwyk
+                            job_title: Keyboard Monkey
+                            company: Qwyk
+                            location: 'Dordrecht, Netherlands'
+                          open: true
+                          reason: I need a better rate
+                          remarks: Please give me a better rate
+                          responser:
+                            id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                            type: portals-users
+                            name: Martyn Verhaegen
+                            email: m@qwyk.io
+                            team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                            team_name: Qwyk
+                            job_title: Keyboard Monkey
+                            company: Qwyk
+                            location: 'Dordrecht, Netherlands'
+                          offer:
+                            id: 916268e3-4f6f-42d0-8248-491b56897794
+                            quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+                            transport_mode: OCEAN
+                            load_type: fcl
+                            carrier:
+                              scac: MAEU
+                              name: Maersk Line
+                            carrier_name: Maersk Line
+                            pol:
+                              _id: 5e9c1dcb282811aa256bb8f3
+                              locode: NLRTM
+                              name: Rotterdam
+                              display_name: 'Rotterdam, ZH'
+                              name_wo_diacritics: Rotterdam
+                              display_name_wo_diacritics: 'Rotterdam, ZH'
+                              country_code: NL
+                              country_name: Netherlands (the)
+                              iata: RTM
+                              subdivision: ZH
+                              timezone: Europe/Amsterdam
+                              latitude_dec: 51.95
+                              longitude_dec: 4.5
+                              latitude_dms: 5155N
+                              longitude_dms: 00430E
+                              location:
+                                type: Point
+                                coordinates:
+                                  - 4.5
+                                  - 4.5
+                              position:
+                                - 51.92
+                                - 51.92
+                              is_airport: true
+                              is_borderxing: true
+                              is_fixed_transport: true
+                              is_icd: true
+                              is_port: true
+                              is_postal_exchange: true
+                              is_rail_terminal: true
+                              is_road_terminal: true
+                            pod:
+                              _id: 5e9c1dcb282811aa256bb8f3
+                              locode: NLRTM
+                              name: Rotterdam
+                              display_name: 'Rotterdam, ZH'
+                              name_wo_diacritics: Rotterdam
+                              display_name_wo_diacritics: 'Rotterdam, ZH'
+                              country_code: NL
+                              country_name: Netherlands (the)
+                              iata: RTM
+                              subdivision: ZH
+                              timezone: Europe/Amsterdam
+                              latitude_dec: 51.95
+                              longitude_dec: 4.5
+                              latitude_dms: 5155N
+                              longitude_dms: 00430E
+                              location:
+                                type: Point
+                                coordinates:
+                                  - 4.5
+                                  - 4.5
+                              position:
+                                - 51.92
+                                - 51.92
+                              is_airport: true
+                              is_borderxing: true
+                              is_fixed_transport: true
+                              is_icd: true
+                              is_port: true
+                              is_postal_exchange: true
+                              is_rail_terminal: true
+                              is_road_terminal: true
+                            rate_name: APACWB Rates FAK
+                            transit_time: 15
+                            currency: USD
+                            total_amount: 1400.5
+                            breakdown:
+                              - id: 1
+                                segment: freight
+                                charge_code: OFR
+                                charge_description: Ocean Freight
+                                base_currency: USD
+                                base_rate: 1000
+                                base_calculation:
+                                  id: 1
+                                  name: CONTAINER
+                                  description: Charge that applies per number of containers
+                                  is_percentage: true
+                                base_minimum: 1000
+                                total_amount: 1000
+                                exchange_rate: 0.89
+                                total_amount_quotation: 890
+                                remarks: Here are some charge remarks
+                            grouped_breakdown:
+                              - sort: 1
+                                group: freight
+                                lines:
+                                  - id: 1
+                                    segment: freight
+                                    charge_code: OFR
+                                    charge_description: Ocean Freight
+                                    base_currency: USD
+                                    base_rate: 1000
+                                    base_calculation:
+                                      id: 1
+                                      name: CONTAINER
+                                      description: Charge that applies per number of containers
+                                      is_percentage: true
+                                    base_minimum: 1000
+                                    total_amount: 1000
+                                    exchange_rate: 0.89
+                                    total_amount_quotation: 890
+                                    remarks: Here are some charge remarks
+                                total: 450
+                            valid_from: '2020-08-30T23:59:59+00:00'
+                            valid_until: '2020-08-30T23:59:59+00:00'
+                            remarks: Here are some rate remarks
+                            created_at: '2020-08-30T23:59:59+00:00'
+                          response_message: Here is a better rate
+                          created_at: '2020-08-27T08:55:25+00:00'
+                          updated_at: '2020-08-27T08:55:25+00:00'
+                        shipments:
+                          - {}
+                        booked_shipments:
+                          - {}
+                        is_demo: true
+                        is_owner: true
+                        is_shared_with: true
+                        shared_users:
+                          - {}
+                        is_draft: true
+                    links:
+                      first: string
+                      last: string
+                      prev: string
+                      next: string
+                    meta:
+                      current_page: '1'
+                      from: 1
+                      last_page: 2
+                      path: 'http://api.next.qwykportals.com/api/portals/quotations'
+                      per_page: 20
+                      to: 20
+                      total: 33
       description: ''
       parameters:
         - schema:
@@ -310,6 +827,510 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Quotation'
+              examples:
+                example-1:
+                  value:
+                    id: 916268e3-4f6f-42d0-8248-491b56897794
+                    owner:
+                      id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                      type: portals-users
+                      name: Martyn Verhaegen
+                      email: m@qwyk.io
+                      team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                      team_name: Qwyk
+                      job_title: Keyboard Monkey
+                      company: Qwyk
+                      location: 'Dordrecht, Netherlands'
+                    creator:
+                      id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                      type: portals-users
+                      name: Martyn Verhaegen
+                      email: m@qwyk.io
+                      team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                      team_name: Qwyk
+                      job_title: Keyboard Monkey
+                      company: Qwyk
+                      location: 'Dordrecht, Netherlands'
+                    request:
+                      owner_reference: null
+                      origin:
+                        type: port
+                        code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+                        name: 'Rotterdam, Netherlands'
+                        locode: NLRTM
+                        country_code: NL
+                      destination:
+                        type: port
+                        code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+                        name: 'Rotterdam, Netherlands'
+                        locode: NLRTM
+                        country_code: NL
+                      transport_mode: OCEAN
+                      load_type: fcl
+                      cargo_ready: '2020-08-03T12:32:06.202Z'
+                      commodity:
+                        id: 0
+                        code: stri
+                        description: string
+                        is_preferred: null
+                      currency: USD
+                      packages:
+                        - id: 0
+                          quantity: 1
+                          packaging:
+                            id: 1
+                            code: '20'
+                            description: 20' Container
+                            load_type: fcl
+                            transport_mode: OCEAN
+                          unit_weight: 300
+                          unit_volume: 1.69
+                          unit_width: 120
+                          unit_length: 80
+                          unit_height: 100
+                          uom: metric
+                      additionals:
+                        customs_clearance: true
+                        cargo_insurance: true
+                        hazardous_cargo: true
+                        liftgate_pickup: true
+                        refrigerated: true
+                        white_glove: true
+                        residential_delivery: true
+                        residential_pickup: true
+                        liftgate_delivery: true
+                        call_before_delivery: true
+                        delivery_appointment_required: true
+                        flatbed_required: true
+                        limited_access_delivery: true
+                        limited_access_pickup: true
+                        stackable: true
+                      created_at: '2019-08-24T14:15:22Z'
+                    results:
+                      - id: 916268e3-4f6f-42d0-8248-491b56897794
+                        quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+                        transport_mode: OCEAN
+                        load_type: fcl
+                        carrier:
+                          scac: MAEU
+                          name: Maersk Line
+                        carrier_name: Maersk Line
+                        pol:
+                          _id: 5e9c1dcb282811aa256bb8f3
+                          locode: NLRTM
+                          name: Rotterdam
+                          display_name: 'Rotterdam, ZH'
+                          name_wo_diacritics: Rotterdam
+                          display_name_wo_diacritics: 'Rotterdam, ZH'
+                          country_code: NL
+                          country_name: Netherlands (the)
+                          iata: RTM
+                          subdivision: ZH
+                          timezone: Europe/Amsterdam
+                          latitude_dec: 51.95
+                          longitude_dec: 4.5
+                          latitude_dms: 5155N
+                          longitude_dms: 00430E
+                          location:
+                            type: Point
+                            coordinates:
+                              - 4.5
+                              - 4.5
+                          position:
+                            - 51.92
+                            - 51.92
+                          is_airport: true
+                          is_borderxing: true
+                          is_fixed_transport: true
+                          is_icd: true
+                          is_port: true
+                          is_postal_exchange: true
+                          is_rail_terminal: true
+                          is_road_terminal: true
+                        pod:
+                          _id: 5e9c1dcb282811aa256bb8f3
+                          locode: NLRTM
+                          name: Rotterdam
+                          display_name: 'Rotterdam, ZH'
+                          name_wo_diacritics: Rotterdam
+                          display_name_wo_diacritics: 'Rotterdam, ZH'
+                          country_code: NL
+                          country_name: Netherlands (the)
+                          iata: RTM
+                          subdivision: ZH
+                          timezone: Europe/Amsterdam
+                          latitude_dec: 51.95
+                          longitude_dec: 4.5
+                          latitude_dms: 5155N
+                          longitude_dms: 00430E
+                          location:
+                            type: Point
+                            coordinates:
+                              - 4.5
+                              - 4.5
+                          position:
+                            - 51.92
+                            - 51.92
+                          is_airport: true
+                          is_borderxing: true
+                          is_fixed_transport: true
+                          is_icd: true
+                          is_port: true
+                          is_postal_exchange: true
+                          is_rail_terminal: true
+                          is_road_terminal: true
+                        rate_name: APACWB Rates FAK
+                        transit_time: 15
+                        currency: USD
+                        total_amount: 1400.5
+                        breakdown:
+                          - id: 1
+                            segment: freight
+                            charge_code: OFR
+                            charge_description: Ocean Freight
+                            base_currency: USD
+                            base_rate: 1000
+                            base_calculation:
+                              id: 1
+                              name: CONTAINER
+                              description: Charge that applies per number of containers
+                              is_percentage: true
+                            base_minimum: 1000
+                            total_amount: 1000
+                            exchange_rate: 0.89
+                            total_amount_quotation: 890
+                            remarks: Here are some charge remarks
+                        grouped_breakdown:
+                          - sort: 1
+                            group: freight
+                            lines:
+                              - id: 1
+                                segment: freight
+                                charge_code: OFR
+                                charge_description: Ocean Freight
+                                base_currency: USD
+                                base_rate: 1000
+                                base_calculation:
+                                  id: 1
+                                  name: CONTAINER
+                                  description: Charge that applies per number of containers
+                                  is_percentage: true
+                                base_minimum: 1000
+                                total_amount: 1000
+                                exchange_rate: 0.89
+                                total_amount_quotation: 890
+                                remarks: Here are some charge remarks
+                            total: 450
+                        valid_from: '2020-08-30T23:59:59+00:00'
+                        valid_until: '2020-08-30T23:59:59+00:00'
+                        remarks: Here are some rate remarks
+                        created_at: '2020-08-30T23:59:59+00:00'
+                    rate_requests:
+                      - id: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+                        quotation_id: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+                        creator:
+                          id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                          type: portals-users
+                          name: Martyn Verhaegen
+                          email: m@qwyk.io
+                          team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                          team_name: Qwyk
+                          job_title: Keyboard Monkey
+                          company: Qwyk
+                          location: 'Dordrecht, Netherlands'
+                        open: true
+                        reason: I need a better rate
+                        remarks: Please give me a better rate
+                        responser:
+                          id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                          type: portals-users
+                          name: Martyn Verhaegen
+                          email: m@qwyk.io
+                          team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                          team_name: Qwyk
+                          job_title: Keyboard Monkey
+                          company: Qwyk
+                          location: 'Dordrecht, Netherlands'
+                        offer:
+                          id: 916268e3-4f6f-42d0-8248-491b56897794
+                          quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+                          transport_mode: OCEAN
+                          load_type: fcl
+                          carrier:
+                            scac: MAEU
+                            name: Maersk Line
+                          carrier_name: Maersk Line
+                          pol:
+                            _id: 5e9c1dcb282811aa256bb8f3
+                            locode: NLRTM
+                            name: Rotterdam
+                            display_name: 'Rotterdam, ZH'
+                            name_wo_diacritics: Rotterdam
+                            display_name_wo_diacritics: 'Rotterdam, ZH'
+                            country_code: NL
+                            country_name: Netherlands (the)
+                            iata: RTM
+                            subdivision: ZH
+                            timezone: Europe/Amsterdam
+                            latitude_dec: 51.95
+                            longitude_dec: 4.5
+                            latitude_dms: 5155N
+                            longitude_dms: 00430E
+                            location:
+                              type: Point
+                              coordinates:
+                                - 4.5
+                                - 4.5
+                            position:
+                              - 51.92
+                              - 51.92
+                            is_airport: true
+                            is_borderxing: true
+                            is_fixed_transport: true
+                            is_icd: true
+                            is_port: true
+                            is_postal_exchange: true
+                            is_rail_terminal: true
+                            is_road_terminal: true
+                          pod:
+                            _id: 5e9c1dcb282811aa256bb8f3
+                            locode: NLRTM
+                            name: Rotterdam
+                            display_name: 'Rotterdam, ZH'
+                            name_wo_diacritics: Rotterdam
+                            display_name_wo_diacritics: 'Rotterdam, ZH'
+                            country_code: NL
+                            country_name: Netherlands (the)
+                            iata: RTM
+                            subdivision: ZH
+                            timezone: Europe/Amsterdam
+                            latitude_dec: 51.95
+                            longitude_dec: 4.5
+                            latitude_dms: 5155N
+                            longitude_dms: 00430E
+                            location:
+                              type: Point
+                              coordinates:
+                                - 4.5
+                                - 4.5
+                            position:
+                              - 51.92
+                              - 51.92
+                            is_airport: true
+                            is_borderxing: true
+                            is_fixed_transport: true
+                            is_icd: true
+                            is_port: true
+                            is_postal_exchange: true
+                            is_rail_terminal: true
+                            is_road_terminal: true
+                          rate_name: APACWB Rates FAK
+                          transit_time: 15
+                          currency: USD
+                          total_amount: 1400.5
+                          breakdown:
+                            - id: 1
+                              segment: freight
+                              charge_code: OFR
+                              charge_description: Ocean Freight
+                              base_currency: USD
+                              base_rate: 1000
+                              base_calculation:
+                                id: 1
+                                name: CONTAINER
+                                description: Charge that applies per number of containers
+                                is_percentage: true
+                              base_minimum: 1000
+                              total_amount: 1000
+                              exchange_rate: 0.89
+                              total_amount_quotation: 890
+                              remarks: Here are some charge remarks
+                          grouped_breakdown:
+                            - sort: 1
+                              group: freight
+                              lines:
+                                - id: 1
+                                  segment: freight
+                                  charge_code: OFR
+                                  charge_description: Ocean Freight
+                                  base_currency: USD
+                                  base_rate: 1000
+                                  base_calculation:
+                                    id: 1
+                                    name: CONTAINER
+                                    description: Charge that applies per number of containers
+                                    is_percentage: true
+                                  base_minimum: 1000
+                                  total_amount: 1000
+                                  exchange_rate: 0.89
+                                  total_amount_quotation: 890
+                                  remarks: Here are some charge remarks
+                              total: 450
+                          valid_from: '2020-08-30T23:59:59+00:00'
+                          valid_until: '2020-08-30T23:59:59+00:00'
+                          remarks: Here are some rate remarks
+                          created_at: '2020-08-30T23:59:59+00:00'
+                        response_message: Here is a better rate
+                        created_at: '2020-08-27T08:55:25+00:00'
+                        updated_at: '2020-08-27T08:55:25+00:00'
+                    last_rate_request:
+                      id: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+                      quotation_id: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+                      creator:
+                        id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                        type: portals-users
+                        name: Martyn Verhaegen
+                        email: m@qwyk.io
+                        team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                        team_name: Qwyk
+                        job_title: Keyboard Monkey
+                        company: Qwyk
+                        location: 'Dordrecht, Netherlands'
+                      open: true
+                      reason: I need a better rate
+                      remarks: Please give me a better rate
+                      responser:
+                        id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                        type: portals-users
+                        name: Martyn Verhaegen
+                        email: m@qwyk.io
+                        team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                        team_name: Qwyk
+                        job_title: Keyboard Monkey
+                        company: Qwyk
+                        location: 'Dordrecht, Netherlands'
+                      offer:
+                        id: 916268e3-4f6f-42d0-8248-491b56897794
+                        quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+                        transport_mode: OCEAN
+                        load_type: fcl
+                        carrier:
+                          scac: MAEU
+                          name: Maersk Line
+                        carrier_name: Maersk Line
+                        pol:
+                          _id: 5e9c1dcb282811aa256bb8f3
+                          locode: NLRTM
+                          name: Rotterdam
+                          display_name: 'Rotterdam, ZH'
+                          name_wo_diacritics: Rotterdam
+                          display_name_wo_diacritics: 'Rotterdam, ZH'
+                          country_code: NL
+                          country_name: Netherlands (the)
+                          iata: RTM
+                          subdivision: ZH
+                          timezone: Europe/Amsterdam
+                          latitude_dec: 51.95
+                          longitude_dec: 4.5
+                          latitude_dms: 5155N
+                          longitude_dms: 00430E
+                          location:
+                            type: Point
+                            coordinates:
+                              - 4.5
+                              - 4.5
+                          position:
+                            - 51.92
+                            - 51.92
+                          is_airport: true
+                          is_borderxing: true
+                          is_fixed_transport: true
+                          is_icd: true
+                          is_port: true
+                          is_postal_exchange: true
+                          is_rail_terminal: true
+                          is_road_terminal: true
+                        pod:
+                          _id: 5e9c1dcb282811aa256bb8f3
+                          locode: NLRTM
+                          name: Rotterdam
+                          display_name: 'Rotterdam, ZH'
+                          name_wo_diacritics: Rotterdam
+                          display_name_wo_diacritics: 'Rotterdam, ZH'
+                          country_code: NL
+                          country_name: Netherlands (the)
+                          iata: RTM
+                          subdivision: ZH
+                          timezone: Europe/Amsterdam
+                          latitude_dec: 51.95
+                          longitude_dec: 4.5
+                          latitude_dms: 5155N
+                          longitude_dms: 00430E
+                          location:
+                            type: Point
+                            coordinates:
+                              - 4.5
+                              - 4.5
+                          position:
+                            - 51.92
+                            - 51.92
+                          is_airport: true
+                          is_borderxing: true
+                          is_fixed_transport: true
+                          is_icd: true
+                          is_port: true
+                          is_postal_exchange: true
+                          is_rail_terminal: true
+                          is_road_terminal: true
+                        rate_name: APACWB Rates FAK
+                        transit_time: 15
+                        currency: USD
+                        total_amount: 1400.5
+                        breakdown:
+                          - id: 1
+                            segment: freight
+                            charge_code: OFR
+                            charge_description: Ocean Freight
+                            base_currency: USD
+                            base_rate: 1000
+                            base_calculation:
+                              id: 1
+                              name: CONTAINER
+                              description: Charge that applies per number of containers
+                              is_percentage: true
+                            base_minimum: 1000
+                            total_amount: 1000
+                            exchange_rate: 0.89
+                            total_amount_quotation: 890
+                            remarks: Here are some charge remarks
+                        grouped_breakdown:
+                          - sort: 1
+                            group: freight
+                            lines:
+                              - id: 1
+                                segment: freight
+                                charge_code: OFR
+                                charge_description: Ocean Freight
+                                base_currency: USD
+                                base_rate: 1000
+                                base_calculation:
+                                  id: 1
+                                  name: CONTAINER
+                                  description: Charge that applies per number of containers
+                                  is_percentage: true
+                                base_minimum: 1000
+                                total_amount: 1000
+                                exchange_rate: 0.89
+                                total_amount_quotation: 890
+                                remarks: Here are some charge remarks
+                            total: 450
+                        valid_from: '2020-08-30T23:59:59+00:00'
+                        valid_until: '2020-08-30T23:59:59+00:00'
+                        remarks: Here are some rate remarks
+                        created_at: '2020-08-30T23:59:59+00:00'
+                      response_message: Here is a better rate
+                      created_at: '2020-08-27T08:55:25+00:00'
+                      updated_at: '2020-08-27T08:55:25+00:00'
+                    shipments:
+                      - {}
+                    booked_shipments:
+                      - {}
+                    is_demo: true
+                    is_owner: true
+                    is_shared_with: true
+                    shared_users:
+                      - {}
+                    is_draft: true
         '404':
           description: Not Found
       operationId: get-quotations-quotationId
@@ -501,15 +1522,63 @@ components:
         - name
         - locode
         - country_code
+      x-examples:
+        Port Example:
+          type: port
+          code: NLRTM
+          name: 'Rotterdam, Netherlands'
+          locode: NLRTM
+          country_code: NL
+        Place Example:
+          type: place
+          code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+          name: 'Nieuwstraat 7, 3311XR Dordrecht, The Netherlands'
+          locode: NLDOR
+          country_code: NL
+      description: ''
     QuotationRequestPackages:
       title: QuotationRequestPackages
       type: object
+      x-examples:
+        FCL Example:
+          quantity: 1
+          packaging:
+            id: 1
+            code: '20'
+            description: 20' Container
+            transport_mode: OCEAN
+            load_type: fcl
+          unit_weight: null
+          unit_volume: null
+          unit_width: null
+          unit_length: null
+          unit_height: null
+          uom: null
+          id: 0
+        LCL Example:
+          id: 0
+          quantity: 3
+          packaging:
+            id: 1
+            code: CARTON
+            description: Carton(s)
+            load_type: lcl
+            transport_mode: OCEAN
+          unit_weight: 300
+          unit_volume: 1.69
+          unit_width: 120
+          unit_length: 80
+          unit_height: 100
+          uom: metric
+      x-tags:
+        - Models
       properties:
         id:
           type: integer
           default: 0
         quantity:
           type: integer
+          minimum: 1
         packaging:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Packaging
         unit_weight:
@@ -552,32 +1621,518 @@ components:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UnitOfMeasure
       required:
         - uom
-      x-examples:
-        FCL Example:
-          quantity: 1
-          packaging:
-            id: 1
-            code: '20'
-            description: 20' Container
-            transport_mode: OCEAN
-            load_type: fcl
-          unit_weight: null
-          unit_volume: null
-          unit_width: null
-          unit_length: null
-          unit_height: null
-          uom: null
-          id: 0
-      x-tags:
-        - Models
     Quotation:
       title: Quotation
       type: object
       x-tags:
         - Models
+      x-examples:
+        example-1:
+          id: 916268e3-4f6f-42d0-8248-491b56897794
+          owner:
+            id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+            type: portals-users
+            name: Martyn Verhaegen
+            email: m@qwyk.io
+            team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+            team_name: Qwyk
+            job_title: Keyboard Monkey
+            company: Qwyk
+            location: 'Dordrecht, Netherlands'
+          creator:
+            id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+            type: portals-users
+            name: Martyn Verhaegen
+            email: m@qwyk.io
+            team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+            team_name: Qwyk
+            job_title: Keyboard Monkey
+            company: Qwyk
+            location: 'Dordrecht, Netherlands'
+          request:
+            owner_reference: null
+            origin:
+              type: port
+              code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+              name: 'Rotterdam, Netherlands'
+              locode: NLRTM
+              country_code: NL
+            destination:
+              type: port
+              code: 'G:ChIJT08M2DIpxEcRhHVJ1WdmeNY|X:4.6689416|Y:51.8152357|C:NL|P:3311XR'
+              name: 'Rotterdam, Netherlands'
+              locode: NLRTM
+              country_code: NL
+            transport_mode: OCEAN
+            load_type: fcl
+            cargo_ready: '2020-08-03T12:32:06.202Z'
+            commodity:
+              id: 0
+              code: stri
+              description: string
+              is_preferred: null
+            currency: USD
+            packages:
+              - id: 0
+                quantity: 0
+                packaging:
+                  id: 1
+                  code: '20'
+                  description: 20' Container
+                  load_type: fcl
+                  transport_mode: OCEAN
+                unit_weight: 300
+                unit_volume: 1.69
+                unit_width: 120
+                unit_length: 80
+                unit_height: 100
+                uom: metric
+            additionals:
+              customs_clearance: true
+              cargo_insurance: true
+              hazardous_cargo: true
+              liftgate_pickup: true
+              refrigerated: true
+              white_glove: true
+              residential_delivery: true
+              residential_pickup: true
+              liftgate_delivery: true
+              call_before_delivery: true
+              delivery_appointment_required: true
+              flatbed_required: true
+              limited_access_delivery: true
+              limited_access_pickup: true
+              stackable: true
+            created_at: '2019-08-24T14:15:22Z'
+          results:
+            - id: 916268e3-4f6f-42d0-8248-491b56897794
+              quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+              transport_mode: OCEAN
+              load_type: fcl
+              carrier:
+                scac: MAEU
+                name: Maersk Line
+              carrier_name: Maersk Line
+              pol:
+                _id: 5e9c1dcb282811aa256bb8f3
+                locode: NLRTM
+                name: Rotterdam
+                display_name: 'Rotterdam, ZH'
+                name_wo_diacritics: Rotterdam
+                display_name_wo_diacritics: 'Rotterdam, ZH'
+                country_code: NL
+                country_name: Netherlands (the)
+                iata: RTM
+                subdivision: ZH
+                timezone: Europe/Amsterdam
+                latitude_dec: 51.95
+                longitude_dec: 4.5
+                latitude_dms: 5155N
+                longitude_dms: 00430E
+                location:
+                  type: Point
+                  coordinates:
+                    - 4.5
+                    - 4.5
+                position:
+                  - 51.92
+                  - 51.92
+                is_airport: true
+                is_borderxing: true
+                is_fixed_transport: true
+                is_icd: true
+                is_port: true
+                is_postal_exchange: true
+                is_rail_terminal: true
+                is_road_terminal: true
+              pod:
+                _id: 5e9c1dcb282811aa256bb8f3
+                locode: NLRTM
+                name: Rotterdam
+                display_name: 'Rotterdam, ZH'
+                name_wo_diacritics: Rotterdam
+                display_name_wo_diacritics: 'Rotterdam, ZH'
+                country_code: NL
+                country_name: Netherlands (the)
+                iata: RTM
+                subdivision: ZH
+                timezone: Europe/Amsterdam
+                latitude_dec: 51.95
+                longitude_dec: 4.5
+                latitude_dms: 5155N
+                longitude_dms: 00430E
+                location:
+                  type: Point
+                  coordinates:
+                    - 4.5
+                    - 4.5
+                position:
+                  - 51.92
+                  - 51.92
+                is_airport: true
+                is_borderxing: true
+                is_fixed_transport: true
+                is_icd: true
+                is_port: true
+                is_postal_exchange: true
+                is_rail_terminal: true
+                is_road_terminal: true
+              rate_name: APACWB Rates FAK
+              transit_time: 15
+              currency: USD
+              total_amount: 1400.5
+              breakdown:
+                - id: 1
+                  segment: freight
+                  charge_code: OFR
+                  charge_description: Ocean Freight
+                  base_currency: USD
+                  base_rate: 1000
+                  base_calculation:
+                    id: 1
+                    name: CONTAINER
+                    description: Charge that applies per number of containers
+                    is_percentage: true
+                  base_minimum: 1000
+                  total_amount: 1000
+                  exchange_rate: 0.89
+                  total_amount_quotation: 890
+                  remarks: Here are some charge remarks
+              grouped_breakdown:
+                - sort: 1
+                  group: freight
+                  lines:
+                    - id: 1
+                      segment: freight
+                      charge_code: OFR
+                      charge_description: Ocean Freight
+                      base_currency: USD
+                      base_rate: 1000
+                      base_calculation:
+                        id: 1
+                        name: CONTAINER
+                        description: Charge that applies per number of containers
+                        is_percentage: true
+                      base_minimum: 1000
+                      total_amount: 1000
+                      exchange_rate: 0.89
+                      total_amount_quotation: 890
+                      remarks: Here are some charge remarks
+                  total: 450
+              valid_from: '2020-08-30T23:59:59+00:00'
+              valid_until: '2020-08-30T23:59:59+00:00'
+              remarks: Here are some rate remarks
+              created_at: '2020-08-30T23:59:59+00:00'
+          rate_requests:
+            - id: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+              quotation_id: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+              creator:
+                id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                type: portals-users
+                name: Martyn Verhaegen
+                email: m@qwyk.io
+                team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                team_name: Qwyk
+                job_title: Keyboard Monkey
+                company: Qwyk
+                location: 'Dordrecht, Netherlands'
+              open: true
+              reason: I need a better rate
+              remarks: Please give me a better rate
+              responser:
+                id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+                type: portals-users
+                name: Martyn Verhaegen
+                email: m@qwyk.io
+                team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+                team_name: Qwyk
+                job_title: Keyboard Monkey
+                company: Qwyk
+                location: 'Dordrecht, Netherlands'
+              offer:
+                id: 916268e3-4f6f-42d0-8248-491b56897794
+                quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+                transport_mode: OCEAN
+                load_type: fcl
+                carrier:
+                  scac: MAEU
+                  name: Maersk Line
+                carrier_name: Maersk Line
+                pol:
+                  _id: 5e9c1dcb282811aa256bb8f3
+                  locode: NLRTM
+                  name: Rotterdam
+                  display_name: 'Rotterdam, ZH'
+                  name_wo_diacritics: Rotterdam
+                  display_name_wo_diacritics: 'Rotterdam, ZH'
+                  country_code: NL
+                  country_name: Netherlands (the)
+                  iata: RTM
+                  subdivision: ZH
+                  timezone: Europe/Amsterdam
+                  latitude_dec: 51.95
+                  longitude_dec: 4.5
+                  latitude_dms: 5155N
+                  longitude_dms: 00430E
+                  location:
+                    type: Point
+                    coordinates:
+                      - 4.5
+                      - 4.5
+                  position:
+                    - 51.92
+                    - 51.92
+                  is_airport: true
+                  is_borderxing: true
+                  is_fixed_transport: true
+                  is_icd: true
+                  is_port: true
+                  is_postal_exchange: true
+                  is_rail_terminal: true
+                  is_road_terminal: true
+                pod:
+                  _id: 5e9c1dcb282811aa256bb8f3
+                  locode: NLRTM
+                  name: Rotterdam
+                  display_name: 'Rotterdam, ZH'
+                  name_wo_diacritics: Rotterdam
+                  display_name_wo_diacritics: 'Rotterdam, ZH'
+                  country_code: NL
+                  country_name: Netherlands (the)
+                  iata: RTM
+                  subdivision: ZH
+                  timezone: Europe/Amsterdam
+                  latitude_dec: 51.95
+                  longitude_dec: 4.5
+                  latitude_dms: 5155N
+                  longitude_dms: 00430E
+                  location:
+                    type: Point
+                    coordinates:
+                      - 4.5
+                      - 4.5
+                  position:
+                    - 51.92
+                    - 51.92
+                  is_airport: true
+                  is_borderxing: true
+                  is_fixed_transport: true
+                  is_icd: true
+                  is_port: true
+                  is_postal_exchange: true
+                  is_rail_terminal: true
+                  is_road_terminal: true
+                rate_name: APACWB Rates FAK
+                transit_time: 15
+                currency: USD
+                total_amount: 1400.5
+                breakdown:
+                  - id: 1
+                    segment: freight
+                    charge_code: OFR
+                    charge_description: Ocean Freight
+                    base_currency: USD
+                    base_rate: 1000
+                    base_calculation:
+                      id: 1
+                      name: CONTAINER
+                      description: Charge that applies per number of containers
+                      is_percentage: true
+                    base_minimum: 1000
+                    total_amount: 1000
+                    exchange_rate: 0.89
+                    total_amount_quotation: 890
+                    remarks: Here are some charge remarks
+                grouped_breakdown:
+                  - sort: 1
+                    group: freight
+                    lines:
+                      - id: 1
+                        segment: freight
+                        charge_code: OFR
+                        charge_description: Ocean Freight
+                        base_currency: USD
+                        base_rate: 1000
+                        base_calculation:
+                          id: 1
+                          name: CONTAINER
+                          description: Charge that applies per number of containers
+                          is_percentage: true
+                        base_minimum: 1000
+                        total_amount: 1000
+                        exchange_rate: 0.89
+                        total_amount_quotation: 890
+                        remarks: Here are some charge remarks
+                    total: 450
+                valid_from: '2020-08-30T23:59:59+00:00'
+                valid_until: '2020-08-30T23:59:59+00:00'
+                remarks: Here are some rate remarks
+                created_at: '2020-08-30T23:59:59+00:00'
+              response_message: Here is a better rate
+              created_at: '2020-08-27T08:55:25+00:00'
+              updated_at: '2020-08-27T08:55:25+00:00'
+          last_rate_request:
+            id: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+            quotation_id: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+            creator:
+              id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+              type: portals-users
+              name: Martyn Verhaegen
+              email: m@qwyk.io
+              team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+              team_name: Qwyk
+              job_title: Keyboard Monkey
+              company: Qwyk
+              location: 'Dordrecht, Netherlands'
+            open: true
+            reason: I need a better rate
+            remarks: Please give me a better rate
+            responser:
+              id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+              type: portals-users
+              name: Martyn Verhaegen
+              email: m@qwyk.io
+              team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+              team_name: Qwyk
+              job_title: Keyboard Monkey
+              company: Qwyk
+              location: 'Dordrecht, Netherlands'
+            offer:
+              id: 916268e3-4f6f-42d0-8248-491b56897794
+              quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+              transport_mode: OCEAN
+              load_type: fcl
+              carrier:
+                scac: MAEU
+                name: Maersk Line
+              carrier_name: Maersk Line
+              pol:
+                _id: 5e9c1dcb282811aa256bb8f3
+                locode: NLRTM
+                name: Rotterdam
+                display_name: 'Rotterdam, ZH'
+                name_wo_diacritics: Rotterdam
+                display_name_wo_diacritics: 'Rotterdam, ZH'
+                country_code: NL
+                country_name: Netherlands (the)
+                iata: RTM
+                subdivision: ZH
+                timezone: Europe/Amsterdam
+                latitude_dec: 51.95
+                longitude_dec: 4.5
+                latitude_dms: 5155N
+                longitude_dms: 00430E
+                location:
+                  type: Point
+                  coordinates:
+                    - 4.5
+                    - 4.5
+                position:
+                  - 51.92
+                  - 51.92
+                is_airport: true
+                is_borderxing: true
+                is_fixed_transport: true
+                is_icd: true
+                is_port: true
+                is_postal_exchange: true
+                is_rail_terminal: true
+                is_road_terminal: true
+              pod:
+                _id: 5e9c1dcb282811aa256bb8f3
+                locode: NLRTM
+                name: Rotterdam
+                display_name: 'Rotterdam, ZH'
+                name_wo_diacritics: Rotterdam
+                display_name_wo_diacritics: 'Rotterdam, ZH'
+                country_code: NL
+                country_name: Netherlands (the)
+                iata: RTM
+                subdivision: ZH
+                timezone: Europe/Amsterdam
+                latitude_dec: 51.95
+                longitude_dec: 4.5
+                latitude_dms: 5155N
+                longitude_dms: 00430E
+                location:
+                  type: Point
+                  coordinates:
+                    - 4.5
+                    - 4.5
+                position:
+                  - 51.92
+                  - 51.92
+                is_airport: true
+                is_borderxing: true
+                is_fixed_transport: true
+                is_icd: true
+                is_port: true
+                is_postal_exchange: true
+                is_rail_terminal: true
+                is_road_terminal: true
+              rate_name: APACWB Rates FAK
+              transit_time: 15
+              currency: USD
+              total_amount: 1400.5
+              breakdown:
+                - id: 1
+                  segment: freight
+                  charge_code: OFR
+                  charge_description: Ocean Freight
+                  base_currency: USD
+                  base_rate: 1000
+                  base_calculation:
+                    id: 1
+                    name: CONTAINER
+                    description: Charge that applies per number of containers
+                    is_percentage: true
+                  base_minimum: 1000
+                  total_amount: 1000
+                  exchange_rate: 0.89
+                  total_amount_quotation: 890
+                  remarks: Here are some charge remarks
+              grouped_breakdown:
+                - sort: 1
+                  group: freight
+                  lines:
+                    - id: 1
+                      segment: freight
+                      charge_code: OFR
+                      charge_description: Ocean Freight
+                      base_currency: USD
+                      base_rate: 1000
+                      base_calculation:
+                        id: 1
+                        name: CONTAINER
+                        description: Charge that applies per number of containers
+                        is_percentage: true
+                      base_minimum: 1000
+                      total_amount: 1000
+                      exchange_rate: 0.89
+                      total_amount_quotation: 890
+                      remarks: Here are some charge remarks
+                  total: 450
+              valid_from: '2020-08-30T23:59:59+00:00'
+              valid_until: '2020-08-30T23:59:59+00:00'
+              remarks: Here are some rate remarks
+              created_at: '2020-08-30T23:59:59+00:00'
+            response_message: Here is a better rate
+            created_at: '2020-08-27T08:55:25+00:00'
+            updated_at: '2020-08-27T08:55:25+00:00'
+          shipments:
+            - {}
+          booked_shipments:
+            - {}
+          is_demo: true
+          is_owner: true
+          is_shared_with: true
+          shared_users:
+            - {}
+          is_draft: true
       properties:
         id:
           type: string
+          example: 916268e3-4f6f-42d0-8248-491b56897794
         owner:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
         creator:
@@ -589,9 +2144,11 @@ components:
           items:
             $ref: '#/components/schemas/QuotationOffer'
         rate_requests:
-          type: string
+          type: array
+          items:
+            $ref: '#/components/schemas/QuotationRateRequest'
         last_rate_request:
-          type: string
+          $ref: '#/components/schemas/QuotationRateRequest'
         shipments:
           type: array
           items:
@@ -607,17 +2164,24 @@ components:
         is_shared_with:
           type: boolean
         shared_users:
-          type: string
+          type: array
+          items:
+            type: object
         is_draft:
           type: boolean
     QuotationOffer:
       title: QuotationOffer
       type: object
+      x-tags:
+        - Models
+      description: ''
       properties:
         id:
           type: string
+          example: 916268e3-4f6f-42d0-8248-491b56897794
         quotation_id:
           type: string
+          example: 916268e3-4f6f-42d0-8248-491b56897794
         transport_mode:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/TransportMode
         load_type:
@@ -628,18 +2192,23 @@ components:
             - type: 'null'
         carrier_name:
           type: string
+          example: Maersk Line
         pol:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
         pod:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
         rate_name:
           type: string
+          example: APACWB Rates FAK
         transit_time:
           type: integer
+          example: 15
         currency:
           type: string
+          example: USD
         total_amount:
           type: number
+          example: 1400.5
         breakdown:
           type: array
           items:
@@ -651,27 +2220,158 @@ components:
             properties:
               sort:
                 type: integer
+                example: 1
               group:
                 type: string
+                enum:
+                  - pickup
+                  - origin
+                  - freight
+                  - destination
+                  - delivery
+                example: freight
               lines:
                 type: array
                 items:
                   $ref: '#/components/schemas/QuotationOfferLine'
               total:
                 type: number
+                example: 450
         valid_from:
           type: string
           format: date-time
+          example: '2020-08-30T23:59:59+00:00'
         valid_until:
           type: string
           format: date-time
+          example: '2020-08-30T23:59:59+00:00'
         remarks:
           type: string
+          example: Here are some rate remarks
         created_at:
           type: string
           format: date-time
-      x-tags:
-        - Models
+          example: '2020-08-30T23:59:59+00:00'
+      x-examples:
+        example-1:
+          id: 916268e3-4f6f-42d0-8248-491b56897794
+          quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+          transport_mode: OCEAN
+          load_type: fcl
+          carrier:
+            scac: MAEU
+            name: Maersk Line
+          carrier_name: Maersk Line
+          pol:
+            _id: 5e9c1dcb282811aa256bb8f3
+            locode: NLRTM
+            name: Rotterdam
+            display_name: 'Rotterdam, ZH'
+            name_wo_diacritics: Rotterdam
+            display_name_wo_diacritics: 'Rotterdam, ZH'
+            country_code: NL
+            country_name: Netherlands (the)
+            iata: RTM
+            subdivision: ZH
+            timezone: Europe/Amsterdam
+            latitude_dec: 51.95
+            longitude_dec: 4.5
+            latitude_dms: 5155N
+            longitude_dms: 00430E
+            location:
+              type: Point
+              coordinates:
+                - 4.5
+                - 4.5
+            position:
+              - 51.92
+              - 51.92
+            is_airport: true
+            is_borderxing: true
+            is_fixed_transport: true
+            is_icd: true
+            is_port: true
+            is_postal_exchange: true
+            is_rail_terminal: true
+            is_road_terminal: true
+          pod:
+            _id: 5e9c1dcb282811aa256bb8f3
+            locode: NLRTM
+            name: Rotterdam
+            display_name: 'Rotterdam, ZH'
+            name_wo_diacritics: Rotterdam
+            display_name_wo_diacritics: 'Rotterdam, ZH'
+            country_code: NL
+            country_name: Netherlands (the)
+            iata: RTM
+            subdivision: ZH
+            timezone: Europe/Amsterdam
+            latitude_dec: 51.95
+            longitude_dec: 4.5
+            latitude_dms: 5155N
+            longitude_dms: 00430E
+            location:
+              type: Point
+              coordinates:
+                - 4.5
+                - 4.5
+            position:
+              - 51.92
+              - 51.92
+            is_airport: true
+            is_borderxing: true
+            is_fixed_transport: true
+            is_icd: true
+            is_port: true
+            is_postal_exchange: true
+            is_rail_terminal: true
+            is_road_terminal: true
+          rate_name: APACWB Rates FAK
+          transit_time: 15
+          currency: USD
+          total_amount: 1400.5
+          breakdown:
+            - id: 1
+              segment: freight
+              charge_code: OFR
+              charge_description: Ocean Freight
+              base_currency: USD
+              base_rate: 1000
+              base_calculation:
+                id: 1
+                name: CONTAINER
+                description: Charge that applies per number of containers
+                is_percentage: true
+              base_minimum: 1000
+              total_amount: 1000
+              exchange_rate: 0.89
+              total_amount_quotation: 890
+              remarks: Here are some charge remarks
+          grouped_breakdown:
+            - sort: 1
+              group: freight
+              lines:
+                - id: 1
+                  segment: freight
+                  charge_code: OFR
+                  charge_description: Ocean Freight
+                  base_currency: USD
+                  base_rate: 1000
+                  base_calculation:
+                    id: 1
+                    name: CONTAINER
+                    description: Charge that applies per number of containers
+                    is_percentage: true
+                  base_minimum: 1000
+                  total_amount: 1000
+                  exchange_rate: 0.89
+                  total_amount_quotation: 890
+                  remarks: Here are some charge remarks
+              total: 450
+          valid_from: '2020-08-30T23:59:59+00:00'
+          valid_until: '2020-08-30T23:59:59+00:00'
+          remarks: Here are some rate remarks
+          created_at: '2020-08-30T23:59:59+00:00'
     QuotationOfferLine:
       title: QuotationOfferLine
       type: object
@@ -679,7 +2379,8 @@ components:
         - Models
       properties:
         id:
-          type: string
+          type: integer
+          example: 1
         segment:
           type: string
           enum:
@@ -700,18 +2401,231 @@ components:
           example: USD
         base_rate:
           type: number
+          example: 1000
         base_calculation:
-          type: string
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/RateCalculation
         base_minimum:
           type: number
+          example: 1000
         total_amount:
           type: number
+          example: 1000
         exchange_rate:
           type: number
+          example: 0.89
         total_amount_quotation:
           type: number
+          example: 890
         remarks:
           type: string
+          example: Here are some charge remarks
+      x-examples:
+        example-1:
+          id: 1
+          segment: freight
+          charge_code: OFR
+          charge_description: Ocean Freight
+          base_currency: USD
+          base_rate: 1000
+          base_calculation:
+            id: 1
+            name: CONTAINER
+            description: Charge that applies per number of containers
+            is_percentage: true
+          base_minimum: 1000
+          total_amount: 1000
+          exchange_rate: 0.89
+          total_amount_quotation: 890
+          remarks: Here are some charge remarks
+    QuotationRateRequest:
+      title: QuotationRateRequest
+      type: object
+      x-tags:
+        - Models
+      x-examples:
+        example-1:
+          id: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+          quotation_id: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+          creator:
+            id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+            type: portals-users
+            name: Martyn Verhaegen
+            email: m@qwyk.io
+            team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+            team_name: Qwyk
+            job_title: Keyboard Monkey
+            company: Qwyk
+            location: 'Dordrecht, Netherlands'
+          open: true
+          reason: I need a better rate
+          remarks: Please give me a better rate
+          responser:
+            id: ea93fe35-2dc6-4751-a7db-a84a998dcc48
+            type: portals-users
+            name: Martyn Verhaegen
+            email: m@qwyk.io
+            team_id: 80c79b95-aba6-476b-8d37-5c4e17263621
+            team_name: Qwyk
+            job_title: Keyboard Monkey
+            company: Qwyk
+            location: 'Dordrecht, Netherlands'
+          offer:
+            id: 916268e3-4f6f-42d0-8248-491b56897794
+            quotation_id: 916268e3-4f6f-42d0-8248-491b56897794
+            transport_mode: OCEAN
+            load_type: fcl
+            carrier:
+              scac: MAEU
+              name: Maersk Line
+            carrier_name: Maersk Line
+            pol:
+              _id: 5e9c1dcb282811aa256bb8f3
+              locode: NLRTM
+              name: Rotterdam
+              display_name: 'Rotterdam, ZH'
+              name_wo_diacritics: Rotterdam
+              display_name_wo_diacritics: 'Rotterdam, ZH'
+              country_code: NL
+              country_name: Netherlands (the)
+              iata: RTM
+              subdivision: ZH
+              timezone: Europe/Amsterdam
+              latitude_dec: 51.95
+              longitude_dec: 4.5
+              latitude_dms: 5155N
+              longitude_dms: 00430E
+              location:
+                type: Point
+                coordinates:
+                  - 4.5
+                  - 4.5
+              position:
+                - 51.92
+                - 51.92
+              is_airport: true
+              is_borderxing: true
+              is_fixed_transport: true
+              is_icd: true
+              is_port: true
+              is_postal_exchange: true
+              is_rail_terminal: true
+              is_road_terminal: true
+            pod:
+              _id: 5e9c1dcb282811aa256bb8f3
+              locode: NLRTM
+              name: Rotterdam
+              display_name: 'Rotterdam, ZH'
+              name_wo_diacritics: Rotterdam
+              display_name_wo_diacritics: 'Rotterdam, ZH'
+              country_code: NL
+              country_name: Netherlands (the)
+              iata: RTM
+              subdivision: ZH
+              timezone: Europe/Amsterdam
+              latitude_dec: 51.95
+              longitude_dec: 4.5
+              latitude_dms: 5155N
+              longitude_dms: 00430E
+              location:
+                type: Point
+                coordinates:
+                  - 4.5
+                  - 4.5
+              position:
+                - 51.92
+                - 51.92
+              is_airport: true
+              is_borderxing: true
+              is_fixed_transport: true
+              is_icd: true
+              is_port: true
+              is_postal_exchange: true
+              is_rail_terminal: true
+              is_road_terminal: true
+            rate_name: APACWB Rates FAK
+            transit_time: 15
+            currency: USD
+            total_amount: 1400.5
+            breakdown:
+              - id: 1
+                segment: freight
+                charge_code: OFR
+                charge_description: Ocean Freight
+                base_currency: USD
+                base_rate: 1000
+                base_calculation:
+                  id: 1
+                  name: CONTAINER
+                  description: Charge that applies per number of containers
+                  is_percentage: true
+                base_minimum: 1000
+                total_amount: 1000
+                exchange_rate: 0.89
+                total_amount_quotation: 890
+                remarks: Here are some charge remarks
+            grouped_breakdown:
+              - sort: 1
+                group: freight
+                lines:
+                  - id: 1
+                    segment: freight
+                    charge_code: OFR
+                    charge_description: Ocean Freight
+                    base_currency: USD
+                    base_rate: 1000
+                    base_calculation:
+                      id: 1
+                      name: CONTAINER
+                      description: Charge that applies per number of containers
+                      is_percentage: true
+                    base_minimum: 1000
+                    total_amount: 1000
+                    exchange_rate: 0.89
+                    total_amount_quotation: 890
+                    remarks: Here are some charge remarks
+                total: 450
+            valid_from: '2020-08-30T23:59:59+00:00'
+            valid_until: '2020-08-30T23:59:59+00:00'
+            remarks: Here are some rate remarks
+            created_at: '2020-08-30T23:59:59+00:00'
+          response_message: Here is a better rate
+          created_at: '2020-08-27T08:55:25+00:00'
+          updated_at: '2020-08-27T08:55:25+00:00'
+      properties:
+        id:
+          type: string
+          example: 916e6a39-a21c-46ba-8831-5d37fde0f3a2
+        quotation_id:
+          type: string
+          example: 916268e3-3ff9-4871-a16e-8a2cb135e5e5
+        creator:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
+        open:
+          type: boolean
+        reason:
+          type: string
+          example: I need a better rate
+        remarks:
+          type: string
+          example: Please give me a better rate
+        responser:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
+        offer:
+          oneOf:
+            - $ref: '#/components/schemas/QuotationOffer'
+            - type: 'null'
+              properties: {}
+        response_message:
+          type: string
+          example: Here is a better rate
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-08-27T08:55:25+00:00'
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-08-27T08:55:25+00:00'
   securitySchemes:
     Bearer token:
       type: http
