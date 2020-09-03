@@ -1,8 +1,10 @@
 openapi: 3.0.0
 info:
-  title: Quotation Request API
+  title: Quotation Webhook API
   version: '1.0'
   description: |
+    This API describes a self-implemented endpoint which QwykPortals will call whenever a quotation is created in your Portal. It expects an array of offers in return which will then be attached to the quotation and displayed to the end user.
+
     ### UN Locodes
 
     We always follow the latest published version of the UN Locodes database, and recommend you do so as well.
@@ -30,7 +32,7 @@ info:
     If you need more charge codes, please send your request to support@qwyk.io
 
     ### Supported currencies
-    At present the following currencies are supported
+    At present the following currencies are supported, to get an updated version check the [Masterdata API](./QwykPortals-Masterdata-API.v1.yaml)
 
     |Code|Sign|Name|
     |---|---|--------------------|

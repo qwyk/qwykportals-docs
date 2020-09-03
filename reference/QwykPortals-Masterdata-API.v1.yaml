@@ -178,7 +178,6 @@ paths:
           example: OCEAN
         name: transport_mode
         in: path
-        required: true
         description: The transport mode for which to get the packagings
       - schema:
           type: string
@@ -188,7 +187,6 @@ paths:
           example: fcl
         name: load_type
         in: path
-        required: true
         description: The load type for which to fetch packagings
 components:
   schemas:
