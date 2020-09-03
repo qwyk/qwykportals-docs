@@ -1537,7 +1537,7 @@ components:
           country_code: NL
       description: ''
     QuotationRequestPackages:
-      title: QuotationRequestPackages
+      title: QuotationRequestPackage
       type: object
       x-examples:
         FCL Example:
