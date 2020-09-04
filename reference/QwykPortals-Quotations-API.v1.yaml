@@ -1620,6 +1620,8 @@ components:
         uom:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UnitOfMeasure
       required:
+        - quantity
+        - packaging
         - uom
     Quotation:
       title: Quotation
