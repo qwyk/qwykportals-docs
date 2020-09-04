@@ -9,3 +9,6 @@ Module | Description | Link
  Quotations | Create and view quotations | [Link](../reference/QwykPortals-Quotations-API.v1.yaml)
  Quotation Request | Response by webhook to quotations made by portal visitors | [Link](../reference/QwykPortals-Quotation-Webhook-API.v1.yaml)
  Shipment Exchange | Integrate and update bookings and shipments created from within QwykPortals | [Link](../reference/QwykPortals-Shipment-Exchange-API.v1.yaml)
+
+ ## Need more info or developer guides?
+ Check out our documentation at [https://docs.qwykportals.com](https://docs.qwykportals.com)
