@@ -2610,7 +2610,7 @@ components:
         remarks:
           type: string
           example: Please give me a better rate
-        responser:
+        responder:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
         offer:
           oneOf:
