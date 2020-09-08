@@ -24,7 +24,6 @@ info:
 
 
 
-
 servers:
   - url: 'https://api.qwykportals.com'
     description: QwykPortals API (stable)
@@ -135,7 +134,7 @@ paths:
                         example: Booking accepted
                       requesting_party_shipment_reference:
                         type: string
-                        description: "Qwyk's internal shipment ID"
+                        description: Qwyk's internal shipment ID
                         format: uuid
                         example: f4d2a948-219d-4370-8f4e-b2a8a5ae0ba2
                       responding_party_shipment_reference:
@@ -177,6 +176,7 @@ paths:
         name: your-endpoint
         in: path
         required: true
+        description: 'You''ll define your own server address and endpoint, the server address in this example must be ignored.'
     post:
       summary: Receive a new Shipment
       operationId: post-your-endpoint
@@ -332,8 +332,8 @@ paths:
                           package_length_cms: null
                           package_width_cms: null
                           package_quantity: 1
-                          package_type_code: "20' Container"
-                          package_type_description: "20' Container"
+                          package_type_code: 20' Container
+                          package_type_description: 20' Container
                           product_code: Product ID
                           product_import_hts: HS Code
                           source_container_id: null
@@ -374,7 +374,7 @@ components:
       properties:
         source_system_shipment_uid:
           type: string
-          description: "Qwyk's shipment id"
+          description: Qwyk's shipment id
         event_code:
           type: string
           description: To be mapped during setup
@@ -576,8 +576,8 @@ components:
                   package_length_cms: null
                   package_width_cms: null
                   package_quantity: 1
-                  package_type_code: "20' Container"
-                  package_type_description: "20' Container"
+                  package_type_code: 20' Container
+                  package_type_description: 20' Container
                   product_code: Product ID
                   product_import_hts: HS Code
                   source_container_id: null
