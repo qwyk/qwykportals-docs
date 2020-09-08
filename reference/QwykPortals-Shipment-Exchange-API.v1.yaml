@@ -753,8 +753,13 @@ components:
           type: string
         shipments:
           type: array
+          minItems: 1
           items:
             $ref: '#/components/schemas/Shipment'
+      required:
+        - doc_type
+        - version
+        - shipments
     Port:
       title: Port
       type: object
