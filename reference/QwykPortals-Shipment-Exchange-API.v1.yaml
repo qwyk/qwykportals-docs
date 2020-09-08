@@ -6,7 +6,7 @@ info:
     name: Qwyk
     url: qwyk.io
     email: support@qwyk.io
-  description: |+
+  description: |
     The Shipment Exchange API allows your own systems to interact with Shipments that exist in your QwykPortals instance. It consists of two parts:
 
     #### Webhooks:
@@ -21,9 +21,6 @@ info:
 
     [Post Milestone Update](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1webhooks~1portals~1shipments~1timeline-event/post)
     Update shipment milestones through the method by posting a milestone ID along with timestamps so we can update your shipment's status.
-
-
-
 servers:
   - url: 'https://api.qwykportals.com'
     description: QwykPortals API (stable)
@@ -352,6 +349,11 @@ paths:
           in: header
           name: Content-Type
           required: true
+        - schema:
+            type: string
+          in: header
+          name: '[Any]'
+          description: 'Any set of headers can be configured for you to receive, including API tokens.'
 components:
   schemas:
     WebhookResponse:
