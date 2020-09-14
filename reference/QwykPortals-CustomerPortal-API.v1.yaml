@@ -1334,7 +1334,7 @@ paths:
       operationId: get-quotations-quotationId
       tags:
         - Quotations
-  /api/auth/login:
+  /auth/login:
     post:
       summary: Log in
       operationId: post-api-auth-login
@@ -1401,6 +1401,7 @@ paths:
                 - password
                 - organization_id
                 - site_id
+    parameters: []
 components:
   schemas:
     QuotationRequest:
