@@ -808,6 +808,7 @@ paths:
           name: destination_locode
       tags:
         - Methods
+        - Quotations
   '/quotations/{quotationId}':
     parameters:
       - schema:
@@ -2636,3 +2637,4 @@ security:
   - Bearer token: []
 tags:
   - name: Methods
+  - name: Quotations
