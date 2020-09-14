@@ -227,7 +227,7 @@ paths:
                     limited_access_pickup: false
                     stackable: false
       tags:
-        - Methods
+        - Quotations
     get:
       summary: Get a user's quotations
       operationId: get-quotations
@@ -818,8 +818,6 @@ paths:
         description: ID of the quotation to look up
     get:
       summary: Get a quotation by its ID
-      tags:
-        - Methods
       responses:
         '200':
           description: OK
@@ -1334,6 +1332,8 @@ paths:
         '404':
           description: Not Found
       operationId: get-quotations-quotationId
+      tags:
+        - Quotations
 components:
   schemas:
     QuotationRequest:
@@ -2635,5 +2635,4 @@ components:
 security:
   - Bearer token: []
 tags:
-  - name: Methods
   - name: Quotations
