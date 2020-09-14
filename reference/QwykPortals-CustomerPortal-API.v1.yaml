@@ -1334,6 +1334,73 @@ paths:
       operationId: get-quotations-quotationId
       tags:
         - Quotations
+  /api/auth/login:
+    post:
+      summary: Log in
+      operationId: post-api-auth-login
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_in:
+                    type: integer
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - email-unconfirmed
+                      - account-unconfirmed
+                      - not-allowed-on-site
+                  message:
+                    type: string
+      tags:
+        - Authentication
+      description: ''
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password
+                organization_id:
+                  type: integer
+                site_id:
+                  type: integer
+              required:
+                - email
+                - password
+                - organization_id
+                - site_id
 components:
   schemas:
     QuotationRequest:
@@ -2636,3 +2703,4 @@ security:
   - Bearer token: []
 tags:
   - name: Quotations
+  - name: Authentication
