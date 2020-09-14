@@ -6,7 +6,7 @@ For convenience, our specification is split along various modules that exist wit
 Module | Description | Link
 ---------|----------|---------
  Masterdata | Publicly accessible masterdata | [Link](../reference/QwykPortals-Masterdata-API.v1.yaml)
- Quotations | Create and view quotations | [Link](../reference/QwykPortals-Quotations-API.v1.yaml)
+ Customer Portal | Interact with the customer-side of the product | [Link](../reference/QwykPortals-CustomerPortal-API.v1.yaml)
  Quotation Request | Response by webhook to quotations made by portal visitors | [Link](../reference/QwykPortals-Quotation-Webhook-API.v1.yaml)
  Shipment Exchange | Integrate and update bookings and shipments created from within QwykPortals | [Link](../reference/QwykPortals-Shipment-Exchange-API.v1.yaml)
 
