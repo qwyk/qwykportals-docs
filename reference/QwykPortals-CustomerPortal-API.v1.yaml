@@ -1378,6 +1378,11 @@ paths:
                       - email-unconfirmed
                       - account-unconfirmed
                       - not-allowed-on-site
+                    description: |-
+                      Reasons: 
+                      * email-unconfirmed: the user has not yet confirmed their email address.
+                      * account-unconfirmed: an administrator has not yet approved the account for access.
+                      * not-allowed-on-site: the user is not authorized to access the Site belonging to the `site_id` that was provided 
                   message:
                     type: string
       tags:
@@ -1449,7 +1454,7 @@ paths:
       operationId: post-auth-reset-password
       responses:
         '200':
-          description: 'OK: password reset'
+          description: 'OK: password set to the requested value. use /auth/login with the new password to obtain a token.'
         '400':
           description: 'Bad request: User was not found, reset_code was invalid or it expired'
           content:
@@ -1493,6 +1498,7 @@ paths:
                 - password
                 - password_confirmation
                 - reset_code
+      description: ''
 components:
   schemas:
     QuotationRequest:
