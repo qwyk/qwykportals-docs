@@ -1406,6 +1406,93 @@ paths:
                 - organization_id
                 - site_id
     parameters: []
+  /auth/forgot-password:
+    post:
+      summary: Request password reset
+      operationId: post-auth-forgot-password
+      responses:
+        '202':
+          description: |-
+            Accepted: 
+            always responds with 202, including when the user does not exist to avoid email-trawling
+          content:
+            application/json:
+              schema:
+                type: 'null'
+        '422':
+          description: Unprocessable entity
+      tags:
+        - Authentication
+      security: []
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                organization_id:
+                  type: integer
+                site_id:
+                  type: integer
+              required:
+                - email
+                - organization_id
+                - site_id
+        description: ''
+  /auth/reset-password:
+    post:
+      summary: Reset password with code
+      operationId: post-auth-reset-password
+      responses:
+        '200':
+          description: 'OK: password reset'
+        '400':
+          description: 'Bad request: User was not found, reset_code was invalid or it expired'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '422':
+          description: Unprocessable Entity
+      tags:
+        - Authentication
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                organization_id:
+                  type: integer
+                site_id:
+                  type: integer
+                password:
+                  type: string
+                  format: password
+                  description: The new password to set
+                password_confirmation:
+                  type: string
+                  format: password
+                reset_code:
+                  type: integer
+              required:
+                - email
+                - organization_id
+                - site_id
+                - password
+                - password_confirmation
+                - reset_code
 components:
   schemas:
     QuotationRequest:
