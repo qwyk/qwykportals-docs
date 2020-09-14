@@ -1353,7 +1353,9 @@ paths:
                   expires_in:
                     type: integer
         '401':
-          description: Unauthorized
+          description: |-
+            Unauthorized
+            Invalid credentials
           content:
             application/json:
               schema:
@@ -1362,7 +1364,9 @@ paths:
                   error:
                     type: string
         '403':
-          description: Forbidden
+          description: |-
+            Forbidden
+            Valid credentials but not able to continue, check response body `type` and `message` for a reason.
           content:
             application/json:
               schema:
