@@ -1521,6 +1521,8 @@ components:
             country_code: SG
           transport_mode: OCEAN
           load_type: fcl
+          require_origin_charges: true
+          require_destination_charges: false
           cargo_ready: '2020-09-03T12:32:06.202Z'
           commodity:
             id: 1
@@ -1575,6 +1577,10 @@ components:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/TransportMode
         load_type:
           $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/LoadType
+        require_origin_charges:
+          type: boolean
+        require_destination_charges:
+          type: boolean
         cargo_ready:
           type: string
           format: date-time
@@ -1635,6 +1641,8 @@ components:
         - destination
         - transport_mode
         - load_type
+        - require_origin_charges
+        - require_destination_charges
         - cargo_ready
         - commodity
         - currency

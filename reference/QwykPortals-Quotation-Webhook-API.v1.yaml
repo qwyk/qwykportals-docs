@@ -369,6 +369,10 @@ paths:
                     - fcl
                     - lcl
                   description: always fcl or lcl but means ftl and ltl when transport_mode=TRUCK
+                require_origin_charges:
+                  type: boolean
+                require_destination_charges:
+                  type: boolean
                 cargo_ready:
                   type: string
                   format: date-time
@@ -526,6 +530,8 @@ paths:
                 - destination
                 - transport_mode
                 - load_type
+                - require_origin_charges
+                - require_destination_charges
                 - cargo_ready
                 - commodity
                 - currency
@@ -563,6 +569,8 @@ paths:
                     country_code: BE
                   transport_mode: OCEAN
                   load_type: fcl
+                  require_origin_charges: true
+                  require_destination_charges: false
                   cargo_ready: '2020-08-08T18:34:38+00:00'
                   commodity:
                     id: 1
@@ -635,6 +643,8 @@ paths:
                     country_code: GB
                   transport_mode: OCEAN
                   load_type: lcl
+                  require_origin_charges: true
+                  require_destination_charges: false
                   cargo_ready: '2020-08-08T18:08:01+00:00'
                   commodity:
                     id: 1
@@ -707,6 +717,8 @@ paths:
                     country_code: SG
                   transport_mode: OCEAN
                   load_type: fcl
+                  require_origin_charges: true
+                  require_destination_charges: false
                   cargo_ready: '2020-08-11T10:04:20+00:00'
                   commodity:
                     id: 1
@@ -779,6 +791,8 @@ paths:
                     country_code: US
                   transport_mode: TRUCK
                   load_type: fcl
+                  require_origin_charges: true
+                  require_destination_charges: true
                   cargo_ready: '2020-08-14T06:48:14+00:00'
                   commodity:
                     id: 1
