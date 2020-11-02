@@ -1606,6 +1606,7 @@ paths:
       tags:
         - Registration
       description: ''
+      security: []
 components:
   schemas:
     QuotationRequest:
