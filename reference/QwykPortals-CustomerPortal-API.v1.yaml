@@ -1499,6 +1499,112 @@ paths:
                 - password_confirmation
                 - reset_code
       description: ''
+  /auth/register:
+    post:
+      summary: Register for Portal
+      operationId: post-auth-register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  example: John Doe
+                  maxLength: 191
+                email:
+                  type: string
+                  minLength: 1
+                  example: johndoe@example.com
+                  format: email
+                  maxLength: 191
+                company_name:
+                  type: string
+                  minLength: 1
+                  example: My Company
+                password:
+                  type: string
+                  minLength: 12
+                  pattern: '^[a-zA-Z0-9\!\@\#\$\%\&\-\.\*\=]+$'
+                  example: rmpAmeAz8xV9X
+                  maxLength: 36
+                  format: password
+                job_title:
+                  type: string
+                  minLength: 1
+                  maxLength: 191
+                  example: Keyboard cat
+                location:
+                  type: string
+                  maxLength: 191
+                  example: Rotterdam
+                country_code:
+                  type: string
+                  pattern: '^[A-Z0-9]{2}$'
+                  minLength: 2
+                  maxLength: 2
+                  example: NL
+                phone_number:
+                  type: string
+                  maxLength: 15
+                  example: 555-555-1234
+                accept_terms:
+                  type: boolean
+                  description: Must be true
+                marketing_optin:
+                  type: boolean
+                  description: Whether the user accepts marketing emails
+                organization_id:
+                  type: number
+                  example: 1
+                  description: Your QwykPortals organization_id
+                site_id:
+                  type: number
+                  example: 1
+                  description: 'The id of the Site under which they''ll register (determines branding of emails, etc.)'
+              required:
+                - name
+                - email
+                - company_name
+                - password
+                - country_code
+                - accept_terms
+                - marketing_optin
+                - organization_id
+                - site_id
+            examples:
+              example-1:
+                value:
+                  name: John Doe
+                  email: johndoe@example.com
+                  company_name: My Company
+                  password: rmpAmeAz8xV9X
+                  job_title: Keyboard cat
+                  location: Rotterdam
+                  country_code: NL
+                  phone_number: 555-555-1234
+                  accept_terms: true
+                  marketing_optin: true
+                  organization_id: 1
+                  site_id: 1
+        description: |-
+          ### Compliance
+          In order to be GDPR complaint `accept_terms` must be passed as true and the user must have explicitly assented to having their data processed in accordance with our Privacy Policy. This means you are required to display a checkbox or other control, which by default is set to false and which's label includes text along the lines of: "I consent to having my data processed in accordance with the Privacy Policy"
+          A link to the privacy policy must be provided: https://docs.qwykportals.com/resources/legal/privacy-policy.
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '422':
+          description: Unprocessable Entity
+      tags:
+        - Authentication
 components:
   schemas:
     QuotationRequest:
