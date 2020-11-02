@@ -1594,6 +1594,10 @@ paths:
           ### Compliance
           In order to be GDPR complaint `accept_terms` must be passed as true and the user must have explicitly assented to having their data processed in accordance with our Privacy Policy. This means you are required to display a checkbox or other control, which by default is set to false and which's label includes text along the lines of: "I consent to having my data processed in accordance with the Privacy Policy"
           A link to the privacy policy must be provided: https://docs.qwykportals.com/resources/legal/privacy-policy.
+
+
+          ### country_code
+          Country codes follow ISO-3166-2, a list of which can be found at this address: https://www.iso.org/obp/ui/#search/code/
       responses:
         '202':
           description: Accepted
