@@ -1607,6 +1607,37 @@ paths:
                 type: boolean
         '422':
           description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                    example: The given data was invalid.
+                    default: The given data was invalid.
+                  errors:
+                    type: object
+                    required:
+                      - '[key]'
+                    description: A keyed object with an array of strings representing errors for each field that failed validation
+                    properties:
+                      '[key]':
+                        type: array
+                        items:
+                          type: string
+                required:
+                  - message
+                  - errors
+              examples:
+                example-1:
+                  value:
+                    message: The given data was invalid.
+                    errors:
+                      email:
+                        - The email 'johndoe@example.com' already belongs to an account.
       tags:
         - Registration
       description: ''
