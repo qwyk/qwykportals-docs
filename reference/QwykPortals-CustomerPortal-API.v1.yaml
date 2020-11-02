@@ -1597,7 +1597,7 @@ paths:
 
 
           ### country_code
-          Country codes follow ISO-3166-2, a list of which can be found at this address: https://www.iso.org/obp/ui/#search/code/
+          Country codes follow ISO-3166's Alpha-2 codes, a list of which can be found at this address: https://www.iso.org/obp/ui/#search/code/
       responses:
         '202':
           description: Accepted
