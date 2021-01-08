@@ -28,6 +28,30 @@ info:
     5|M|Charge per Cubic Meter|`max($RATE * $VOLUME_CBM, $MINIMUM)`
     6|LUMPSUM|Flat charge|`$RATE`
     7|KG|Charge per kilogram|`max($RATE * $WEIGHT_KGS, $MINIMUM)`
+    ~~8~~|~~%~~|~~Percentage on total price~~|DO NOT USE
+    9|DOCUMENT|Charge that applies per document|`max($RATE, $MINIMUM)`
+    10|CW 1:6|Chargeable Weight 1:6|`max($RATE * $WEIGHT_KGS, $RATE * $VOLUME_CBM / 0.006, $MINIMUM)`
+    11|CW 1:3|Chargable Weight (1:3)|`max($RATE * $WEIGHT_KGS, $RATE * $VOLUME_CBM / 0.003, $MINIMUM)`
+    12|20|Per 20DV|`MAX($RATE* $NUM_20, $MINIMUM)`
+    13|40|Per 40DV|`MAX($RATE* $NUM_40, $MINIMUM)`
+    14|40HC|Per 40HC|`MAX($RATE* $NUM_40HC, $MINIMUM)`
+    15|45|Per 45DV|`MAX($RATE* $NUM_45, $MINIMUM)`
+    16|PACKAGE|Charge per package|`MAX($RATE * QUANTITY, $MINIMUM)`
+
+    #### Variables
+    Var           | Entity             | Description
+    ------------- | ------------------ | ---
+    `$RATE`       | QuotationOfferLine | Base rate value of the offer line
+    `$MINIMUM`    | QuotationOfferLine | Minimum value of the offer line
+    `$QUANTITY`   | Quotation          | Sum of the quantity of all the packages on the quote
+    `$WEIGHT_KGS` | Quotation          | Sum of the weight in kgs of all the packages on the quote
+    `$VOLUME_CBM` | Quotation          | Sum of the volume in cbm of all the packages on the quote (AIR/LCL/LTL only)
+    `$NUM_20`     | Quotation          | Sum of the quantity of packages that have a 20' container selected
+    `$NUM_40`     | Quotation          | Sum of the quantity of packages that have a 40' container selected
+    `$NUM_40HC`   | Quotation          |Sum of the quantity of packages that have a 40'HC container selected
+    `$NUM_45`     | Quotation          | Sum of the quantity of packages that have a 45' container selected
+
+    It is important to use the approriate charge code, as even though you'd provide the total amount in the response, we may recalculate the price if any of the variables change, if a hub user mutates the quotation or copies it, or when we apply margin rules.
 
     If you need more charge codes, please send your request to support@qwyk.io
 
