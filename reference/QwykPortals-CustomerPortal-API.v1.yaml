@@ -76,7 +76,8 @@ paths:
                           is_preferred: 1
                         currency: EUR
                         additionals:
-                          customs_clearance: true
+                          customs_clearance_origin: false
+                          customs_clearance_destination: false
                           cargo_insurance: false
                           hazardous_cargo: false
                           liftgate_pickup: false
@@ -211,7 +212,8 @@ paths:
                       uom: null
                       id: 0
                   additionals:
-                    customs_clearance: true
+                    customs_clearance_origin: false
+                    customs_clearance_destination: false
                     cargo_insurance: false
                     hazardous_cargo: false
                     liftgate_pickup: false
@@ -311,7 +313,8 @@ paths:
                               unit_height: 100
                               uom: metric
                           additionals:
-                            customs_clearance: true
+                            customs_clearance_origin: false
+                            customs_clearance_destination: false
                             cargo_insurance: true
                             hazardous_cargo: true
                             liftgate_pickup: true
@@ -888,7 +891,8 @@ paths:
                           unit_height: 100
                           uom: metric
                       additionals:
-                        customs_clearance: true
+                        customs_clearance_origin: false
+                        customs_clearance_destination: false
                         cargo_insurance: true
                         hazardous_cargo: true
                         liftgate_pickup: true
@@ -1689,7 +1693,8 @@ components:
               uom: null
               id: 0
           additionals:
-            customs_clearance: true
+            customs_clearance_origin: false
+            customs_clearance_destination: false
             cargo_insurance: false
             hazardous_cargo: false
             liftgate_pickup: false
@@ -1744,7 +1749,9 @@ components:
         additionals:
           type: object
           properties:
-            customs_clearance:
+            customs_clearance_origin:
+              type: boolean
+            customs_clearance_destination:
               type: boolean
             cargo_insurance:
               type: boolean
@@ -2006,7 +2013,8 @@ components:
                 unit_height: 100
                 uom: metric
             additionals:
-              customs_clearance: true
+              customs_clearance_origin: true
+              customs_clearance_destination: true
               cargo_insurance: true
               hazardous_cargo: true
               liftgate_pickup: true

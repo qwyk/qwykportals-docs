@@ -520,7 +520,9 @@ paths:
                       type: boolean
                     cargo_insurance:
                       type: boolean
-                    customs_clearance:
+                    customs_clearance_origin:
+                      type: boolean
+                    customs_clearance_destination:
                       type: boolean
                     delivery_appointment_required:
                       type: boolean
@@ -626,7 +628,8 @@ paths:
                   additionals:
                     call_before_delivery: false
                     cargo_insurance: false
-                    customs_clearance: false
+                    customs_clearance_origin: false
+                    customs_clearance_destination: false
                     delivery_appointment_required: false
                     flatbed_required: false
                     hazardous_cargo: false
@@ -700,7 +703,8 @@ paths:
                   additionals:
                     call_before_delivery: false
                     cargo_insurance: false
-                    customs_clearance: false
+                    customs_clearance_origin: false
+                    customs_clearance_destination: false
                     delivery_appointment_required: false
                     flatbed_required: false
                     hazardous_cargo: false
@@ -774,7 +778,8 @@ paths:
                   additionals:
                     call_before_delivery: false
                     cargo_insurance: false
-                    customs_clearance: false
+                    customs_clearance_origin: false
+                    customs_clearance_destination: false
                     delivery_appointment_required: false
                     flatbed_required: false
                     hazardous_cargo: false
@@ -848,7 +853,8 @@ paths:
                   additionals:
                     call_before_delivery: false
                     cargo_insurance: false
-                    customs_clearance: false
+                    customs_clearance_origin: false
+                    customs_clearance_destination: false
                     delivery_appointment_required: false
                     flatbed_required: false
                     hazardous_cargo: false
