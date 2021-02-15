@@ -165,7 +165,13 @@ paths:
                         transport_mode: OCEAN
                         load_type: fcl
       operationId: 'get-api-masters-packagings-:transport_mode-:load_type'
-      parameters: []
+      parameters:
+        - schema:
+            type: boolean
+            default: 'false'
+          in: query
+          name: onlyQuoting
+          description: Whether to only return packagings that can be used when quoting (defaults `false`)
       description: ''
       security: []
     parameters:
