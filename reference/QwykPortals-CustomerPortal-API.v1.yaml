@@ -2502,83 +2502,6 @@ components:
       x-tags:
         - Models
       description: ''
-      properties:
-        id:
-          type: string
-          example: 916268e3-4f6f-42d0-8248-491b56897794
-        quotation_id:
-          type: string
-          example: 916268e3-4f6f-42d0-8248-491b56897794
-        transport_mode:
-          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/TransportMode
-        load_type:
-          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/LoadType
-        carrier:
-          oneOf:
-            - $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Carrier
-            - type: 'null'
-        carrier_name:
-          type: string
-          example: Maersk Line
-        pol:
-          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
-        pod:
-          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
-        rate_name:
-          type: string
-          example: APACWB Rates FAK
-        transit_time:
-          type: integer
-          example: 15
-        currency:
-          type: string
-          example: USD
-        total_amount:
-          type: number
-          example: 1400.5
-        breakdown:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuotationOfferLine'
-        grouped_breakdown:
-          type: array
-          items:
-            type: object
-            properties:
-              sort:
-                type: integer
-                example: 1
-              group:
-                type: string
-                enum:
-                  - pickup
-                  - origin
-                  - freight
-                  - destination
-                  - delivery
-                example: freight
-              lines:
-                type: array
-                items:
-                  $ref: '#/components/schemas/QuotationOfferLine'
-              total:
-                type: number
-                example: 450
-        valid_from:
-          type: string
-          format: date-time
-          example: '2020-08-30T23:59:59+00:00'
-        valid_until:
-          type: string
-          format: date-time
-          example: '2020-08-30T23:59:59+00:00'
-        remarks:
-          type: string
-          example: Here are some rate remarks
-        created_at:
-          type: string
-          format: date-time
-          example: '2020-08-30T23:59:59+00:00'
       x-examples:
         example-1:
           id: 916268e3-4f6f-42d0-8248-491b56897794
@@ -2695,10 +2618,92 @@ components:
                   total_amount_quotation: 890
                   remarks: Here are some charge remarks
               total: 450
+          schedules: []
           valid_from: '2020-08-30T23:59:59+00:00'
           valid_until: '2020-08-30T23:59:59+00:00'
           remarks: Here are some rate remarks
           created_at: '2020-08-30T23:59:59+00:00'
+      properties:
+        id:
+          type: string
+          example: 916268e3-4f6f-42d0-8248-491b56897794
+        quotation_id:
+          type: string
+          example: 916268e3-4f6f-42d0-8248-491b56897794
+        transport_mode:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/TransportMode
+        load_type:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/LoadType
+        carrier:
+          oneOf:
+            - $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Carrier
+            - type: 'null'
+        carrier_name:
+          type: string
+          example: Maersk Line
+        pol:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
+        pod:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/Location
+        rate_name:
+          type: string
+          example: APACWB Rates FAK
+        transit_time:
+          type: integer
+          example: 15
+        currency:
+          type: string
+          example: USD
+        total_amount:
+          type: number
+          example: 1400.5
+        breakdown:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuotationOfferLine'
+        grouped_breakdown:
+          type: array
+          items:
+            type: object
+            properties:
+              sort:
+                type: integer
+                example: 1
+              group:
+                type: string
+                enum:
+                  - pickup
+                  - origin
+                  - freight
+                  - destination
+                  - delivery
+                example: freight
+              lines:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QuotationOfferLine'
+              total:
+                type: number
+                example: 450
+        valid_from:
+          type: string
+          format: date-time
+          example: '2020-08-30T23:59:59+00:00'
+        valid_until:
+          type: string
+          format: date-time
+          example: '2020-08-30T23:59:59+00:00'
+        remarks:
+          type: string
+          example: Here are some rate remarks
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-08-30T23:59:59+00:00'
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuotationOfferSchedule'
     QuotationOfferLine:
       title: QuotationOfferLine
       type: object
@@ -2953,6 +2958,136 @@ components:
           type: string
           format: date-time
           example: '2020-08-27T08:55:25+00:00'
+    QuotationOfferSchedule:
+      description: ''
+      type: object
+      properties:
+        carrier:
+          type:
+            - object
+            - 'null'
+          required:
+            - code
+            - display_name
+          properties:
+            code:
+              type:
+                - string
+                - 'null'
+            display_name:
+              type:
+                - string
+                - 'null'
+        ocean_carrier:
+          type:
+            - string
+            - 'null'
+        vessel:
+          type:
+            - string
+            - 'null'
+        voyage:
+          type:
+            - string
+            - 'null'
+        service:
+          type:
+            - string
+            - 'null'
+        service_mode:
+          type:
+            - string
+            - 'null'
+        type:
+          type:
+            - string
+            - 'null'
+        origin:
+          type:
+            - string
+            - 'null'
+        origin_via:
+          type:
+            - string
+            - 'null'
+        destination:
+          type:
+            - string
+            - 'null'
+        closing:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        etd:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        eta:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        vessel_info:
+          type:
+            - object
+            - 'null'
+        schedule_notes:
+          type:
+            - string
+            - 'null'
+        notes:
+          type:
+            - string
+            - 'null'
+          minLength: 1
+        legs:
+          type: array
+          minItems: 0
+          maxItems: 0
+          items: {}
+      required:
+        - carrier
+        - ocean_carrier
+        - vessel
+        - voyage
+        - service
+        - service_mode
+        - type
+        - origin
+        - origin_via
+        - destination
+        - closing
+        - etd
+        - eta
+        - vessel_info
+        - schedule_notes
+        - notes
+      x-examples:
+        Example:
+          carrier:
+            code: ONE
+            display_name: ONE Line
+          ocean_carrier: ONE Line
+          vessel: KOTA ARIF
+          voyage: 0089E
+          service: BAS
+          service_mode: CY/CY
+          type: FCL
+          origin: BDCGP
+          origin_via: SGSIN
+          destination: NLRTM
+          closing: '2021-03-04T00:00:00+00:00'
+          etd: '2021-03-07T15:00:00+00:00'
+          eta: '2021-04-19T04:00:00+00:00'
+          vessel_info:
+            vessel_name: KOTA ARIF
+            imo: 9175614
+            mmsi: 563884000
+          schedule_notes: null
+          notes: 'Inland cutoff: 04 Mar 21 00:00'
+          legs: []
   securitySchemes:
     Bearer token:
       type: http
