@@ -2704,6 +2704,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/QuotationOfferSchedule'
+        is_spot_rate_schedule:
+          type: boolean
+          description: 'Whether this offer is based on a specific (set of) schedule(s). If true and `schedules` has elements, one of those must be used to book.'
     QuotationOfferLine:
       title: QuotationOfferLine
       type: object
