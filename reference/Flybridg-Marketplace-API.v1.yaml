@@ -1049,6 +1049,8 @@ components:
       properties:
         ID:
           type: string
+      x-tags:
+        - Models
       example:
         ID: a2790766|u474334
     PrivateCarrier:
@@ -1062,6 +1064,8 @@ components:
           format: int32
       example:
         ID: 1432
+      x-tags:
+        - Models
     AssessorialCharges:
       title: AssessorialCharges
       required:
@@ -1128,6 +1132,8 @@ components:
         ResidentialPickup: false
         Stackable: false
         WhiteGlove: false
+      x-tags:
+        - Models
     Dimension:
       title: Dimension
       required:
@@ -1174,6 +1180,8 @@ components:
         Width: 10
         Height: 10
         MeasureUOM: Inches
+      x-tags:
+        - Models
     companiesrequest:
       title: rest/companiesrequest
       required:
@@ -1202,6 +1210,8 @@ components:
             Email: ossama@wiztech.pk
             Password: 123456
             ConfirmPassword: 123456
+      x-tags:
+        - Models
     CompanyBase:
       title: CompanyBase
       required:
@@ -1232,6 +1242,8 @@ components:
           Email: ossama@wiztech.pk
           Password: 123456
           ConfirmPassword: 123456
+      x-tags:
+        - Models
     CompanyInformation:
       title: CompanyInformation
       required:
@@ -1282,6 +1294,8 @@ components:
         ZipCode: 20910
         PhoneNumber: 123456789
         isActive: true
+      x-tags:
+        - Models
     UserInformation:
       title: UserInformation
       required:
@@ -1312,6 +1326,8 @@ components:
         Email: ossama@wiztech.pk
         Password: 123456
         ConfirmPassword: 123456
+      x-tags:
+        - Models
     preferredcompaniesrequest:
       title: rest/preferredcompaniesrequest
       required:
@@ -1325,6 +1341,8 @@ components:
       example:
         PrivateCarriers:
           - ID: 1432
+      x-tags:
+        - Models
     completeregistrationrequest:
       title: rest/completeregistrationrequest
       required:
@@ -1336,6 +1354,8 @@ components:
           format: int32
       example:
         code: 113805
+      x-tags:
+        - Models
     winningbididrequest:
       title: rest/shipments/winningbididrequest
       required:
@@ -1352,6 +1372,8 @@ components:
       example:
         ShipmentID: 962
         BidID: 1348
+      x-tags:
+        - Models
     shipmentBidRequest:
       title: rest/shipmentBidRequest
       required:
