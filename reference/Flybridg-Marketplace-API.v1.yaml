@@ -1,0 +1,1502 @@
+openapi: 3.0.0
+info:
+  title: Flybridg Marketplace APIs
+  contact:
+    name: Support
+    email: support@flybridg.com
+  version: '1.0'
+  license:
+    name: Proprietary
+servers:
+  - url: 'https://portal.simpliship.xyz/api/rest'
+    description: Staging
+  - url: 'https://portal.simpliship.com/api/rest'
+    description: Production
+paths:
+  /containertypes:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Container Types
+      operationId: rest/containertypes
+      parameters:
+        - name: mot
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: ocean
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /shipments:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Shipments
+      operationId: rest/shipments
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Post a Shipment
+      operationId: Postrest/shipments
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: UiseKspsiAlIppp22r0e0mmmhSspy2ppAler2p
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/shipmentsrequest'
+            example:
+              ShipmentBase:
+                MOT: Ocean
+                Destination:
+                  Locode: USLAX
+                Origin:
+                  Locode: CNSHG
+                CarrierRated: ''
+                AdditionalInformation: This is a shipment of stuff.
+                Commodity:
+                  ID: 2
+                ShipmentReadyDateParts: '2020-07-13'
+                EndDateTimeOfBidding: '2020-07-13'
+                RequestedDeliveryDateParts: '2020-07-14'
+                PostingType: Private
+                PrivateCarriers:
+                  - ID: 1
+                ServiceType: Port to Port
+                StartingDoorZipcode: 200000
+                EndingDoorZipcode: 90210
+                AssessorialCharges:
+                  CallBeforeDelivery: false
+                  CargoInsuranceNeeded: false
+                  DestinationCustomsClearanceNeeded: true
+                  OriginCustomsClearanceNeeded: true
+                  DeliveryAppointmentRequired: false
+                  FlatbedRequired: false
+                  Hazardous: false
+                  InsideLimitedAccessDelivery: false
+                  InsideLimitedAccessPickup: false
+                  LiftgateDelivery: false
+                  LiftgatePickup: false
+                  Refrigerated: false
+                  ResidentialDelivery: false
+                  ResidentialPickup: false
+                  Stackable: false
+                  WhiteGlove: false
+                Currency: USD
+                LoadType: LCL
+                Dimensions:
+                  - Quantity: 1
+                    QuantityUOM: Cartons
+                    UnitWeight: 100
+                    UnitWeightUOM: Kg
+                    Length: 10
+                    Width: 10
+                    Height: 10
+                    MeasureUOM: Inches
+                RequestInstant: true
+                RequestSpot: true
+                OriginServicesRequired: false
+                DestinationServicesRequired: false
+                skipemail: 'N'
+                skipAwardEmail: 'N'
+                skipAwardEmailCarrier: 'N'
+        required: true
+      responses:
+        '200': {}
+      deprecated: false
+  /preferredcompanies:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List of Preferred Carriers
+      operationId: rest/getpreferredcompanies
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Post Preferred Carriers
+      operationId: rest/preferredcompanies
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/preferredcompaniesrequest'
+            example:
+              PrivateCarriers:
+                - ID: 1
+        required: true
+      responses:
+        '200': {}
+      deprecated: false
+  /shipments/148:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get Shipment Details
+      operationId: GetShipmentDetails
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /bids:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List All Bids
+      operationId: rest/bids
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: peeImsprir2mipspipspriUmpisIKpp2lKiUir
+      responses:
+        '200': {}
+      deprecated: false
+  /shipments/148/bids:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Bids for a Shipment
+      operationId: rest/shipments/id/bids
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /bids/140:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get Bid Details
+      operationId: rest/bids/id
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /cities:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Cities
+      operationId: rest/cities
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: filtercity
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Los Angeles
+        - name: filtercountry
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: United States
+      responses:
+        '200': {}
+      deprecated: false
+  /commodities:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Commodities
+      operationId: rest/commodities
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: true
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: filter
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Hardware
+      responses:
+        '200': {}
+      deprecated: false
+  /assessorialcharges:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Assessorial Charges
+      operationId: rest/assessorialcharges
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: true
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: mot
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Ocean
+      responses:
+        '200': {}
+      deprecated: false
+  /fees:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Fees
+      operationId: rest/fees
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: mot
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Ocean
+      responses:
+        '200': {}
+      deprecated: false
+  /handlingunits:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Handling Units
+      operationId: rest/handlingunits
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: mot
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Ocean
+      responses:
+        '200': {}
+      deprecated: false
+  /ports:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Ports
+      operationId: rest/ports
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: filtercountry
+          in: header
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: United States
+      responses:
+        '200': {}
+      deprecated: false
+  /companies:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get Companies
+      operationId: Getrest/companies
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: includerelated
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 'Y'
+      responses:
+        '200': {}
+      deprecated: false
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Create a Company
+      operationId: rest/companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/companiesrequest'
+            example:
+              companyBase:
+                companyInformation:
+                  CompanyName: Japanese Shipper
+                  CompanyType: shipper
+                  SizeCompany: 1-50
+                  KnownShipper: false
+                  Street: ABC Street
+                  State: California
+                  City: Los Angeles
+                  ZipCode: '20910'
+                  PhoneNumber: '123456789'
+                  isActive: true
+                userInformation:
+                  FirstName: Syed
+                  LastName: Osama
+                  Username: osama.japenese
+                  Email: osama.japenes@mail.com
+                  Password: '123456'
+                  ConfirmPassword: '123456'
+        required: true
+      responses:
+        '200': {}
+      deprecated: false
+  /completeregistration:
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Complete Company Registration
+      operationId: rest/completeregistration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/completeregistrationrequest'
+            example:
+              code: 772360
+        required: true
+      responses:
+        '200': {}
+      deprecated: false
+  /shipments/winningbid:
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Select Winning Bid
+      operationId: rest/shipments/winningbidid
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/winningbididrequest'
+            example:
+              ShipmentID: 24
+              BidID: 24
+        required: true
+      responses:
+        '200': {}
+      deprecated: false
+  /shipments/1009/bids:
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Post a Bid
+      operationId: rest/shipmentBid
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: peeImsprir2mipspipspriUmpisIKpp2lKiUir
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/shipmentBidRequest'
+            example:
+              BidBase:
+                Destination:
+                  Locode: USLAX
+                Origin:
+                  Locode: CNSGH
+                AllInCost: 100
+                AdditionalRateDetails: ''
+                BidType: Spot Bid
+                AllInCurrency: USD
+                Fees:
+                  - Fee: PickupCharge
+                    Value: 8
+                    Currency: USD
+                  - Fee: Other
+                    Value: 4
+                    Currency: USD
+        required: true
+      responses:
+        '200': {}
+      deprecated: false
+  /cityports:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List City Ports
+      operationId: rest/cityports
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: filtercountry
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Andorra
+        - name: portname
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Andor
+      responses:
+        '200': {}
+      deprecated: false
+  /instantRates:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Intant Rates
+      operationId: rest/instantRates
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+        - name: ServiceType
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: drm
+        - name: LoadType
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: air
+      responses:
+        '200': {}
+      deprecated: false
+  /servicetypes:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Service Types
+      operationId: rest/servicetypes
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /loadtypes:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Load Types
+      operationId: rest/loadtypes
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /user:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get Current User
+      operationId: rest/user
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /company:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get Current Company
+      operationId: rest/company
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /companies/2:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get Company Details
+      operationId: 'rest/companies/:id'
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /users:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get Users
+      operationId: rest/users
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Create a User
+      operationId: Postrest/users
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/restusersrequest'
+            example:
+              test: 'Y'
+              userBase:
+                Username: james.funk
+                Password: '123456'
+                Email: james@mail.com
+                FirstName: James
+                LastName: Funk
+        required: true
+      responses:
+        '200': {}
+      deprecated: false
+  /carriers:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: List Carriers
+      operationId: rest/carriers
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      responses:
+        '200': {}
+      deprecated: false
+  /users/furqan.shamsi:
+    get:
+      tags:
+        - Simpli Ship APIs
+      summary: Get User Details
+      operationId: 'rest/users/:username'
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: peeImsprir2mipspipspriUmpisIKpp2lKiUir
+      responses:
+        '200': {}
+      deprecated: false
+  /users/furqan.shamsi/apikey:
+    post:
+      tags:
+        - Simpli Ship APIs
+      summary: Create User API Key
+      operationId: 'rest/users/:username/apikey'
+      parameters:
+        - name: apikey
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: peeImsprir2mipspipspriUmpisIKpp2lKiUir
+      responses:
+        '200': {}
+      deprecated: false
+components:
+  schemas:
+    shipmentsrequest:
+      title: rest/shipmentsrequest
+      required:
+        - ShipmentBase
+      type: object
+      properties:
+        ShipmentBase:
+          $ref: '#/components/schemas/ShipmentBase'
+      example:
+        ShipmentBase:
+          ShipmentNo: 0
+          MOT: Ocean
+          Destination:
+            Locode: USLAX
+          Origin:
+            Locode: CNSHG
+          CarrierRated: ''
+          AdditionalInformation: This is a shipment of stuff.
+          Commodity:
+            ID: 1
+          ShipmentReadyDateParts: '2020-07-13T00:00:00.000+0000'
+          EndDateTimeOfBidding: '2020-07-13T00:00:00.000+0000'
+          RequestedDeliveryDateParts: '2020-07-14T00:00:00.000+0000'
+          POReferenceNumber: ref# 22
+          PostingType: Public
+          PrivateCarriers:
+            - ID: 1432
+          ServiceType: Port to Port
+          StartingDoorZipcode: 200000
+          EndingDoorZipcode: 90210
+          AssessorialCharges:
+            CallBeforeDelivery: false
+            CargoInsuranceNeeded: false
+            DestinationCustomsClearanceNeeded: 'true,'
+            OriginCustomsClearanceNeeded: 'true,'
+            DeliveryAppointmentRequired: false
+            FlatbedRequired: false
+            Hazardous: false
+            InsideLimitedAccessDelivery: false
+            InsideLimitedAccessPickup: false
+            LiftgateDelivery: false
+            LiftgatePickup: false
+            Refrigerated: false
+            ResidentialDelivery: false
+            ResidentialPickup: false
+            Stackable: false
+            WhiteGlove: false
+          Currency: USD
+          LoadType: LCL
+          Dimensions:
+            - Quantity: 1
+              QuantityUOM: Cartons
+              UnitWeight: 100
+              UnitWeightUOM: Kg
+              Length: 10
+              Width: 10
+              Height: 10
+              MeasureUOM: Inches
+          RequestInstant: true
+          RequestSpot: true
+    ShipmentBase:
+      title: ShipmentBase
+      required:
+        - AdditionalInformation
+        - AssessorialCharges
+        - CarrierRated
+        - Commodity
+        - Currency
+        - Destination
+        - Dimensions
+        - EndDateTimeOfBidding
+        - EndingDoorZipcode
+        - LoadType
+        - MOT
+        - Origin
+        - POReferenceNumber
+        - PostingType
+        - PrivateCarriers
+        - RequestInstant
+        - RequestSpot
+        - RequestedDeliveryDateParts
+        - ServiceType
+        - ShipmentNo
+        - ShipmentReadyDateParts
+        - StartingDoorZipcode
+        - TotalMerchandiseValue
+      type: object
+      properties:
+        ShipmentNo:
+          type: integer
+          format: int32
+        MOT:
+          type: string
+        Destination:
+          $ref: '#/components/schemas/Destination'
+        Origin:
+          $ref: '#/components/schemas/Origin'
+        CarrierRated:
+          type: string
+        AdditionalInformation:
+          type: string
+        Commodity:
+          $ref: '#/components/schemas/Commodity'
+        ShipmentReadyDateParts:
+          type: string
+        EndDateTimeOfBidding:
+          type: string
+        RequestedDeliveryDateParts:
+          type: string
+        POReferenceNumber:
+          type: string
+        PostingType:
+          type: string
+        PrivateCarriers:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateCarrier'
+        ServiceType:
+          type: string
+        TotalMerchandiseValue:
+          type: string
+          nullable: true
+        StartingDoorZipcode:
+          type: string
+        EndingDoorZipcode:
+          type: string
+        AssessorialCharges:
+          $ref: '#/components/schemas/AssessorialCharges'
+        Currency:
+          type: string
+        LoadType:
+          type: string
+        Dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dimension'
+        RequestInstant:
+          type: boolean
+        RequestSpot:
+          type: boolean
+      example:
+        ShipmentNo: 0
+        MOT: Ocean
+        Destination:
+          Locode: USLAX
+        Origin:
+          Locode: CNSHG
+        CarrierRated: ''
+        AdditionalInformation: This is a shipment of stuff.
+        Commodity:
+          ID: a2790766|u474334
+        ShipmentReadyDateParts: '2020-07-13T00:00:00.000+0000'
+        EndDateTimeOfBidding: '2020-07-13T00:00:00.000+0000'
+        RequestedDeliveryDateParts: '2020-07-14T00:00:00.000+0000'
+        POReferenceNumber: ref# 22
+        PostingType: Public
+        PrivateCarriers:
+          - ID: 1432
+        ServiceType: Port to Port
+        StartingDoorZipcode: 200000
+        EndingDoorZipcode: 90210
+        AssessorialCharges:
+          CallBeforeDelivery: false
+          CargoInsuranceNeeded: false
+          CustomsClearanceNeeded: true
+          DeliveryAppointmentRequired: false
+          FlatbedRequired: false
+          Hazardous: false
+          InsideLimitedAccessDelivery: false
+          InsideLimitedAccessPickup: false
+          LiftgateDelivery: false
+          LiftgatePickup: false
+          Refrigerated: false
+          ResidentialDelivery: false
+          ResidentialPickup: false
+          Stackable: false
+          WhiteGlove: false
+        Currency: USD
+        LoadType: LCL
+        Dimensions:
+          - Quantity: 1
+            QuantityUOM: Cartons
+            UnitWeight: 100
+            UnitWeightUOM: Kg
+            Length: 10
+            Width: 10
+            Height: 10
+            MeasureUOM: Inches
+        RequestInstant: true
+        RequestSpot: true
+    Destination:
+      title: Destination
+      required:
+        - Locode
+      type: object
+      properties:
+        Locode:
+          type: string
+      example:
+        Locode: USLAX
+    Origin:
+      title: Origin
+      required:
+        - Locode
+      type: object
+      properties:
+        Locode:
+          type: string
+      example:
+        Locode: CNSHG
+    Commodity:
+      title: Commodity
+      required:
+        - ID
+      type: object
+      properties:
+        ID:
+          type: string
+      example:
+        ID: a2790766|u474334
+    PrivateCarrier:
+      title: PrivateCarrier
+      required:
+        - ID
+      type: object
+      properties:
+        ID:
+          type: integer
+          format: int32
+      example:
+        ID: 1432
+    AssessorialCharges:
+      title: AssessorialCharges
+      required:
+        - CallBeforeDelivery
+        - CargoInsuranceNeeded
+        - CustomsClearanceNeeded
+        - DeliveryAppointmentRequired
+        - FlatbedRequired
+        - Hazardous
+        - InsideLimitedAccessDelivery
+        - InsideLimitedAccessPickup
+        - LiftgateDelivery
+        - LiftgatePickup
+        - Refrigerated
+        - ResidentialDelivery
+        - ResidentialPickup
+        - Stackable
+        - WhiteGlove
+      type: object
+      properties:
+        CallBeforeDelivery:
+          type: boolean
+        CargoInsuranceNeeded:
+          type: boolean
+        CustomsClearanceNeeded:
+          type: boolean
+        DeliveryAppointmentRequired:
+          type: boolean
+        FlatbedRequired:
+          type: boolean
+        Hazardous:
+          type: boolean
+        InsideLimitedAccessDelivery:
+          type: boolean
+        InsideLimitedAccessPickup:
+          type: boolean
+        LiftgateDelivery:
+          type: boolean
+        LiftgatePickup:
+          type: boolean
+        Refrigerated:
+          type: boolean
+        ResidentialDelivery:
+          type: boolean
+        ResidentialPickup:
+          type: boolean
+        Stackable:
+          type: boolean
+        WhiteGlove:
+          type: boolean
+      example:
+        CallBeforeDelivery: false
+        CargoInsuranceNeeded: false
+        CustomsClearanceNeeded: true
+        DeliveryAppointmentRequired: false
+        FlatbedRequired: false
+        Hazardous: false
+        InsideLimitedAccessDelivery: false
+        InsideLimitedAccessPickup: false
+        LiftgateDelivery: false
+        LiftgatePickup: false
+        Refrigerated: false
+        ResidentialDelivery: false
+        ResidentialPickup: false
+        Stackable: false
+        WhiteGlove: false
+    Dimension:
+      title: Dimension
+      required:
+        - FreightClass
+        - Height
+        - Length
+        - MeasureUOM
+        - Quantity
+        - QuantityUOM
+        - UnitWeight
+        - UnitWeightUOM
+        - Width
+      type: object
+      properties:
+        Quantity:
+          type: number
+        QuantityUOM:
+          type: string
+        UnitWeight:
+          type: integer
+          format: int32
+        UnitWeightUOM:
+          type: string
+        Length:
+          type: integer
+          format: int32
+        Width:
+          type: integer
+          format: int32
+        Height:
+          type: integer
+          format: int32
+        MeasureUOM:
+          type: string
+        FreightClass:
+          type: string
+          nullable: true
+      example:
+        Quantity: 1
+        QuantityUOM: Cartons
+        UnitWeight: 100
+        UnitWeightUOM: Kg
+        Length: 10
+        Width: 10
+        Height: 10
+        MeasureUOM: Inches
+    companiesrequest:
+      title: rest/companiesrequest
+      required:
+        - companyBase
+      type: object
+      properties:
+        companyBase:
+          $ref: '#/components/schemas/CompanyBase'
+      example:
+        companyBase:
+          companyInformation:
+            CompanyName: Japanese Shipper
+            CompanyType: shipper
+            SizeCompany: 1-50
+            KnownShipper: false
+            Street: ABC Street
+            State: California
+            City: Los Angeles
+            ZipCode: 20910
+            PhoneNumber: 123456789
+            isActive: true
+          userInformation:
+            FirstName: Syed
+            LastName: Osama
+            Username: japenese
+            Email: ossama@wiztech.pk
+            Password: 123456
+            ConfirmPassword: 123456
+    CompanyBase:
+      title: CompanyBase
+      required:
+        - companyInformation
+        - userInformation
+      type: object
+      properties:
+        companyInformation:
+          $ref: '#/components/schemas/CompanyInformation'
+        userInformation:
+          $ref: '#/components/schemas/UserInformation'
+      example:
+        companyInformation:
+          CompanyName: Japanese Shipper
+          CompanyType: shipper
+          SizeCompany: 1-50
+          KnownShipper: false
+          Street: ABC Street
+          State: California
+          City: Los Angeles
+          ZipCode: 20910
+          PhoneNumber: 123456789
+          isActive: true
+        userInformation:
+          FirstName: Syed
+          LastName: Osama
+          Username: japenese
+          Email: ossama@wiztech.pk
+          Password: 123456
+          ConfirmPassword: 123456
+    CompanyInformation:
+      title: CompanyInformation
+      required:
+        - City
+        - CompanyName
+        - CompanyType
+        - KnownShipper
+        - PhoneNumber
+        - SizeCompany
+        - State
+        - Street
+        - Street2
+        - ZipCode
+        - isActive
+      type: object
+      properties:
+        CompanyName:
+          type: string
+        CompanyType:
+          type: string
+        SizeCompany:
+          type: string
+        KnownShipper:
+          type: boolean
+        Street:
+          type: string
+        Street2:
+          type: string
+          nullable: true
+        State:
+          type: string
+        City:
+          type: string
+        ZipCode:
+          type: string
+        PhoneNumber:
+          type: string
+        isActive:
+          type: boolean
+      example:
+        CompanyName: Japanese Shipper
+        CompanyType: shipper
+        SizeCompany: 1-50
+        KnownShipper: false
+        Street: ABC Street
+        State: California
+        City: Los Angeles
+        ZipCode: 20910
+        PhoneNumber: 123456789
+        isActive: true
+    UserInformation:
+      title: UserInformation
+      required:
+        - ConfirmPassword
+        - Email
+        - FirstName
+        - LastName
+        - Password
+        - Username
+      type: object
+      properties:
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        Username:
+          type: string
+        Email:
+          type: string
+        Password:
+          type: string
+        ConfirmPassword:
+          type: string
+      example:
+        FirstName: Syed
+        LastName: Osama
+        Username: japenese
+        Email: ossama@wiztech.pk
+        Password: 123456
+        ConfirmPassword: 123456
+    preferredcompaniesrequest:
+      title: rest/preferredcompaniesrequest
+      required:
+        - PrivateCarriers
+      type: object
+      properties:
+        PrivateCarriers:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateCarrier'
+      example:
+        PrivateCarriers:
+          - ID: 1432
+    completeregistrationrequest:
+      title: rest/completeregistrationrequest
+      required:
+        - code
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+      example:
+        code: 113805
+    winningbididrequest:
+      title: rest/shipments/winningbididrequest
+      required:
+        - BidID
+        - ShipmentID
+      type: object
+      properties:
+        ShipmentID:
+          type: integer
+          format: int32
+        BidID:
+          type: integer
+          format: int32
+      example:
+        ShipmentID: 962
+        BidID: 1348
+    shipmentBidRequest:
+      title: rest/shipmentBidRequest
+      required:
+        - BidBase
+      type: object
+      properties:
+        BidBase:
+          $ref: '#/components/schemas/BidBase'
+      example:
+        BidBase:
+          Destination:
+            Locode: USLAX
+          Origin:
+            Locode: CNSGH
+          AllInCost: 0
+          AdditionalRateDetails: ''
+          AgreeToShipperTerms: false
+          BidType: Spot Bid
+          EstimatedArrival: '"2020-06-24T13:08:24.361Z"'
+          Fees:
+            - Fee: PickupCharge
+              Currency: RUB
+              FX: 1000
+            - Fee: Other
+              Value: 4
+    BidBase:
+      title: BidBase
+      required:
+        - AdditionalRateDetails
+        - AgreeToShipperTerms
+        - AllInCost
+        - AllInCostFX
+        - AllInCurrency
+        - BidType
+        - Destination
+        - EstimatedArrival
+        - Fees
+        - Origin
+      type: object
+      properties:
+        Destination:
+          $ref: '#/components/schemas/Destination'
+        Origin:
+          $ref: '#/components/schemas/Origin'
+        AllInCost:
+          type: integer
+          format: int32
+        AdditionalRateDetails:
+          type: string
+        AgreeToShipperTerms:
+          type: boolean
+        BidType:
+          type: string
+        EstimatedArrival:
+          type: string
+        AllInCurrency:
+          type: string
+          nullable: true
+        AllInCostFX:
+          type: string
+          nullable: true
+        Fees:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fee'
+      example:
+        Destination:
+          Locode: USLAX
+        Origin:
+          Locode: CNSGH
+        AllInCost: 0
+        AdditionalRateDetails: ''
+        AgreeToShipperTerms: false
+        BidType: Spot Bid
+        EstimatedArrival: '"2020-06-24T13:08:24.361Z"'
+        Fees:
+          - Fee: PickupCharge
+            Currency: RUB
+            FX: 1000
+          - Fee: Other
+            Value: 4
+    Fee:
+      title: Fee
+      required:
+        - Currency
+        - FX
+        - Fee
+        - Value
+      type: object
+      properties:
+        Fee:
+          type: string
+        Value:
+          type: string
+          nullable: true
+        Currency:
+          type: string
+          nullable: true
+        FX:
+          type: number
+          nullable: true
+      example:
+        Fee: PickupCharge
+        Currency: RUB
+        FX: 1000
+    restusersrequest:
+      title: rest/usersrequest
+      required:
+        - test
+        - userBase
+      type: object
+      properties:
+        test:
+          type: string
+        userBase:
+          $ref: '#/components/schemas/UserBase'
+      example:
+        test: 'N'
+        userBase:
+          CompanyID: 1445
+          Username: daddy-gogo
+          Password: 123456
+          Email: ossama@wiztech.pk
+          FirstName: Daddy
+          LastName: Go
+    UserBase:
+      title: UserBase
+      required:
+        - CompanyID
+        - Email
+        - FirstName
+        - LastName
+        - Password
+        - Username
+      type: object
+      properties:
+        CompanyID:
+          type: integer
+          format: int32
+        Username:
+          type: string
+        Password:
+          type: string
+        Email:
+          type: string
+        FirstName:
+          type: string
+        LastName:
+          type: string
+      example:
+        CompanyID: 1445
+        Username: daddy-gogo
+        Password: 123456
+        Email: ossama@wiztech.pk
+        FirstName: Daddy
+        LastName: Go
