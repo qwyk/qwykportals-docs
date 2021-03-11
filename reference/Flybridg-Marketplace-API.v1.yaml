@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Flybridg Marketplace APIs
+  title: Flybridg Marketplace and RMS APIs
   contact:
-    name: Support
+    name: Flybridg Support
     email: support@flybridg.com
   version: '1.0'
   license:
