@@ -233,7 +233,7 @@ paths:
       responses:
         '200': {}
       deprecated: false
-  /bids/140:
+  '/bids/{id}':
     get:
       tags:
         - Simpli Ship APIs
@@ -251,6 +251,7 @@ paths:
       responses:
         '200': {}
       deprecated: false
+    parameters: []
   /cities:
     get:
       tags:
@@ -1500,3 +1501,8 @@ components:
         Email: ossama@wiztech.pk
         FirstName: Daddy
         LastName: Go
+  securitySchemes:
+    apikey:
+      name: API Key
+      type: apiKey
+      in: header
