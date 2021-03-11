@@ -1399,6 +1399,8 @@ components:
               FX: 1000
             - Fee: Other
               Value: 4
+      x-tags:
+        - Models
     BidBase:
       title: BidBase
       required:
@@ -1455,6 +1457,8 @@ components:
             FX: 1000
           - Fee: Other
             Value: 4
+      x-tags:
+        - Models
     Fee:
       title: Fee
       required:
@@ -1479,6 +1483,8 @@ components:
         Fee: PickupCharge
         Currency: RUB
         FX: 1000
+      x-tags:
+        - Models
     restusersrequest:
       title: rest/usersrequest
       required:
@@ -1499,6 +1505,8 @@ components:
           Email: ossama@wiztech.pk
           FirstName: Daddy
           LastName: Go
+      x-tags:
+        - Models
     UserBase:
       title: UserBase
       required:
@@ -1530,6 +1538,8 @@ components:
         Email: ossama@wiztech.pk
         FirstName: Daddy
         LastName: Go
+      x-tags:
+        - Models
   securitySchemes:
     API Key:
       name: apikey
