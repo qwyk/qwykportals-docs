@@ -7,6 +7,7 @@ info:
   version: '1.0'
   license:
     name: Proprietary
+  description: ''
 servers:
   - url: 'https://portal.simpliship.xyz/api/rest'
     description: Staging
@@ -179,24 +180,22 @@ paths:
       responses:
         '200': {}
       deprecated: false
-  /shipments/148:
+  '/shipments/{shipmentId}':
     get:
       tags:
         - Simpli Ship APIs
       summary: Get Shipment Details
       operationId: GetShipmentDetails
-      parameters:
-        - name: apikey
-          in: header
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      parameters: []
       responses:
         '200': {}
-      deprecated: false
+      security: []
+    parameters:
+      - schema:
+          type: string
+        name: shipmentId
+        in: path
+        required: true
   /bids:
     get:
       tags:
@@ -215,24 +214,26 @@ paths:
       responses:
         '200': {}
       deprecated: false
-  /shipments/148/bids:
+  '/shipments/{shipmentId}/bids':
     get:
       tags:
         - Simpli Ship APIs
       summary: List Bids for a Shipment
       operationId: rest/shipments/id/bids
-      parameters:
-        - name: apikey
-          in: header
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
-            example: SsmphmimUyA0esie2sssehepripriis0lIhpsl
+      parameters: []
       responses:
         '200': {}
       deprecated: false
+      security: []
+      description: Retrieve a list of available bids for a specific shipment.
+    parameters:
+      - schema:
+          type: number
+          example: 1
+        name: shipmentId
+        in: path
+        required: true
+        description: The ID of the shipment to return bids for.
   '/bids/{id}':
     get:
       tags:
@@ -338,6 +339,7 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      description: ''
   /fees:
     get:
       tags:
@@ -1502,7 +1504,10 @@ components:
         FirstName: Daddy
         LastName: Go
   securitySchemes:
-    apikey:
-      name: API Key
+    API Key:
+      name: apikey
       type: apiKey
       in: header
+      description: ''
+security:
+  - API Key: []
