@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Simpliship APIs
+  title: Simpliship API
   contact:
     name: Simpliship Support
     email: support@Simpliship.com
