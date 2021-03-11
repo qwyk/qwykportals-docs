@@ -7,7 +7,10 @@ info:
   version: '1.0'
   license:
     name: Proprietary
-  description: ''
+  description: |-
+    Your API key can be (re)generated from your user account in the Portal. 
+
+    Don't have an account yet? Sign up now or contact sales@flybridg.com for more information.
 servers:
   - url: 'https://portal.simpliship.xyz/api/rest'
     description: Staging
