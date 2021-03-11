@@ -1,16 +1,16 @@
 openapi: 3.0.0
 info:
-  title: FlybridgLive APIs
+  title: Simpliship APIs
   contact:
-    name: Flybridg Support
-    email: support@flybridg.com
+    name: Simpliship Support
+    email: support@Simpliship.com
   version: '1.0'
   license:
     name: Proprietary
   description: |-
     Your API key can be (re)generated from your user account in the Portal. 
 
-    Don't have an account yet? Sign up now or contact sales@flybridg.com for more information.
+    Don't have an account yet? Sign up now or contact sales@Simpliship.com for more information.
 servers:
   - url: 'https://portal.simpliship.xyz/api/rest'
     description: Staging
@@ -45,8 +45,6 @@ paths:
         - Master Data
   /shipments:
     get:
-      tags:
-        - Simpli Ship APIs
       summary: List Shipments
       operationId: rest/shipments
       parameters:
@@ -61,6 +59,8 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      tags:
+        - Shipments
     post:
       tags:
         - Simpli Ship APIs
@@ -185,14 +185,14 @@ paths:
       deprecated: false
   '/shipments/{shipmentId}':
     get:
-      tags:
-        - Simpli Ship APIs
       summary: Get Shipment Details
       operationId: GetShipmentDetails
       parameters: []
       responses:
         '200': {}
       security: []
+      tags:
+        - Shipments
     parameters:
       - schema:
           type: string
@@ -201,8 +201,6 @@ paths:
         required: true
   /bids:
     get:
-      tags:
-        - Simpli Ship APIs
       summary: List All Bids
       operationId: rest/bids
       parameters:
@@ -217,10 +215,10 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      tags:
+        - Shipments
   '/shipments/{shipmentId}/bids':
     get:
-      tags:
-        - Simpli Ship APIs
       summary: List Bids for a Shipment
       operationId: rest/shipments/id/bids
       parameters: []
@@ -229,6 +227,8 @@ paths:
       deprecated: false
       security: []
       description: Retrieve a list of available bids for a specific shipment.
+      tags:
+        - Shipments
     parameters:
       - schema:
           type: number
@@ -239,8 +239,6 @@ paths:
         description: The ID of the shipment to return bids for.
   '/bids/{id}':
     get:
-      tags:
-        - Simpli Ship APIs
       summary: Get Bid Details
       operationId: rest/bids/id
       parameters:
@@ -255,6 +253,8 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      tags:
+        - Shipments
     parameters: []
   /cities:
     get:
@@ -500,8 +500,6 @@ paths:
       deprecated: false
   /shipments/winningbid:
     post:
-      tags:
-        - Simpli Ship APIs
       summary: Select Winning Bid
       operationId: rest/shipments/winningbidid
       parameters:
@@ -525,10 +523,10 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      tags:
+        - Shipments
   /shipments/1009/bids:
     post:
-      tags:
-        - Simpli Ship APIs
       summary: Post a Bid
       operationId: rest/shipmentBid
       parameters:
@@ -566,10 +564,10 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      tags:
+        - Shipments
   /cityports:
     get:
-      tags:
-        - Simpli Ship APIs
       summary: List City Ports
       operationId: rest/cityports
       parameters:
@@ -600,10 +598,10 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      tags:
+        - Master Data
   /instantRates:
     get:
-      tags:
-        - Simpli Ship APIs
       summary: List Intant Rates
       operationId: rest/instantRates
       parameters:
@@ -634,6 +632,8 @@ paths:
       responses:
         '200': {}
       deprecated: false
+      tags:
+        - Rates
   /servicetypes:
     get:
       summary: List Service Types
