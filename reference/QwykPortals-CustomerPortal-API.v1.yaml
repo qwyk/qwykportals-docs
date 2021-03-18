@@ -1895,6 +1895,7 @@ components:
           uom: metric
       x-tags:
         - Models
+      description: ''
       properties:
         id:
           type: integer
@@ -1923,21 +1924,21 @@ components:
           type:
             - number
             - 'null'
-          description: Required when load_type=lcl
+          description: 'Required when load_type=lcl, in cm or in.'
           minimum: 0.001
           example: 120
         unit_length:
           type:
             - number
             - 'null'
-          description: Required when load_type=lcl
+          description: 'Required when load_type=lcl, in cm or in.'
           minimum: 0.001
           example: 80
         unit_height:
           type:
             - number
             - 'null'
-          description: Required when load_type=lcl
+          description: 'Required when load_type=lcl, in cm or in.'
           minimum: 0.001
           example: 100
         uom:
@@ -1946,7 +1947,6 @@ components:
         - quantity
         - packaging
         - uom
-      description: ''
     Quotation:
       title: Quotation
       type: object
