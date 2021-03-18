@@ -1908,7 +1908,7 @@ components:
           type:
             - number
             - 'null'
-          description: Required when load_type=lcl
+          description: 'Required when load_type=lcl, in kgs or lbs'
           default: 0
           minimum: 0.01
           example: 300
@@ -1916,7 +1916,7 @@ components:
           type:
             - number
             - 'null'
-          description: Required when load_type=lcl
+          description: 'Required when load_type=lcl, in cbm or cft'
           minimum: 0.001
           example: 1.69
         unit_width:
@@ -1946,6 +1946,7 @@ components:
         - quantity
         - packaging
         - uom
+      description: ''
     Quotation:
       title: Quotation
       type: object
