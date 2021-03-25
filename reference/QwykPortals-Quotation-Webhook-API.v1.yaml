@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Quotation Webhook API
-  version: '1.0'
+  version: '3.14'
   description: |
     This API describes a self-implemented endpoint which QwykPortals will call whenever a quotation is created in your Portal. It expects an array of offers in return which will then be attached to the quotation and displayed to the end user.
 
