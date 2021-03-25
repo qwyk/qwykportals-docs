@@ -195,152 +195,192 @@ paths:
                   version: '1.6'
                   shipments:
                     - source_account_id: 1
-                      source_system_uid: 91402ea5-bfef-44a9-bb3e-b66419a7dd61
-                      transmission_uid: 5f4644354be71146d9448526
-                      sent_date: '2020-08-26T11:15:01+00:00'
-                      booking_submitted_actual: '2020-08-26T11:15:01+00:00'
+                      source_system_uid: 9308bf1e41ff4f5898b856465320fa93
+                      transmission_uid: 605c3dbbe176b737cc608cda
+                      sent_date: '2021-03-25T07:37:31+00:00'
+                      booking_submitted_actual: '2021-03-25T07:37:31+00:00'
                       created_by:
                         email: martyn@qwyk.io
                         first_name: Martyn Verhaegen
                         last_name: null
-                        username: ea93fe35-2dc6-4751-a7db-a84a998dcc48
-                      created_on: '2020-08-26T11:15:01+00:00'
+                        username: '1'
+                      created_on: '2021-03-25T07:37:30+00:00'
+                      forwarder_controlling_company_code: QWYK
+                      forwarder_controlling_branch_code: RTM
                       agent_reference: null
-                      shipper_reference: Shipper Ref
-                      forwarder_reference: Forwarder Ref
+                      shipper_reference: null
+                      consignee_reference: null
+                      forwarder_reference: null
                       house_bill: null
                       master_bill: null
                       lading_port:
-                        unlocode: USCHI
-                        description: 'Chicago, IL, US'
+                        unlocode: NLRTM
+                        description: 'Rotterdam, ZH, NL'
                       arrival_port:
-                        unlocode: GBLON
-                        description: 'London, LND, GB'
+                        unlocode: SGSIN
+                        description: 'Singapore, SG'
                       final_destination_port:
-                        unlocode: GBLON
-                        description: 'London, LND, GB'
-                      ship_from:
-                        name: null
-                        address_1: null
-                        address_2: null
-                        address_type: null
-                        postal_code: null
-                        city: null
-                        state: null
-                        state_name: null
-                        country: null
-                        country_name: null
-                        phone_number: null
-                        unlocode: null
-                        source_party_id: 544
-                        target_party_id: null
+                        unlocode: SGSIN
+                        description: 'Singapore, SG'
+                      ship_from: null
                       shipper:
-                        name: Qwyk B.V.
+                        name: Qwyk
                         address_1: Nieuwstraat 7
-                        address_2: Suite 1
+                        address_2: null
                         address_type: null
                         postal_code: 3311XR
                         city: Dordrecht
                         state: null
-                        state_name: null
+                        state_name: ZH
+                        country: NL
+                        country_name: null
+                        phone_number: '624164853'
+                        email: martyn@qwyk.io
+                        unlocode: null
+                        source_party_id: '1'
+                        target_party_id: CUSTOMER_ID
+                      consignor:
+                        name: Qwyk
+                        address_1: Nieuwstraat 7
+                        address_2: null
+                        address_type: null
+                        postal_code: 3311XR
+                        city: Dordrecht
+                        state: ZH
+                        state_name: ZH
                         country: NL
                         country_name: Netherlands (the)
-                        phone_number: 555-555-1234
+                        contact_name: Martyn Verhaegen
+                        phone_number: '624164853'
+                        email: martyn@qwyk.io
                         unlocode: NLDOR
-                        source_party_id: 546
-                        target_party_id: null
+                        source_party_id: 42
+                        target_party_id: CUSTOMER_ID
                       consignee:
-                        name: null
-                        address_1: null
-                        address_2: null
+                        name: EAGLE COPTERS HOLLAND
+                        address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
+                        address_2: COLINA
                         address_type: null
-                        postal_code: null
-                        city: null
-                        state: null
-                        state_name: null
-                        country: null
-                        country_name: null
+                        postal_code: '9340000'
+                        city: SANTIAGO
+                        state: RM
+                        state_name: RM
+                        country: NL
+                        country_name: Netherlands (the)
+                        contact_name: null
                         phone_number: null
-                        unlocode: null
-                        source_party_id: 547
+                        email: null
+                        unlocode: CLSCL
+                        source_party_id: 43
                         target_party_id: null
                       notify_party:
-                        name: null
-                        address_1: null
+                        name: EAGLE COPTERS HOLLAND
+                        address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
+                        address_2: COLINA
+                        address_type: null
+                        postal_code: '9340000'
+                        city: SANTIAGO
+                        state: RM
+                        state_name: RM
+                        country: NL
+                        country_name: Netherlands (the)
+                        contact_name: null
+                        phone_number: null
+                        email: null
+                        unlocode: CLSCL
+                        source_party_id: 44
+                        target_party_id: null
+                      ship_to: null
+                      importer_of_record:
+                        name: Qwyk
+                        address_1: Nieuwstraat 7
                         address_2: null
                         address_type: null
-                        postal_code: null
-                        city: null
+                        postal_code: 3311XR
+                        city: Dordrecht
                         state: null
-                        state_name: null
-                        country: null
+                        state_name: ZH
+                        country: NL
                         country_name: null
-                        phone_number: null
+                        contact_name: Martyn Verhaegen
+                        phone_number: '624164853'
+                        email: martyn@qwyk.io
                         unlocode: null
-                        source_party_id: 548
-                        target_party_id: null
-                      ship_to:
-                        name: null
-                        address_1: null
-                        address_2: null
-                        address_type: null
-                        postal_code: null
-                        city: null
-                        state: null
-                        state_name: null
-                        country: null
-                        country_name: null
-                        phone_number: null
-                        unlocode: null
-                        source_party_id: 545
-                        target_party_id: null
-                      transport_mode: OCEAN
-                      vessel_name: CSCL MERCURY
-                      voyage_number: 0PFD2E1MA
-                      departure_estimated: '2020-08-31T05:00:00+00:00'
-                      arrival_estimated: '2020-09-30T00:00:00+00:00'
+                        source_party_id: '1'
+                        target_party_id: CUSTOMER_ID
+                      transport_mode: SEA
+                      vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
+                      voyage_number: 0FL8ME1MA
+                      departure_estimated: '2021-03-30T00:00:00+00:00'
+                      arrival_port_estimated: '2021-04-21T00:00:00+00:00'
                       cutoff_time_bol: null
-                      cutoff_time_physical: null
-                      containerization_type: null
-                      cargo_ready_estimated: '2020-08-08T18:05:17+00:00'
-                      carrier_instructions: Here are some instructions
+                      cutoff_time_physical: '2021-03-27T00:00:00+00:00'
+                      containerization_type: fcl
+                      cargo_ready_estimated: '2021-03-25T07:05:27+00:00'
+                      carrier_instructions: These are some notes
                       freight_payment_terms: PREPAID
                       inco_term: EXW
+                      notes:
+                        - note_type: BOOKING MESSAGE
+                          body: 'Booking placed using QwykPortals, retrieve this shipment at http://localhost:4200/shipments/9308bf1e-41ff-4f58-98b8-56465320fa93'
+                        - note_type: BOOKING INSTRUCTIONS
+                          body: These are some notes
+                      revenue_invoices:
+                        - bill_to_id: CUSTOMER_ID
+                          service_invoice_uid: 9308bf1e-4ba5-481e-9b29-c871b4e0996d
+                          currency: EUR
+                          total_due: 995
+                          invoice_lines:
+                            - charge_code: OFR
+                              currency: EUR
+                              description: Freight Charges (freight)
+                              quantity: 1
+                              unit_price: 995
+                              total_cost: 995
+                      containers:
+                        - container_number: null
+                          delivery_mode: null
+                          size_code: 20G0
+                          source_container_id: 22
+                          type_code: 20GP
                       package_group:
                         - chargeable_weight_kgs: null
-                          commodity_type: HS Code
-                          description_of_goods: Freight All Kinds - Non Hazardous
-                          gross_weight_kgs: 30000
+                          commodity_type: null
+                          description_of_goods: Freight All Kinds (FAK)
+                          gross_weight_kgs: 0
                           marks_and_numbers: null
-                          pack_items:
-                            - customer_product_id: Product ID
-                              customer_sku: Product SKU
-                              po_line_id: PO Line
-                              po_number: PO Number
-                              product_description: Freight All Kinds - Non Hazardous
-                              product_import_hts: HS Code
-                              product_name: Product Name
-                              source_pack_item_id: 190
-                              source_po_line_id: PO Line
-                              total_item_quantity: 1
-                              unit_of_measure: null
-                              unit_of_measure_description: null
+                          pack_items: null
                           package_height_cms: null
                           package_length_cms: null
                           package_width_cms: null
                           package_quantity: 1
-                          package_type_code: 20' Container
+                          package_type_code: CN
                           package_type_description: 20' Container
-                          product_code: Product ID
-                          product_import_hts: HS Code
-                          source_container_id: null
-                          source_package_group_id: 190
-                          volume_cbms: 20
+                          product_code: null
+                          product_import_hts: null
+                          source_container_id: 22
+                          source_package_group_id: 22
+                          volume_cbms: 0
+                      shipment_legs:
+                        - leg_sequence_number: 1
+                          leg_type: Main
+                          transport_mode: SEA
+                          carrier_scac: null
+                          vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
+                          voyage_number: 0FL8ME1MA
+                          departure_estimated: '2021-03-30T00:00:00+00:00'
+                          lading_port:
+                            unlocode: NLRTM
+                            description: 'Rotterdam, ZH, NL'
+                          arrival_estimated: '2021-04-21T00:00:00+00:00'
+                          arrival_port:
+                            unlocode: SGSIN
+                            description: 'Singapore, SG'
                       attachments:
-                        - content: BASE64-ENCODED DATA
-                          file_name: BL.pdf
+                        - content: BASE64 ENCODED FILE
+                          file_name: testpdf.pdf
                           file_type_code: null
-                          file_type_description: BL
+                          file_type_description: Test PDF
                           media_type: application/pdf
       parameters:
         - schema:
@@ -1261,24 +1301,834 @@ components:
                   file_type_description: string
                   media_type: string
     ShipmentJson:
-      title: ShipmentJson
+      description: ''
       type: object
-      x-tags:
-        - Models
       properties:
         doc_type:
           type: string
+          minLength: 1
         version:
           type: string
+          minLength: 1
         shipments:
           type: array
+          uniqueItems: true
           minItems: 1
           items:
-            $ref: '#/components/schemas/Shipment'
+            required:
+              - source_account_id
+              - source_system_uid
+              - transmission_uid
+              - sent_date
+              - booking_submitted_actual
+              - created_on
+              - forwarder_controlling_company_code
+              - forwarder_controlling_branch_code
+              - transport_mode
+              - vessel_name
+              - voyage_number
+              - departure_estimated
+              - arrival_port_estimated
+              - cutoff_time_physical
+              - containerization_type
+              - cargo_ready_estimated
+              - carrier_instructions
+              - freight_payment_terms
+              - inco_term
+            properties:
+              source_account_id:
+                type: number
+              source_system_uid:
+                type: string
+                minLength: 1
+              transmission_uid:
+                type: string
+                minLength: 1
+              sent_date:
+                type: string
+                minLength: 1
+              booking_submitted_actual:
+                type: string
+                minLength: 1
+              created_by:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    minLength: 1
+                  first_name:
+                    type: string
+                    minLength: 1
+                  last_name: {}
+                  username:
+                    type: string
+                    minLength: 1
+                required:
+                  - email
+                  - first_name
+                  - username
+              created_on:
+                type: string
+                minLength: 1
+              forwarder_controlling_company_code:
+                type: string
+                minLength: 1
+              forwarder_controlling_branch_code:
+                type: string
+                minLength: 1
+              agent_reference: {}
+              shipper_reference: {}
+              consignee_reference: {}
+              forwarder_reference: {}
+              house_bill: {}
+              master_bill: {}
+              lading_port:
+                type: object
+                properties:
+                  unlocode:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                    minLength: 1
+                required:
+                  - unlocode
+                  - description
+              arrival_port:
+                type: object
+                properties:
+                  unlocode:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                    minLength: 1
+                required:
+                  - unlocode
+                  - description
+              final_destination_port:
+                type: object
+                properties:
+                  unlocode:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                    minLength: 1
+                required:
+                  - unlocode
+                  - description
+              ship_from: {}
+              shipper:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  address_1:
+                    type: string
+                    minLength: 1
+                  address_2: {}
+                  address_type: {}
+                  postal_code:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state: {}
+                  state_name:
+                    type: string
+                    minLength: 1
+                  country:
+                    type: string
+                    minLength: 1
+                  country_name: {}
+                  phone_number:
+                    type: string
+                    minLength: 1
+                  email:
+                    type: string
+                    minLength: 1
+                  unlocode: {}
+                  source_party_id:
+                    type: string
+                    minLength: 1
+                  target_party_id:
+                    type: string
+                    minLength: 1
+                required:
+                  - name
+                  - address_1
+                  - postal_code
+                  - city
+                  - state_name
+                  - country
+                  - phone_number
+                  - email
+                  - source_party_id
+                  - target_party_id
+              consignor:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  address_1:
+                    type: string
+                    minLength: 1
+                  address_2: {}
+                  address_type: {}
+                  postal_code:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state:
+                    type: string
+                    minLength: 1
+                  state_name:
+                    type: string
+                    minLength: 1
+                  country:
+                    type: string
+                    minLength: 1
+                  country_name:
+                    type: string
+                    minLength: 1
+                  contact_name:
+                    type: string
+                    minLength: 1
+                  phone_number:
+                    type: string
+                    minLength: 1
+                  email:
+                    type: string
+                    minLength: 1
+                  unlocode:
+                    type: string
+                    minLength: 1
+                  source_party_id:
+                    type: number
+                  target_party_id:
+                    type: string
+                    minLength: 1
+                required:
+                  - name
+                  - address_1
+                  - postal_code
+                  - city
+                  - state
+                  - state_name
+                  - country
+                  - country_name
+                  - contact_name
+                  - phone_number
+                  - email
+                  - unlocode
+                  - source_party_id
+                  - target_party_id
+              consignee:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  address_1:
+                    type: string
+                    minLength: 1
+                  address_2:
+                    type: string
+                    minLength: 1
+                  address_type: {}
+                  postal_code:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state:
+                    type: string
+                    minLength: 1
+                  state_name:
+                    type: string
+                    minLength: 1
+                  country:
+                    type: string
+                    minLength: 1
+                  country_name:
+                    type: string
+                    minLength: 1
+                  contact_name: {}
+                  phone_number: {}
+                  email: {}
+                  unlocode:
+                    type: string
+                    minLength: 1
+                  source_party_id:
+                    type: number
+                  target_party_id: {}
+                required:
+                  - name
+                  - address_1
+                  - address_2
+                  - postal_code
+                  - city
+                  - state
+                  - state_name
+                  - country
+                  - country_name
+                  - unlocode
+                  - source_party_id
+              notify_party:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  address_1:
+                    type: string
+                    minLength: 1
+                  address_2:
+                    type: string
+                    minLength: 1
+                  address_type: {}
+                  postal_code:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state:
+                    type: string
+                    minLength: 1
+                  state_name:
+                    type: string
+                    minLength: 1
+                  country:
+                    type: string
+                    minLength: 1
+                  country_name:
+                    type: string
+                    minLength: 1
+                  contact_name: {}
+                  phone_number: {}
+                  email: {}
+                  unlocode:
+                    type: string
+                    minLength: 1
+                  source_party_id:
+                    type: number
+                  target_party_id: {}
+                required:
+                  - name
+                  - address_1
+                  - address_2
+                  - postal_code
+                  - city
+                  - state
+                  - state_name
+                  - country
+                  - country_name
+                  - unlocode
+                  - source_party_id
+              ship_to: {}
+              importer_of_record:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  address_1:
+                    type: string
+                    minLength: 1
+                  address_2: {}
+                  address_type: {}
+                  postal_code:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state: {}
+                  state_name:
+                    type: string
+                    minLength: 1
+                  country:
+                    type: string
+                    minLength: 1
+                  country_name: {}
+                  contact_name:
+                    type: string
+                    minLength: 1
+                  phone_number:
+                    type: string
+                    minLength: 1
+                  email:
+                    type: string
+                    minLength: 1
+                  unlocode: {}
+                  source_party_id:
+                    type: string
+                    minLength: 1
+                  target_party_id:
+                    type: string
+                    minLength: 1
+                required:
+                  - name
+                  - address_1
+                  - postal_code
+                  - city
+                  - state_name
+                  - country
+                  - contact_name
+                  - phone_number
+                  - email
+                  - source_party_id
+                  - target_party_id
+              transport_mode:
+                type: string
+                minLength: 1
+              vessel_name:
+                type: string
+                minLength: 1
+              voyage_number:
+                type: string
+                minLength: 1
+              departure_estimated:
+                type: string
+                minLength: 1
+              arrival_port_estimated:
+                type: string
+                minLength: 1
+              cutoff_time_bol: {}
+              cutoff_time_physical:
+                type: string
+                minLength: 1
+              containerization_type:
+                type: string
+                minLength: 1
+              cargo_ready_estimated:
+                type: string
+                minLength: 1
+              carrier_instructions:
+                type: string
+                minLength: 1
+              freight_payment_terms:
+                type: string
+                minLength: 1
+              inco_term:
+                type: string
+                minLength: 1
+              notes:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - note_type
+                    - body
+                  properties:
+                    note_type:
+                      type: string
+                      minLength: 1
+                    body:
+                      type: string
+                      minLength: 1
+              revenue_invoices:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - bill_to_id
+                    - service_invoice_uid
+                    - currency
+                    - total_due
+                  properties:
+                    bill_to_id:
+                      type: string
+                      minLength: 1
+                    service_invoice_uid:
+                      type: string
+                      minLength: 1
+                    currency:
+                      type: string
+                      minLength: 1
+                    total_due:
+                      type: number
+                    invoice_lines:
+                      type: array
+                      uniqueItems: true
+                      minItems: 1
+                      items:
+                        required:
+                          - charge_code
+                          - currency
+                          - description
+                          - quantity
+                          - unit_price
+                          - total_cost
+                        properties:
+                          charge_code:
+                            type: string
+                            minLength: 1
+                          currency:
+                            type: string
+                            minLength: 1
+                          description:
+                            type: string
+                            minLength: 1
+                          quantity:
+                            type: number
+                          unit_price:
+                            type: number
+                          total_cost:
+                            type: number
+              containers:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - size_code
+                    - source_container_id
+                    - type_code
+                  properties:
+                    container_number: {}
+                    delivery_mode: {}
+                    size_code:
+                      type: string
+                      minLength: 1
+                    source_container_id:
+                      type: number
+                    type_code:
+                      type: string
+                      minLength: 1
+              package_group:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - description_of_goods
+                    - gross_weight_kgs
+                    - package_quantity
+                    - package_type_code
+                    - package_type_description
+                    - source_container_id
+                    - source_package_group_id
+                    - volume_cbms
+                  properties:
+                    chargeable_weight_kgs: {}
+                    commodity_type: {}
+                    description_of_goods:
+                      type: string
+                      minLength: 1
+                    gross_weight_kgs:
+                      type: number
+                    marks_and_numbers: {}
+                    pack_items: {}
+                    package_height_cms: {}
+                    package_length_cms: {}
+                    package_width_cms: {}
+                    package_quantity:
+                      type: number
+                    package_type_code:
+                      type: string
+                      minLength: 1
+                    package_type_description:
+                      type: string
+                      minLength: 1
+                    product_code: {}
+                    product_import_hts: {}
+                    source_container_id:
+                      type: number
+                    source_package_group_id:
+                      type: number
+                    volume_cbms:
+                      type: number
+              shipment_legs:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - leg_sequence_number
+                    - leg_type
+                    - transport_mode
+                    - vessel_name
+                    - voyage_number
+                    - departure_estimated
+                    - arrival_estimated
+                  properties:
+                    leg_sequence_number:
+                      type: number
+                    leg_type:
+                      type: string
+                      minLength: 1
+                    transport_mode:
+                      type: string
+                      minLength: 1
+                    carrier_scac: {}
+                    vessel_name:
+                      type: string
+                      minLength: 1
+                    voyage_number:
+                      type: string
+                      minLength: 1
+                    departure_estimated:
+                      type: string
+                      minLength: 1
+                    lading_port:
+                      type: object
+                      properties:
+                        unlocode:
+                          type: string
+                          minLength: 1
+                        description:
+                          type: string
+                          minLength: 1
+                      required:
+                        - unlocode
+                        - description
+                    arrival_estimated:
+                      type: string
+                      minLength: 1
+                    arrival_port:
+                      type: object
+                      properties:
+                        unlocode:
+                          type: string
+                          minLength: 1
+                        description:
+                          type: string
+                          minLength: 1
+                      required:
+                        - unlocode
+                        - description
+              attachments:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - content
+                    - file_name
+                    - file_type_description
+                    - media_type
+                  properties:
+                    content:
+                      type: string
+                      minLength: 1
+                    file_name:
+                      type: string
+                      minLength: 1
+                    file_type_code: {}
+                    file_type_description:
+                      type: string
+                      minLength: 1
+                    media_type:
+                      type: string
+                      minLength: 1
       required:
         - doc_type
         - version
         - shipments
+      x-examples:
+        example-1:
+          doc_type: shipment_json
+          version: '1.6'
+          shipments:
+            - source_account_id: 1
+              source_system_uid: 9308bf1e41ff4f5898b856465320fa93
+              transmission_uid: 605c3dbbe176b737cc608cda
+              sent_date: '2021-03-25T07:37:31+00:00'
+              booking_submitted_actual: '2021-03-25T07:37:31+00:00'
+              created_by:
+                email: martyn@qwyk.io
+                first_name: Martyn Verhaegen
+                last_name: null
+                username: '1'
+              created_on: '2021-03-25T07:37:30+00:00'
+              forwarder_controlling_company_code: QWYK
+              forwarder_controlling_branch_code: RTM
+              agent_reference: null
+              shipper_reference: null
+              consignee_reference: null
+              forwarder_reference: null
+              house_bill: null
+              master_bill: null
+              lading_port:
+                unlocode: NLRTM
+                description: 'Rotterdam, ZH, NL'
+              arrival_port:
+                unlocode: SGSIN
+                description: 'Singapore, SG'
+              final_destination_port:
+                unlocode: SGSIN
+                description: 'Singapore, SG'
+              ship_from: null
+              shipper:
+                name: Qwyk
+                address_1: Nieuwstraat 7
+                address_2: null
+                address_type: null
+                postal_code: 3311XR
+                city: Dordrecht
+                state: null
+                state_name: ZH
+                country: NL
+                country_name: null
+                phone_number: '624164853'
+                email: martyn@qwyk.io
+                unlocode: null
+                source_party_id: '1'
+                target_party_id: CUSTOMER_ID
+              consignor:
+                name: Qwyk
+                address_1: Nieuwstraat 7
+                address_2: null
+                address_type: null
+                postal_code: 3311XR
+                city: Dordrecht
+                state: ZH
+                state_name: ZH
+                country: NL
+                country_name: Netherlands (the)
+                contact_name: Martyn Verhaegen
+                phone_number: '624164853'
+                email: martyn@qwyk.io
+                unlocode: NLDOR
+                source_party_id: 42
+                target_party_id: CUSTOMER_ID
+              consignee:
+                name: EAGLE COPTERS HOLLAND
+                address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
+                address_2: COLINA
+                address_type: null
+                postal_code: '9340000'
+                city: SANTIAGO
+                state: RM
+                state_name: RM
+                country: NL
+                country_name: Netherlands (the)
+                contact_name: null
+                phone_number: null
+                email: null
+                unlocode: CLSCL
+                source_party_id: 43
+                target_party_id: null
+              notify_party:
+                name: EAGLE COPTERS HOLLAND
+                address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
+                address_2: COLINA
+                address_type: null
+                postal_code: '9340000'
+                city: SANTIAGO
+                state: RM
+                state_name: RM
+                country: NL
+                country_name: Netherlands (the)
+                contact_name: null
+                phone_number: null
+                email: null
+                unlocode: CLSCL
+                source_party_id: 44
+                target_party_id: null
+              ship_to: null
+              importer_of_record:
+                name: Qwyk
+                address_1: Nieuwstraat 7
+                address_2: null
+                address_type: null
+                postal_code: 3311XR
+                city: Dordrecht
+                state: null
+                state_name: ZH
+                country: NL
+                country_name: null
+                contact_name: Martyn Verhaegen
+                phone_number: '624164853'
+                email: martyn@qwyk.io
+                unlocode: null
+                source_party_id: '1'
+                target_party_id: CUSTOMER_ID
+              transport_mode: SEA
+              vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
+              voyage_number: 0FL8ME1MA
+              departure_estimated: '2021-03-30T00:00:00+00:00'
+              arrival_port_estimated: '2021-04-21T00:00:00+00:00'
+              cutoff_time_bol: null
+              cutoff_time_physical: '2021-03-27T00:00:00+00:00'
+              containerization_type: fcl
+              cargo_ready_estimated: '2021-03-25T07:05:27+00:00'
+              carrier_instructions: These are some notes
+              freight_payment_terms: PREPAID
+              inco_term: EXW
+              notes:
+                - note_type: BOOKING MESSAGE
+                  body: 'Booking placed using QwykPortals, retrieve this shipment at http://localhost:4200/shipments/9308bf1e-41ff-4f58-98b8-56465320fa93'
+                - note_type: BOOKING INSTRUCTIONS
+                  body: These are some notes
+              revenue_invoices:
+                - bill_to_id: CUSTOMER_ID
+                  service_invoice_uid: 9308bf1e-4ba5-481e-9b29-c871b4e0996d
+                  currency: EUR
+                  total_due: 995
+                  invoice_lines:
+                    - charge_code: OFR
+                      currency: EUR
+                      description: Freight Charges (freight)
+                      quantity: 1
+                      unit_price: 995
+                      total_cost: 995
+              containers:
+                - container_number: null
+                  delivery_mode: null
+                  size_code: 20G0
+                  source_container_id: 22
+                  type_code: 20GP
+              package_group:
+                - chargeable_weight_kgs: null
+                  commodity_type: null
+                  description_of_goods: Freight All Kinds (FAK)
+                  gross_weight_kgs: 0
+                  marks_and_numbers: null
+                  pack_items: null
+                  package_height_cms: null
+                  package_length_cms: null
+                  package_width_cms: null
+                  package_quantity: 1
+                  package_type_code: CN
+                  package_type_description: 20' Container
+                  product_code: null
+                  product_import_hts: null
+                  source_container_id: 22
+                  source_package_group_id: 22
+                  volume_cbms: 0
+              shipment_legs:
+                - leg_sequence_number: 1
+                  leg_type: Main
+                  transport_mode: SEA
+                  carrier_scac: null
+                  vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
+                  voyage_number: 0FL8ME1MA
+                  departure_estimated: '2021-03-30T00:00:00+00:00'
+                  lading_port:
+                    unlocode: NLRTM
+                    description: 'Rotterdam, ZH, NL'
+                  arrival_estimated: '2021-04-21T00:00:00+00:00'
+                  arrival_port:
+                    unlocode: SGSIN
+                    description: 'Singapore, SG'
+              attachments:
+                - content: BASE64 ENCODED FILE
+                  file_name: testpdf.pdf
+                  file_type_code: null
+                  file_type_description: Test PDF
+                  media_type: application/pdf
     Port:
       title: Port
       type: object
