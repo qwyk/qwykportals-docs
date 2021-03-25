@@ -395,6 +395,39 @@ paths:
           in: header
           name: '[Any]'
           description: 'Any set of headers can be configured for you to receive, including API tokens.'
+  /webhooks/portals/shipments/shipment-update:
+    post:
+      summary: Post a shipment update
+      operationId: post-webhooks-portals-shipments-shipment-update
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentJson'
+      parameters:
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Content-Type
+          required: true
+          description: application/json
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Accept
+          required: true
+          description: application/json
+      security:
+        - Bearer Token: []
 components:
   schemas:
     WebhookResponse:
