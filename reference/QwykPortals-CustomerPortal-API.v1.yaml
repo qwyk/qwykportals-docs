@@ -768,7 +768,7 @@ paths:
                       per_page: 20
                       to: 20
                       total: 33
-      description: ''
+      description: 'Deprecated in favor of /quotations/summary, on account of performance optimizations.'
       parameters:
         - schema:
             type: string
@@ -811,6 +811,7 @@ paths:
           name: destination_locode
       tags:
         - Quotations
+      deprecated: true
   '/quotations/{quotationId}':
     parameters:
       - schema:
@@ -1646,6 +1647,12 @@ paths:
         - Registration
       description: ''
       security: []
+  /quotations/summary:
+    get:
+      summary: Get a user's quotations
+      tags: []
+      responses: {}
+      operationId: get-quotations-summary
 components:
   schemas:
     QuotationRequest:
