@@ -3283,6 +3283,8 @@ components:
           example: '2020-08-27T08:55:25+00:00'
     QuotationOfferSchedule:
       description: ''
+      x-tags:
+        - Models
       type: object
       properties:
         carrier:
