@@ -428,6 +428,8 @@ paths:
           description: application/json
       security:
         - Bearer Token: []
+      tags:
+        - Methods
 components:
   schemas:
     WebhookResponse:
