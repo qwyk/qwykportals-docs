@@ -165,6 +165,7 @@ paths:
       description: ''
       tags:
         - Methods
+      deprecated: true
     parameters: []
   '/{your-endpoint}':
     parameters:
