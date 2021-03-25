@@ -172,7 +172,7 @@ paths:
       parameters:
         - schema:
             type: boolean
-            default: 'false'
+            default: 'true'
           in: query
           name: onlyQuoting
           description: Whether to only return packagings that can be used when quoting (defaults `false`)
@@ -300,7 +300,7 @@ components:
             - OCEAN
             - AIR
             - TRUCK
-          example: OCEAN        
+          example: OCEAN
       required:
         - id
         - code
