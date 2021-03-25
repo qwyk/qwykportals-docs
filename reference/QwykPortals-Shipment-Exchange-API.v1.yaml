@@ -514,6 +514,8 @@ components:
         - event_code
     Shipment:
       description: ''
+      x-tags:
+        - Models
       type: object
       properties:
         doc_type:
@@ -1341,6 +1343,8 @@ components:
                   media_type: string
     ShipmentJson:
       description: ''
+      x-tags:
+        - Models
       type: object
       properties:
         doc_type:
