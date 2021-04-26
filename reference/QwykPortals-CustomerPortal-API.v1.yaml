@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Customer Portal API
-  version: '3.0'
+  version: '3.14'
   contact:
     name: Support
     url: 'https://docs.qwykportals.com'
@@ -16,6 +16,188 @@ servers:
   - url: 'https://api.qwykportals.com/api/portals'
     description: Stable branch
 paths:
+  /quotations/summary:
+    get:
+      summary: Get a user's quotations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Quotation'
+                  links:
+                    $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/PaginationLinks
+                  meta:
+                    $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/PaginationMeta
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 9308b445-0347-409a-bfd1-d510760ed021
+                        owner:
+                          id: '1'
+                          type: portals-user
+                          name: Martyn Verhaegen
+                          email: martyn@qwyk.io
+                          team_id: '1'
+                          team_name: Qwyk
+                          job_title: null
+                          company: Qwyk
+                          location: null
+                          country: null
+                          phone_number: '624164853'
+                        creator:
+                          id: '1'
+                          type: portals-user
+                          name: Martyn Verhaegen
+                          email: martyn@qwyk.io
+                          team_id: '1'
+                          team_name: Qwyk
+                          job_title: null
+                          company: Qwyk
+                          location: null
+                          country: null
+                          phone_number: '624164853'
+                        request:
+                          owner_reference: null
+                          origin:
+                            type: port
+                            code: NLRTM
+                            locode: NLRTM
+                            name: 'Rotterdam, ZH'
+                            country_code: NL
+                          destination:
+                            type: port
+                            code: SGSIN
+                            name: Singapore
+                            locode: SGSIN
+                            country_code: SG
+                          transport_mode: OCEAN
+                          load_type: fcl
+                          require_origin_charges: false
+                          require_destination_charges: false
+                          cargo_ready: '2021-03-25T07:05:27+00:00'
+                          commodity:
+                            id: 1
+                            code: FAK0
+                            description: Freight All Kinds (FAK)
+                            is_preferred: 1
+                          currency: EUR
+                          additionals:
+                            customs_clearance_origin: false
+                            customs_clearance_destination: false
+                            cargo_insurance: false
+                            hazardous_cargo: false
+                            liftgate_pickup: false
+                            refrigerated: false
+                            white_glove: false
+                            residential_delivery: false
+                            residential_pickup: false
+                            liftgate_delivery: false
+                            call_before_delivery: false
+                            delivery_appointment_required: false
+                            flatbed_required: false
+                            limited_access_delivery: false
+                            limited_access_pickup: false
+                            stackable: false
+                          packages:
+                            - id: 399
+                              quantity: 1
+                              packaging:
+                                id: 1
+                                code: '20'
+                                description: 20' Container
+                                description_plural: 20' Containers
+                                transport_mode: OCEAN
+                                load_type: fcl
+                              unit_weight: null
+                              unit_volume: null
+                              unit_length: null
+                              unit_width: null
+                              unit_height: null
+                              uom: null
+                              total_weight_kgs: 0
+                              total_volume_cbm: 0
+                          total_quantity: 1
+                          total_weight_kgs: 0
+                          total_volume_cbm: 0
+                          total_20: 1
+                          total_40: 0
+                          total_40hc: 0
+                          total_45: 0
+                          total_teu: 1
+                          created_at: '2021-03-25T07:05:34+00:00'
+                        is_demo: false
+                        is_owner: false
+                        is_shared_with: false
+                        shared_users: []
+                        is_draft: false
+                        offers_count: 49
+                        booked_shipments_count: 1
+                        open_rate_requests_count: 0
+                    links:
+                      first: string
+                      last: string
+                      prev: string
+                      next: string
+                    meta:
+                      current_page: '1'
+                      from: 1
+                      last_page: 2
+                      path: 'http://api.next.qwykportals.com/api/portals/quotations/summary'
+                      per_page: 20
+                      to: 20
+                      total: 33
+      description: Well be renamed to simply /quotations once the deprecated endpoint has been removed.
+      parameters:
+        - schema:
+            type: string
+            default: created_at
+          in: query
+          name: sort
+          description: Defines the sort key of the results
+        - schema:
+            type: string
+            default: desc
+          in: query
+          name: direction
+          description: Defines the sort direction of the results
+        - schema:
+            type: string
+            enum:
+              - fcl
+              - lcl
+          in: query
+          name: load_type
+        - schema:
+            type: string
+            enum:
+              - OCEAN
+              - AIR
+              - TRUCK
+          in: query
+          name: transport_mode
+        - schema:
+            type: string
+            minLength: 5
+            maxLength: 5
+          in: query
+          name: origin_locode
+        - schema:
+            type: string
+            minLength: 5
+            maxLength: 5
+          in: query
+          name: destination_locode
+      tags:
+        - Quotations
+      operationId: get-quotations-summary
   /quotations:
     post:
       summary: Create a new quotation
@@ -231,7 +413,7 @@ paths:
       tags:
         - Quotations
     get:
-      summary: Get a user's quotations
+      summary: 'Get a user''s quotations [deprecated]'
       operationId: get-quotations
       responses:
         '200':
@@ -768,7 +950,7 @@ paths:
                       per_page: 20
                       to: 20
                       total: 33
-      description: ''
+      description: 'Deprecated in favor of /quotations/summary, on account of performance optimizations.'
       parameters:
         - schema:
             type: string
@@ -811,6 +993,7 @@ paths:
           name: destination_locode
       tags:
         - Quotations
+      deprecated: true
   '/quotations/{quotationId}':
     parameters:
       - schema:
@@ -2496,6 +2679,143 @@ components:
             type: object
         is_draft:
           type: boolean
+    QuotationSummary:
+      title: QuotationSummary
+      type: object
+      x-tags:
+        - Models
+      x-examples:
+        example-1:
+          id: 9308b445-0347-409a-bfd1-d510760ed021
+          owner:
+            id: '1'
+            type: portals-user
+            name: Martyn Verhaegen
+            email: martyn@qwyk.io
+            team_id: '1'
+            team_name: Qwyk
+            job_title: null
+            company: Qwyk
+            location: null
+            country: null
+            phone_number: '624164853'
+          creator:
+            id: '1'
+            type: portals-user
+            name: Martyn Verhaegen
+            email: martyn@qwyk.io
+            team_id: '1'
+            team_name: Qwyk
+            job_title: null
+            company: Qwyk
+            location: null
+            country: null
+            phone_number: '624164853'
+          request:
+            owner_reference: null
+            origin:
+              type: port
+              code: NLRTM
+              locode: NLRTM
+              name: 'Rotterdam, ZH'
+              country_code: NL
+            destination:
+              type: port
+              code: SGSIN
+              name: Singapore
+              locode: SGSIN
+              country_code: SG
+            transport_mode: OCEAN
+            load_type: fcl
+            require_origin_charges: false
+            require_destination_charges: false
+            cargo_ready: '2021-03-25T07:05:27+00:00'
+            commodity:
+              id: 1
+              code: FAK0
+              description: Freight All Kinds (FAK)
+              is_preferred: 1
+            currency: EUR
+            additionals:
+              customs_clearance_origin: false
+              customs_clearance_destination: false
+              cargo_insurance: false
+              hazardous_cargo: false
+              liftgate_pickup: false
+              refrigerated: false
+              white_glove: false
+              residential_delivery: false
+              residential_pickup: false
+              liftgate_delivery: false
+              call_before_delivery: false
+              delivery_appointment_required: false
+              flatbed_required: false
+              limited_access_delivery: false
+              limited_access_pickup: false
+              stackable: false
+            packages:
+              - id: 399
+                quantity: 1
+                packaging:
+                  id: 1
+                  code: '20'
+                  description: 20' Container
+                  description_plural: 20' Containers
+                  transport_mode: OCEAN
+                  load_type: fcl
+                unit_weight: null
+                unit_volume: null
+                unit_length: null
+                unit_width: null
+                unit_height: null
+                uom: null
+                total_weight_kgs: 0
+                total_volume_cbm: 0
+            total_quantity: 1
+            total_weight_kgs: 0
+            total_volume_cbm: 0
+            total_20: 1
+            total_40: 0
+            total_40hc: 0
+            total_45: 0
+            total_teu: 1
+            created_at: '2021-03-25T07:05:34+00:00'
+          is_demo: false
+          is_owner: false
+          is_shared_with: false
+          shared_users: []
+          is_draft: false
+          offers_count: 49
+          booked_shipments_count: 1
+          open_rate_requests_count: 0
+      properties:
+        id:
+          type: string
+          example: 916268e3-4f6f-42d0-8248-491b56897794
+        owner:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
+        creator:
+          $ref: ./QwykPortals-Masterdata-API.v1.yaml#/components/schemas/UserSummary
+        request:
+          $ref: '#/components/schemas/QuotationRequest'
+        is_demo:
+          type: boolean
+        is_owner:
+          type: boolean
+        is_shared_with:
+          type: boolean
+        shared_users:
+          type: array
+          items:
+            type: object
+        is_draft:
+          type: boolean
+        offers_count:
+          type: number
+        booked_shipments_count:
+          type: number
+        open_rate_requests_count:
+          type: number
     QuotationOffer:
       title: QuotationOffer
       type: object
@@ -2963,6 +3283,8 @@ components:
           example: '2020-08-27T08:55:25+00:00'
     QuotationOfferSchedule:
       description: ''
+      x-tags:
+        - Models
       type: object
       properties:
         carrier:

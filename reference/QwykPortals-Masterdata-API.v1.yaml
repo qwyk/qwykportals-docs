@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Masterdata API
-  version: '1.0'
+  version: '3.14'
   contact:
     name: Support
     url: 'https://docs.qwykportals.com'
@@ -147,28 +147,32 @@ paths:
                       - id: 1
                         code: '20'
                         description: 20' Container
+                        description_plural: 20' Containers
                         transport_mode: OCEAN
                         load_type: fcl
                       - id: 6
                         code: '40'
                         description: 40' Container
+                        description_plural: 40' Containers
                         transport_mode: OCEAN
                         load_type: fcl
                       - id: 7
                         code: 40HC
-                        description: 40'HC Container
+                        description: 40' Container
+                        description_plural: 40' Containers
                         transport_mode: OCEAN
                         load_type: fcl
                       - id: 8
                         code: '45'
                         description: 45' Container
+                        description_plural: 45' Containers
                         transport_mode: OCEAN
                         load_type: fcl
       operationId: 'get-api-masters-packagings-:transport_mode-:load_type'
       parameters:
         - schema:
             type: boolean
-            default: 'false'
+            default: 'true'
           in: query
           name: onlyQuoting
           description: Whether to only return packagings that can be used when quoting (defaults `false`)
@@ -280,6 +284,10 @@ components:
         description:
           type: string
           example: 20' Container
+        description_plural:
+          type: string
+          example: 20' Containers
+          description: English pluralized description
         load_type:
           type: string
           enum:
