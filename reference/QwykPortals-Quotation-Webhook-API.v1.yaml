@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Quotation Webhook API
   version: '3.14'
-  description: |
+  description: |+
     This API describes a self-implemented endpoint which QwykPortals will call whenever a quotation is created in your Portal. It expects an array of offers in return which will then be attached to the quotation and displayed to the end user.
 
     ### UN Locodes
@@ -58,40 +58,164 @@ info:
     ### Supported currencies
     At present the following currencies are supported, to get an updated version check the [Masterdata API](./QwykPortals-Masterdata-API.v1.yaml)
 
-    |Code|Sign|Name|
-    |---|---|--------------------|
-    |AUD|$  |Australian dollar   |
-    |BGN|лв |Bulgarian lev       |
-    |BRL|R$ |Brazilian real      |
-    |CAD|$  |Canadian dollar     |
-    |CHF|Fr |Swiss franc         |
-    |CNY|¥  |Chinese Yuan        |
-    |CZK|Kč |Czech koruna        |
-    |DKK|kr |Danish krone        |
-    |EUR|€  |Euro                |
-    |GBP|£  |British Pound       |
-    |HKD|$  |Hong Kong dollar    |
-    |HUF|Ft |Hungarian forint    |
-    |IDR|Rp |Indonesian rupiah   |
-    |ILS|₪  |Israeli new shekel  |
-    |INR|₹  |Indian Rupee        |
-    |ISK|kr |Icelandic króna     |
-    |JPY|¥  |Japanese yen        |
-    |KRW|₩  |South Korean won    |
-    |MXN|$  |Mexican peso        |
-    |MYR|RM |Malaysian ringgit   |
-    |NOK|kr |Norwegian krone     |
-    |NZD|$  |New Zealand dollar  |
-    |PHP|₱  |Philippine peso     |
-    |PLN|zł |Polish złoty        |
-    |RON|le |Romanian leu        |
-    |RUB|₽  |Russian ruble       |
-    |SEK|kr |Swedish krona       |
-    |SGD|$  |Singapore dollar    |
-    |THB|฿  |Thai baht           |
-    |TRY|₺  |Turkish lira        |
-    |USD|$  |United States Dollar|
-    |ZAR|$  |South African rand  |
+    |code|name                               |
+    |----|-----------------------------------|
+    |AUD |Australian dollar                  |
+    |BGN |Bulgarian lev                      |
+    |BRL |Brazilian real                     |
+    |CAD |Canadian dollar                    |
+    |CHF |Swiss franc                        |
+    |CNY |Chinese Yuan                       |
+    |CZK |Czech koruna                       |
+    |DKK |Danish krone                       |
+    |EUR |Euro                               |
+    |GBP |British Pound                      |
+    |HKD |Hong Kong dollar                   |
+    |HUF |Hungarian forint                   |
+    |IDR |Indonesian rupiah                  |
+    |ILS |Israeli new shekel                 |
+    |INR |Indian Rupee                       |
+    |ISK |Icelandic króna                    |
+    |JPY |Japanese yen                       |
+    |KRW |South Korean won                   |
+    |MXN |Mexican peso                       |
+    |MYR |Malaysian ringgit                  |
+    |NOK |Norwegian krone                    |
+    |NZD |New Zealand dollar                 |
+    |PHP |Philippine peso                    |
+    |PLN |Polish złoty                       |
+    |RON |Romanian leu                       |
+    |RUB |Russian ruble                      |
+    |SEK |Swedish krona                      |
+    |SGD |Singapore dollar                   |
+    |THB |Thai baht                          |
+    |TRY |Turkish lira                       |
+    |USD |United States Dollar               |
+    |ZAR |South African rand                 |
+    |AED |United Arab Emirates Dirham        |
+    |AFN |Afghan Afghani                     |
+    |ALL |Albanian Lek                       |
+    |AMD |Armenian Dram                      |
+    |ANG |Netherlands Antillean Guilder      |
+    |AOA |Angolan Kwanza                     |
+    |ARS |Argentine Peso                     |
+    |AWG |Aruban Florin                      |
+    |AZN |Azerbaijani Manat                  |
+    |BAM |Bosnia-Herzegovina Convertible Mark|
+    |BBD |Barbadian Dollar                   |
+    |BDT |Bangladeshi Taka                   |
+    |BHD |Bahraini Dinar                     |
+    |BIF |Burundian Franc                    |
+    |BMD |Bermudan Dollar                    |
+    |BND |Brunei Dollar                      |
+    |BOB |Bolivian Boliviano                 |
+    |BSD |Bahamian Dollar                    |
+    |BTN |Bhutanese Ngultrum                 |
+    |BWP |Botswanan Pula                     |
+    |BYR |Belarusian Ruble                   |
+    |BZD |Belize Dollar                      |
+    |CDF |Congolese Franc                    |
+    |CLP |Chilean Peso                       |
+    |COP |Colombian Peso                     |
+    |CRC |Costa Rican Colon                  |
+    |CUC |Cuban Convertible Peso             |
+    |CUP |Cuban Peso                         |
+    |CVE |Cape Verdean Escudo                |
+    |DJF |Djiboutian Franc                   |
+    |DOP |Dominican Peso                     |
+    |DZD |Algerian Dinar                     |
+    |EGP |Egyptian Pound                     |
+    |ERN |Eritrean Nakfa                     |
+    |ETB |Ethiopian Birr                     |
+    |FJD |Fijian Dollar                      |
+    |FKP |Falkland Islands Pound             |
+    |GEL |Georgian Lari                      |
+    |GGP |Guernsey Pound                     |
+    |GHS |Ghanaian Cedi                      |
+    |GIP |Gibraltar Pound                    |
+    |GMD |Gambian Dalasi                     |
+    |GNF |Guinean Franc                      |
+    |GTQ |Guatemalan Quetzal                 |
+    |GYD |Guyanaese Dollar                   |
+    |HNL |Honduran Lempira                   |
+    |HRK |Croatian Kuna                      |
+    |HTG |Haitian Gourde                     |
+    |IMP |Manx pound                         |
+    |IQD |Iraqi Dinar                        |
+    |JEP |Jersey Pound                       |
+    |JMD |Jamaican Dollar                    |
+    |JOD |Jordanian Dinar                    |
+    |KES |Kenyan Shilling                    |
+    |KGS |Kyrgystani Som                     |
+    |KHR |Cambodian Riel                     |
+    |KMF |Comorian Franc                     |
+    |KWD |Kuwaiti Dinar                      |
+    |KYD |Cayman Islands Dollar              |
+    |KZT |Kazakhstani Tenge                  |
+    |LAK |Laotian Kip                        |
+    |LBP |Lebanese Pound                     |
+    |LKR |Sri Lankan Rupee                   |
+    |LRD |Liberian Dollar                    |
+    |LSL |Lesotho Loti                       |
+    |LTL |Lithuanian Litas                   |
+    |LVL |Latvian Lats                       |
+    |LYD |Libyan Dinar                       |
+    |MAD |Moroccan Dirham                    |
+    |MDL |Moldovan Leu                       |
+    |MGA |Malagasy Ariary                    |
+    |MKD |Macedonian Denar                   |
+    |MMK |Myanma Kyat                        |
+    |MNT |Mongolian Tugrik                   |
+    |MOP |Macanese Pataca                    |
+    |MRO |Mauritanian Ouguiya                |
+    |MUR |Mauritian Rupee                    |
+    |MVR |Maldivian Rufiyaa                  |
+    |MWK |Malawian Kwacha                    |
+    |MZN |Mozambican Metical                 |
+    |NAD |Namibian Dollar                    |
+    |NGN |Nigerian Naira                     |
+    |NIO |Nicaraguan Cordoba                 |
+    |NPR |Nepalese Rupee                     |
+    |OMR |Omani Rial                         |
+    |PAB |Panamanian Balboa                  |
+    |PEN |Peruvian Nuevo Sol                 |
+    |PGK |Papua New Guinean Kina             |
+    |PKR |Pakistani Rupee                    |
+    |PYG |Paraguayan Guarani                 |
+    |QAR |Qatari Rial                        |
+    |RSD |Serbian Dinar                      |
+    |RWF |Rwandan Franc                      |
+    |SAR |Saudi Riyal                        |
+    |SBD |Solomon Islands Dollar             |
+    |SCR |Seychellois Rupee                  |
+    |SDG |Sudanese Pound                     |
+    |SHP |Saint Helena Pound                 |
+    |SLL |Sierra Leonean Leone               |
+    |SOS |Somali Shilling                    |
+    |SRD |Surinamese Dollar                  |
+    |STD |Sao Toma and Principe Dobra        |
+    |SVC |Salvadoran Colon                   |
+    |SYP |Syrian Pound                       |
+    |SZL |Swazi Lilangeni                    |
+    |TJS |Tajikistani Somoni                 |
+    |TMT |Turkmenistani Manat                |
+    |TND |Tunisian Dinar                     |
+    |TOP |Tongan Pa_anga                     |
+    |TTD |Trinidad and Tobago Dollar         |
+    |TWD |New Taiwan Dollar                  |
+    |TZS |Tanzanian Shilling                 |
+    |UAH |Ukrainian Hryvnia                  |
+    |UGX |Ugandan Shilling                   |
+    |UYU |Uruguayan Peso                     |
+    |UZS |Uzbekistan Som                     |
+    |VEF |Venezuelan Bolivar Fuerte          |
+    |VND |Vietnamese Dong                    |
+    |VUV |Vanuatu Vatu                       |
+    |WST |Samoan Tala                        |
+    |YER |Yemeni Rial                        |
+    |ZMW |Zambian Kwacha                     |
+    |ZWL |Zimbabwean Dollar                  |
+
   contact:
     name: Qwyk
     url: 'https://www.qwyk.io'
