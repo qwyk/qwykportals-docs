@@ -24,6 +24,8 @@ paths:
                     $ref: '#/components/schemas/PaginationLinks'
                   meta:
                     $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
       operationId: get-api-portals-warehouse-receipts
       parameters:
         - schema:
@@ -38,7 +40,7 @@ paths:
             default: 1
           in: query
           name: page
-  '/api/portals/warehouse-receipts/{id}':
+  '/api/portals/warehouse-receipts/{warehouseReceiptId}':
     get:
       summary: Warehouse Receipt Detail
       tags: []
@@ -52,14 +54,63 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/WarehouseReceipt'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
       operationId: 'get-api-portals-warehouse-receipts-:id'
     parameters:
       - schema:
           type: string
           format: uuid
-        name: id
+        name: warehouseReceiptId
         in: path
         required: true
+  '/api/portals/warehouse-receipts/{warehouseReceiptId}/attachments':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: Warehouse Receipt Attachments Index
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Attachment'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: pageSize
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
 components:
   schemas:
     WarehouseReceipt:
@@ -391,4 +442,44 @@ components:
         - per_page
         - to
         - total
-  responses: {}
+  responses:
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              message:
+                type: string
+                minLength: 1
+            required:
+              - message
+            x-examples:
+              example-1:
+                message: This action is unauthorized.
+          examples:
+            example-1:
+              value:
+                message: This action is unauthorized.
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              message:
+                type: string
+                minLength: 1
+            required:
+              - message
+            x-examples:
+              example-1:
+                message: 'No query results for model [{model}] {id}'
+          examples:
+            example-1:
+              value:
+                message: 'No query results for model [{model}] {id}'
