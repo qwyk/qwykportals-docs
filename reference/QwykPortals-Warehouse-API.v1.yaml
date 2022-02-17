@@ -339,7 +339,7 @@ components:
         parent_type:
           type: string
           enum:
-            - warehouse_receipt
+            - warehouse-receipt
         parent_id:
           type: string
           format: uuid
@@ -366,7 +366,7 @@ components:
         parent_type:
           type: string
           enum:
-            - warehouse_receipt
+            - warehouse-receipt
         parent_id:
           type: string
           format: uuid
@@ -423,7 +423,7 @@ components:
         parent_type:
           type: string
           enum:
-            - warehouse_receipt
+            - warehouse-receipt
         parent_id:
           type: string
           format: uuid
@@ -449,12 +449,24 @@ components:
         entity_type:
           type: string
           enum:
-            - shipper
+            - ams_notify_party_1
+            - ams_notify_party_2
+            - billing_client
+            - billing_client_invoice
             - consignee
+            - delivery_entity
+            - destination_pickup_entity
+            - intermediate_consignee
+            - issued_by
+            - notify_party
+            - online_creator
+            - release_to
+            - shipper
+            - supplier
         parent_type:
           type: string
           enum:
-            - warehouse_receipt
+            - warehouse-receipt
         parent_id:
           type: string
           format: uuid
