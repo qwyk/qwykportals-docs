@@ -18,7 +18,8 @@ paths:
   /api/portals/warehouse-receipts:
     get:
       summary: Warehouse Receipts
-      tags: []
+      tags:
+        - Warehouse Receipt
       responses:
         '200':
           description: OK
@@ -54,7 +55,8 @@ paths:
   '/api/portals/warehouse-receipts/{warehouseReceiptId}':
     get:
       summary: Warehouse Receipt
-      tags: []
+      tags:
+        - Warehouse Receipt
       responses:
         '200':
           description: OK
@@ -87,7 +89,8 @@ paths:
         required: true
     get:
       summary: Warehouse Receipt Attachments
-      tags: []
+      tags:
+        - Warehouse Receipt
       responses:
         '200':
           description: OK
