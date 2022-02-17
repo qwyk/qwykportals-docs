@@ -2,7 +2,18 @@ openapi: 3.1.0
 info:
   title: QwykPortals Warehouse API
   version: '1.0'
-servers: []
+  license:
+    name: Proprietary
+  contact:
+    name: Magaya
+    email: support@qwyk.o
+servers:
+  - url: 'https://api.qwykportals.com'
+    description: Production
+  - url: 'https://api.next.qwykportals.com'
+    description: Staging
+  - url: 'https://api.beta.qwykportals.com'
+    description: Beta
 paths:
   /api/portals/warehouse-receipts:
     get:
