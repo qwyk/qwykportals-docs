@@ -17,7 +17,7 @@ servers:
 paths:
   /api/portals/warehouse-receipts:
     get:
-      summary: Warehouse Receipts
+      summary: Index
       tags:
         - Warehouse Receipt
       responses:
@@ -54,7 +54,7 @@ paths:
           name: page
   '/api/portals/warehouse-receipts/{warehouseReceiptId}':
     get:
-      summary: Warehouse Receipt
+      summary: Show
       tags:
         - Warehouse Receipt
       responses:
@@ -88,7 +88,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Warehouse Receipt Attachments
+      summary: Attachments Index
       tags:
         - Warehouse Receipt
       responses:
@@ -134,8 +134,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Warehouse Receipt Cargo Items
-      tags: []
+      summary: Cargo Items Index
       responses:
         '200':
           description: OK
@@ -170,6 +169,8 @@ paths:
             minimum: 1
           in: query
           name: page
+      tags:
+        - Warehouse Receipt
   '/api/portals/warehouse-receipts/{warehouseReceiptId}/entities':
     parameters:
       - schema:
@@ -179,8 +180,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Warehouse Receipt Entities
-      tags: []
+      summary: Entities Index
+      tags:
+        - Warehouse Receipt
       responses:
         '200':
           description: OK
@@ -224,8 +226,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Warehouse Receipt Events
-      tags: []
+      summary: Events Index
+      tags:
+        - Warehouse Receipt
       responses:
         '200':
           description: OK
