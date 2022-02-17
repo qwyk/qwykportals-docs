@@ -1,0 +1,221 @@
+openapi: 3.1.0
+info:
+  title: QwykPortals Warehouse API
+  version: '1.0'
+servers: []
+paths: {}
+components:
+  schemas:
+    WarehouseReceipt:
+      title: WarehouseReceipt
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        organization_id:
+          type: integer
+          readOnly: true
+        number:
+          type: string
+        status:
+          type: integer
+        status_name:
+          type: string
+        warehouse:
+          type: string
+        shipper_name:
+          type: string
+        consignee_name:
+          type: string
+        supplier_name:
+          type: string
+        destination_agent_name:
+          type: string
+        driver_name:
+          type: string
+        carrier_pro_number:
+          type: string
+        carrier_tracking_number:
+          type: string
+        driver_license_number:
+          type: string
+        supplier_po_number:
+          type: string
+        notes:
+          type: string
+        is_on_hold:
+          type: boolean
+        created_by:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+        - id
+        - organization_id
+        - number
+        - status
+        - status_name
+        - is_on_hold
+        - created_at
+        - updated_at
+    Event:
+      title: Event
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        parent_type:
+          type: string
+          enum:
+            - warehouse_receipt
+        parent_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        event:
+          type: string
+        location_name:
+          type: string
+        date:
+          type: string
+          format: date-time
+      required:
+        - id
+        - parent_type
+        - parent_id
+    CargoItem:
+      title: CargoItem
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        parent_type:
+          type: string
+          enum:
+            - warehouse_receipt
+        parent_id:
+          type: string
+          format: uuid
+        status:
+          type: integer
+        status_name:
+          type: string
+        type_code:
+          type: integer
+        count:
+          type: integer
+        quantity:
+          type: integer
+        package_name:
+          type: string
+        description:
+          type: string
+        location:
+          type: string
+        weight:
+          $ref: '#/components/schemas/UnitValue'
+        volume:
+          $ref: '#/components/schemas/UnitValue'
+        total_value:
+          type: object
+          properties:
+            currency:
+              type: string
+            amount:
+              type: number
+        is_child:
+          type: boolean
+        is_kit:
+          type: boolean
+        is_container:
+          type: boolean
+        is_really_a_container:
+          type: boolean
+        is_vehicle:
+          type: boolean
+        is_on_hold:
+          type: boolean
+      required:
+        - id
+        - parent_type
+        - parent_id
+    Attachment:
+      title: Attachment
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        parent_type:
+          type: string
+          enum:
+            - warehouse_receipt
+        parent_id:
+          type: string
+          format: uuid
+        filename:
+          type: string
+        description:
+          type: string
+        mime_type:
+          type: string
+        extension:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - parent_type
+        - parent_id
+    Entity:
+      title: Entity
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        parent_type:
+          type: string
+          enum:
+            - warehouse_receipt
+        parent_id:
+          type: string
+          format: uuid
+      required:
+        - id
+        - parent_type
+        - parent_id
+    UnitValue:
+      title: UnitValue
+      type: object
+      properties:
+        value:
+          type: number
+        unit:
+          type: string
+      x-internal: false
+  responses:
+    Paginated:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: string
