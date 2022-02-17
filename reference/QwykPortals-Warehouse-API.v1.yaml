@@ -6,7 +6,7 @@ servers: []
 paths:
   /api/portals/warehouse-receipts:
     get:
-      summary: Your GET endpoint
+      summary: Warehouse Receipts Index
       tags: []
       responses:
         '200':
@@ -40,7 +40,7 @@ paths:
           name: page
   '/api/portals/warehouse-receipts/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Warehouse Receipt Detail
       tags: []
       responses:
         '200':
