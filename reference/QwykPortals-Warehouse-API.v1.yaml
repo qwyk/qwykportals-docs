@@ -6,7 +6,7 @@ servers: []
 paths:
   /api/portals/warehouse-receipts:
     get:
-      summary: Warehouse Receipts Index
+      summary: Warehouse Receipts
       tags: []
       responses:
         '200':
@@ -42,7 +42,7 @@ paths:
           name: page
   '/api/portals/warehouse-receipts/{warehouseReceiptId}':
     get:
-      summary: Warehouse Receipt Detail
+      summary: Warehouse Receipt
       tags: []
       responses:
         '200':
@@ -75,7 +75,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Warehouse Receipt Attachments Index
+      summary: Warehouse Receipt Attachments
       tags: []
       responses:
         '200':
@@ -89,6 +89,141 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Attachment'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: pageSize
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+  '/api/portals/warehouse-receipts/{warehouseReceiptId}/cargo-items':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: Warehouse Receipt Cargo Items
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CargoItem'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: pageSize
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+  '/api/portals/warehouse-receipts/{warehouseReceiptId}/entities':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: Warehouse Receipt Entities
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Entity'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: pageSize
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+  '/api/portals/warehouse-receipts/{warehouseReceiptId}/events':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: Warehouse Receipt Events
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
                   links:
                     $ref: '#/components/schemas/PaginationLinks'
                   meta:
@@ -294,9 +429,11 @@ components:
       title: Entity
       type: object
       properties:
-        id:
+        entity_type:
           type: string
-          format: uuid
+          enum:
+            - shipper
+            - consignee
         parent_type:
           type: string
           enum:
@@ -304,10 +441,13 @@ components:
         parent_id:
           type: string
           format: uuid
+        magaya_customer:
+          $ref: '#/components/schemas/MagayaCustomer'
       required:
-        - id
+        - entity_type
         - parent_type
         - parent_id
+        - magaya_customer
     UnitValue:
       title: UnitValue
       type: object
@@ -442,6 +582,27 @@ components:
         - per_page
         - to
         - total
+    MagayaCustomer:
+      title: MagayaCustomer
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        street1:
+          type: string
+        state:
+          type: string
+        city:
+          type: string
+        postalcode:
+          type: string
+        country:
+          type: string
+      required:
+        - id
   responses:
     '403':
       description: Forbidden
