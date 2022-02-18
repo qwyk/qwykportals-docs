@@ -8,14 +8,14 @@ info:
     name: Magaya
     email: support@qwyk.o
 servers:
-  - url: 'https://api.qwykportals.com'
+  - url: 'https://api.qwykportals.com/api/portals'
     description: Production
-  - url: 'https://api.next.qwykportals.com'
+  - url: 'https://api.next.qwykportals.com/api/portals'
     description: Staging
-  - url: 'https://api.beta.qwykportals.com'
+  - url: 'https://api.beta.qwykportals.com/api/portals'
     description: Beta
 paths:
-  /api/portals/warehouse-receipts:
+  /warehouse/warehouse-receipts:
     get:
       summary: Index
       tags:
@@ -52,7 +52,8 @@ paths:
             default: 1
           in: query
           name: page
-  '/api/portals/warehouse-receipts/{warehouseReceiptId}':
+    parameters: []
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}':
     get:
       summary: Show
       tags:
@@ -79,7 +80,7 @@ paths:
         name: warehouseReceiptId
         in: path
         required: true
-  '/api/portals/warehouse-receipts/{warehouseReceiptId}/attachments':
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/attachments':
     parameters:
       - schema:
           type: string
@@ -125,7 +126,7 @@ paths:
             minimum: 1
           in: query
           name: page
-  '/api/portals/warehouse-receipts/{warehouseReceiptId}/cargo-items':
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/cargo-items':
     parameters:
       - schema:
           type: string
@@ -171,7 +172,7 @@ paths:
           name: page
       tags:
         - Warehouse Receipt
-  '/api/portals/warehouse-receipts/{warehouseReceiptId}/entities':
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
     parameters:
       - schema:
           type: string
@@ -217,7 +218,7 @@ paths:
             minimum: 1
           in: query
           name: page
-  '/api/portals/warehouse-receipts/{warehouseReceiptId}/events':
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/events':
     parameters:
       - schema:
           type: string
