@@ -162,67 +162,6 @@ paths:
           in: query
           name: order_by_direction
       description: ''
-  '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
-    parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
-    get:
-      summary: Entities Index
-      tags:
-        - Warehouse Receipt
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Entity'
-                  links:
-                    $ref: '#/components/schemas/PaginationLinks'
-                  meta:
-                    $ref: '#/components/schemas/PaginationMeta'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-      operationId: get-api-portals-warehouse-receipts-id-cargo-items
-      parameters:
-        - schema:
-            type: integer
-            minimum: 1
-            default: 25
-          in: query
-          name: page_size
-        - schema:
-            type: integer
-            default: 1
-            minimum: 1
-          in: query
-          name: page
-        - schema:
-            type: string
-            default: name
-            enum:
-              - name
-          in: query
-          name: order_by
-        - schema:
-            type: string
-            enum:
-              - asc
-              - desc
-            default: asc
-          in: query
-          name: order_by_direction
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/cargo-items':
     parameters:
       - schema:
@@ -285,6 +224,67 @@ paths:
           name: order_by_direction
       tags:
         - Warehouse Receipt
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: Entities Index
+      tags:
+        - Warehouse Receipt
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Entity'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+        - schema:
+            type: string
+            default: name
+            enum:
+              - name
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+          in: query
+          name: order_by_direction
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/events':
     parameters:
       - schema:
@@ -365,8 +365,20 @@ components:
           type: string
         status:
           type: integer
+          minimum: 0
+          maximum: 8
         status_name:
           type: string
+          enum:
+            - on-hand
+            - in-progress
+            - loaded
+            - in-transit
+            - at-destination
+            - delivered
+            - empty
+            - arriving
+            - pending
         warehouse:
           type: string
         shipper_name:
@@ -457,8 +469,26 @@ components:
           format: uuid
         status:
           type: integer
+          minimum: 0
+          maximum: 14
         status_name:
           type: string
+          enum:
+            - on-hand
+            - in-progress
+            - loaded
+            - in-transit
+            - at-destination
+            - delivered
+            - arriving
+            - in-quote
+            - available
+            - booked
+            - processed
+            - pending
+            - ordered
+            - back-ordered
+            - canceled
         type_code:
           type: integer
         count:
