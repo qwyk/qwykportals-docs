@@ -378,6 +378,12 @@ paths:
                         type: string
                         description: Timestamp until when the link is valid
                         format: date-time
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '':
+          description: ''
       operationId: get-shared-attachments-attachmentId
       description: Returns a Attachment's signed URL which can be used to download the file.
 components:
