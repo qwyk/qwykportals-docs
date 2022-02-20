@@ -348,7 +348,7 @@ paths:
             default: desc
           in: query
           name: order_by_direction
-  '/shared/attachments/{attachmentId}':
+  '/shared/attachments/{attachmentId}/link':
     parameters:
       - schema:
           type: string
@@ -359,6 +359,7 @@ paths:
       summary: 'DRAFT: Attachment Download Link'
       tags:
         - Shared
+        - Attachments
       responses:
         '200':
           description: OK
