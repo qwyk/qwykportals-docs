@@ -1,12 +1,13 @@
 openapi: 3.1.0
 info:
-  title: QwykPortals Warehouse API
-  version: '1.0'
+  title: 'PREVIEW: QwykPortals Warehouse API'
+  version: '0.0'
   license:
     name: Proprietary
   contact:
     name: Magaya
     email: support@qwyk.o
+  description: ''
 servers:
   - url: 'https://api.qwykportals.com/api/portals'
     description: Production
