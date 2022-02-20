@@ -137,7 +137,7 @@ paths:
             minimum: 1
             default: 25
           in: query
-          name: pageSize
+          name: page_size
         - schema:
             type: integer
             default: 1
@@ -160,52 +160,7 @@ paths:
             default: desc
           in: query
           name: order_by_direction
-  '/warehouse/warehouse-receipts/{warehouseReceiptId}/cargo-items':
-    parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
-    get:
-      summary: Cargo Items Index
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/CargoItem'
-                  links:
-                    $ref: '#/components/schemas/PaginationLinks'
-                  meta:
-                    $ref: '#/components/schemas/PaginationMeta'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-      operationId: get-api-portals-warehouse-receipts-id-cargo-items
-      parameters:
-        - schema:
-            type: integer
-            minimum: 1
-            default: 25
-          in: query
-          name: pageSize
-        - schema:
-            type: integer
-            default: 1
-            minimum: 1
-          in: query
-          name: page
-      tags:
-        - Warehouse Receipt
+      description: ''
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
     parameters:
       - schema:
@@ -245,7 +200,7 @@ paths:
             minimum: 1
             default: 25
           in: query
-          name: pageSize
+          name: page_size
         - schema:
             type: integer
             default: 1
@@ -267,6 +222,68 @@ paths:
             default: asc
           in: query
           name: order_by_direction
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/cargo-items':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: Cargo Items Index
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CargoItem'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+        - schema:
+            type: string
+            enum:
+              - status
+              - quantity
+            default: status
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+          in: query
+          name: order_by_direction
+      tags:
+        - Warehouse Receipt
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/events':
     parameters:
       - schema:
@@ -306,7 +323,7 @@ paths:
             minimum: 1
             default: 25
           in: query
-          name: pageSize
+          name: page_size
         - schema:
             type: integer
             default: 1
