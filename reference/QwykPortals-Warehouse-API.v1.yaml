@@ -282,6 +282,23 @@ paths:
             minimum: 1
           in: query
           name: page
+        - schema:
+            type: string
+            default: date
+            enum:
+              - created_at
+              - updated_at
+              - date
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          in: query
+          name: order_by_direction
 components:
   schemas:
     WarehouseReceipt:
