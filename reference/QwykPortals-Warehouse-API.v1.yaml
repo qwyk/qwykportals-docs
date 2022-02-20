@@ -348,6 +348,37 @@ paths:
             default: desc
           in: query
           name: order_by_direction
+  '/shared/attachments/{attachmentId}':
+    parameters:
+      - schema:
+          type: string
+        name: attachmentId
+        in: path
+        required: true
+    get:
+      summary: 'DRAFT: Attachment Download Link'
+      tags:
+        - Shared
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        format: uri
+                      valid_until:
+                        type: string
+                        description: Timestamp until when the link is valid
+                        format: date-time
+      operationId: get-shared-attachments-attachmentId
+      description: Returns a Attachment's signed URL which can be used to download the file.
 components:
   schemas:
     WarehouseReceipt:
