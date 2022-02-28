@@ -352,9 +352,11 @@ paths:
     parameters:
       - schema:
           type: string
+          format: uuid
         name: attachmentId
         in: path
         required: true
+        description: The UUID of the attachment
     get:
       summary: Attachment Download Link
       responses:
