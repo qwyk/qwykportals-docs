@@ -357,9 +357,6 @@ paths:
         required: true
     get:
       summary: 'DRAFT: Attachment Download Link'
-      tags:
-        - Shared
-        - Attachments
       responses:
         '200':
           description: OK
@@ -381,9 +378,11 @@ paths:
         '403':
           $ref: '#/components/responses/403'
         '404':
-          $ref: '#/components/responses/404'        
+          $ref: '#/components/responses/404'
       operationId: get-shared-attachments-attachmentId
       description: Returns a Attachment's signed URL which can be used to download the file.
+      tags:
+        - Common
 components:
   schemas:
     WarehouseReceipt:
