@@ -162,6 +162,34 @@ paths:
           in: query
           name: order_by_direction
       description: ''
+    post:
+      summary: Attachment Create
+      operationId: post-warehouse-warehouse-receipts-warehouseReceiptId-attachments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Attachment'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                description:
+                  type: string
+              required:
+                - file
+                - description
+      description: ''
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/cargo-items':
     parameters:
       - schema:
