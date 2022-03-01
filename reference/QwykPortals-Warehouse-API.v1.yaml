@@ -184,8 +184,13 @@ paths:
                 file:
                   type: string
                   format: binary
+                  description: |-
+                    Allows: pdf,docx,doc,xlsx,xls,csv,txt,png,jpg,jpeg
+
+                    Max: 2048kb
                 description:
                   type: string
+                  maxLength: 191
               required:
                 - file
                 - description
