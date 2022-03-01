@@ -190,6 +190,8 @@ paths:
                 - file
                 - description
       description: ''
+      tags:
+        - Warehouse Receipt
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/cargo-items':
     parameters:
       - schema:
