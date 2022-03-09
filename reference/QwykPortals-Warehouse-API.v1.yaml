@@ -71,6 +71,21 @@ paths:
             default: desc
           in: query
           name: order_by_direction
+        - schema:
+            type: integer
+          in: query
+          name: 'status[]'
+          description: An array of status integers to filter by
+        - schema:
+            type: string
+          in: query
+          name: number
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: 'created_at_range[]'
+          description: 2 dates in array format
     parameters: []
   '/warehouse/warehouse-receipts/{warehouseReceiptId}':
     get:
