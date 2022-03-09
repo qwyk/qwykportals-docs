@@ -478,9 +478,9 @@ components:
         attachments_count:
           type: integer
         total_items:
-          type: string
+          type: integer
         total_pieces:
-          type: string
+          type: integer
         total_weight:
           $ref: '#/components/schemas/MultiUnitValue'
         total_volume:
