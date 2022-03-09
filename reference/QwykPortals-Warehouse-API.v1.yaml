@@ -92,6 +92,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
       operationId: 'get-api-portals-warehouse-receipts-:id'
+      x-internal: false
     parameters:
       - schema:
           type: string
@@ -425,6 +426,7 @@ components:
     WarehouseReceipt:
       title: WarehouseReceipt
       type: object
+      examples: []
       properties:
         id:
           type: string
@@ -473,6 +475,16 @@ components:
           type: string
         notes:
           type: string
+        attachments_count:
+          type: integer
+        total_items:
+          type: string
+        total_pieces:
+          type: string
+        total_weight:
+          $ref: '#/components/schemas/MultiUnitValue'
+        total_volume:
+          $ref: '#/components/schemas/MultiUnitValue'
         is_on_hold:
           type: boolean
         created_by:
@@ -819,6 +831,14 @@ components:
           type: string
       required:
         - id
+    MultiUnitValue:
+      title: MultiUnitValue
+      type: object
+      properties:
+        imperial:
+          $ref: '#/components/schemas/UnitValue'
+        metric:
+          $ref: '#/components/schemas/UnitValue'
   responses:
     '403':
       description: Forbidden
