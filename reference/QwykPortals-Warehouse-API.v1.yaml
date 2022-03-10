@@ -677,6 +677,9 @@ components:
             - release_to
             - shipper
             - supplier
+            - undefined
+            - pickup_entity
+            - main_carrier
         parent_type:
           type: string
           enum:
