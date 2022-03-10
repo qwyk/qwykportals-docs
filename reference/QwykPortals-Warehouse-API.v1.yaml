@@ -541,10 +541,13 @@ components:
           format: uuid
         name:
           type: string
+          example: Arrived at Warehouse
         event:
           type: string
+          example: Warehouse took delivery
         location_name:
           type: string
+          example: 'Miami, FL'
         date:
           type: string
           format: date-time
@@ -592,14 +595,19 @@ components:
           type: integer
         count:
           type: integer
+          example: 1
         quantity:
           type: integer
+          example: 2
         package_name:
           type: string
+          example: Pallet
         description:
           type: string
+          example: 'Widgets, Non Haz'
         location:
           type: string
+          example: '210388'
         weight:
           $ref: '#/components/schemas/UnitValue'
         volume:
@@ -609,8 +617,10 @@ components:
           properties:
             currency:
               type: string
+              example: USD
             amount:
               type: number
+              example: 1000
         is_child:
           type: boolean
         is_kit:
@@ -697,12 +707,13 @@ components:
     UnitValue:
       title: UnitValue
       type: object
+      x-internal: false
       properties:
         value:
           type: number
+          example: 100
         unit:
           type: string
-      x-internal: false
     PaginationLinks:
       description: ''
       type: object
@@ -837,16 +848,23 @@ components:
           format: uuid
         name:
           type: string
+          example: Magaya Corporation
+          readOnly: true
         street1:
           type: string
+          example: 7950 NW 53rd Street
         state:
           type: string
+          example: FL
         city:
           type: string
+          example: Miami
         postalcode:
           type: string
+          example: '33166'
         country:
           type: string
+          example: United States
       required:
         - id
     MultiUnitValue:
