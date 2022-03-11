@@ -275,6 +275,71 @@ paths:
           name: order_by_direction
       tags:
         - Warehouse Receipt
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/charges':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: DRAFT Charges Index
+      tags:
+        - Warehouse Receipt
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Charge'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-charges
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+        - schema:
+            type: string
+            default: service
+            enum:
+              - price
+              - quantity
+              - service
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          in: query
+          name: order_by_direction
+      description: ''
+      x-internal: true
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
     parameters:
       - schema:
@@ -399,71 +464,6 @@ paths:
             default: desc
           in: query
           name: order_by_direction
-  '/warehouse/warehouse-receipts/{warehouseReceiptId}/charges':
-    parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
-    get:
-      summary: DRAFT Charges Index
-      tags:
-        - Warehouse Receipt
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Charge'
-                  links:
-                    $ref: '#/components/schemas/PaginationLinks'
-                  meta:
-                    $ref: '#/components/schemas/PaginationMeta'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-      operationId: get-api-portals-warehouse-receipts-id-charges
-      parameters:
-        - schema:
-            type: integer
-            minimum: 1
-            default: 25
-          in: query
-          name: page_size
-        - schema:
-            type: integer
-            default: 1
-            minimum: 1
-          in: query
-          name: page
-        - schema:
-            type: string
-            default: service
-            enum:
-              - price
-              - quantity
-              - service
-          in: query
-          name: order_by
-        - schema:
-            type: string
-            enum:
-              - asc
-              - desc
-            default: desc
-          in: query
-          name: order_by_direction
-      description: ''
-      x-internal: true
   '/common/attachments/{attachmentId}/link':
     parameters:
       - schema:
