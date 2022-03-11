@@ -697,6 +697,8 @@ components:
     Charge:
       title: Charge
       type: object
+      x-internal: true
+      description: ''
       properties:
         id:
           type: string
@@ -710,10 +712,14 @@ components:
           format: uuid
         service:
           type: string
+          example: Ocean Freight Service
         description:
-          type: string
+          type:
+            - string
+            - 'null'
         quantity:
           type: number
+          example: 5
         price:
           $ref: '#/components/schemas/Price'
         tax:
@@ -723,7 +729,9 @@ components:
         retention:
           type: integer
         notes:
-          type: string
+          type:
+            - string
+            - 'null'
         is_voided:
           type: boolean
         is_prepaid:
@@ -732,8 +740,6 @@ components:
         - id
         - parent_type
         - parent_id
-      x-internal: true
-      description: ''
     Entity:
       title: Entity
       type: object
