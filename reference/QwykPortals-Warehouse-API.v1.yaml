@@ -399,6 +399,71 @@ paths:
             default: desc
           in: query
           name: order_by_direction
+  '/warehouse/warehouse-receipts/{warehouseReceiptId}/charges':
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: warehouseReceiptId
+        in: path
+        required: true
+    get:
+      summary: DRAFT Charges Index
+      tags:
+        - Warehouse Receipt
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Charge'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-charges
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+        - schema:
+            type: string
+            default: service
+            enum:
+              - price
+              - quantity
+              - service
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          in: query
+          name: order_by_direction
+      description: ''
+      x-internal: true
   '/common/attachments/{attachmentId}/link':
     parameters:
       - schema:
@@ -525,8 +590,8 @@ components:
         - is_on_hold
         - created_at
         - updated_at
-    Event:
-      title: Event
+    Attachment:
+      title: Attachment
       type: object
       properties:
         id:
@@ -539,16 +604,15 @@ components:
         parent_id:
           type: string
           format: uuid
-        name:
+        filename:
           type: string
-          example: Arrived at Warehouse
-        event:
+        description:
           type: string
-          example: Warehouse took delivery
-        location_name:
+        mime_type:
           type: string
-          example: 'Miami, FL'
-        date:
+        extension:
+          type: string
+        created_at:
           type: string
           format: date-time
       required:
@@ -613,14 +677,7 @@ components:
         volume:
           $ref: '#/components/schemas/UnitValue'
         total_value:
-          type: object
-          properties:
-            currency:
-              type: string
-              example: USD
-            amount:
-              type: number
-              example: 1000
+          $ref: '#/components/schemas/Price'
         is_child:
           type: boolean
         is_kit:
@@ -637,8 +694,8 @@ components:
         - id
         - parent_type
         - parent_id
-    Attachment:
-      title: Attachment
+    Charge:
+      title: Charge
       type: object
       properties:
         id:
@@ -651,21 +708,32 @@ components:
         parent_id:
           type: string
           format: uuid
-        filename:
+        service:
           type: string
         description:
           type: string
-        mime_type:
+        quantity:
+          type: number
+        price:
+          $ref: '#/components/schemas/Price'
+        tax:
+          type: number
+        type:
+          type: integer
+        retention:
+          type: integer
+        notes:
           type: string
-        extension:
-          type: string
-        created_at:
-          type: string
-          format: date-time
+        is_voided:
+          type: boolean
+        is_prepaid:
+          type: boolean
       required:
         - id
         - parent_type
         - parent_id
+      x-internal: true
+      description: ''
     Entity:
       title: Entity
       type: object
@@ -704,6 +772,36 @@ components:
         - parent_type
         - parent_id
         - magaya_customer
+    Event:
+      title: Event
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        parent_type:
+          type: string
+          enum:
+            - warehouse-receipt
+        parent_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: Arrived at Warehouse
+        event:
+          type: string
+          example: Warehouse took delivery
+        location_name:
+          type: string
+          example: 'Miami, FL'
+        date:
+          type: string
+          format: date-time
+      required:
+        - id
+        - parent_type
+        - parent_id
     UnitValue:
       title: UnitValue
       type: object
@@ -875,6 +973,18 @@ components:
           $ref: '#/components/schemas/UnitValue'
         metric:
           $ref: '#/components/schemas/UnitValue'
+    Price:
+      title: Price
+      type: object
+      properties:
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+          example: USD
+        amount:
+          type: number
+          example: 100.5
   responses:
     '403':
       description: Forbidden
