@@ -284,7 +284,7 @@ paths:
         in: path
         required: true
     get:
-      summary: DRAFT Charges Index
+      summary: Charges Index
       tags:
         - Warehouse Receipt
       responses:
@@ -325,9 +325,9 @@ paths:
             type: string
             default: service
             enum:
-              - price
               - quantity
               - service
+              - price_amount
           in: query
           name: order_by
         - schema:
@@ -339,7 +339,7 @@ paths:
           in: query
           name: order_by_direction
       description: ''
-      x-internal: true
+      x-internal: false
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
     parameters:
       - schema:
@@ -697,7 +697,7 @@ components:
     Charge:
       title: Charge
       type: object
-      x-internal: true
+      x-internal: false
       description: ''
       properties:
         id:
@@ -710,6 +710,8 @@ components:
         parent_id:
           type: string
           format: uuid
+        type:
+          type: integer
         service:
           type: string
           example: Ocean Freight Service
@@ -722,12 +724,10 @@ components:
           example: 5
         price:
           $ref: '#/components/schemas/Price'
-        tax:
+        tax_percentage:
           type: number
-        type:
-          type: integer
         retention:
-          type: integer
+          type: number
         notes:
           type:
             - string
@@ -740,6 +740,8 @@ components:
         - id
         - parent_type
         - parent_id
+        - type
+        - service
     Entity:
       title: Entity
       type: object
