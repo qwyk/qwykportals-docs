@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: 'PREVIEW: QwykPortals Warehouse API'
+  title: 'PREVIEW: Magaya Digital Freight Portal API'
   version: '0.0'
   license:
     name: Proprietary
@@ -669,6 +669,14 @@ components:
         description:
           type: string
           example: 'Widgets, Non Haz'
+        part_number:
+          type:
+            - string
+            - 'null'
+        serial_number:
+          type:
+            - string
+            - 'null'
         location:
           type: string
           example: '210388'
