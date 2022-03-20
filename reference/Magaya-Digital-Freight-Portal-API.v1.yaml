@@ -57,8 +57,6 @@ paths:
   '/invoices/invoices/{invoiceId}':
     get:
       summary: Show
-      tags:
-        - Warehouse Receipt
       responses:
         '200':
           description: OK
@@ -76,6 +74,8 @@ paths:
           $ref: '#/components/responses/404'
       operationId: 'get-api-portals-warehouse-receipts-:id'
       x-internal: true
+      tags:
+        - Invoice
     parameters:
       - schema:
           type: string
@@ -165,7 +165,7 @@ paths:
                 - description
       description: ''
       tags:
-        - Warehouse Receipt
+        - Invoice
   /warehouse/warehouse-receipts:
     get:
       summary: Index
