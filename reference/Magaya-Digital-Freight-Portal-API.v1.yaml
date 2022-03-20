@@ -54,6 +54,52 @@ paths:
             minimum: 1
           in: query
           name: pageSize
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: 'created_at_range[]'
+          description: 2 dates in array format
+        - schema:
+            type: string
+          in: query
+          name: number
+        - schema:
+            type: integer
+          in: query
+          name: 'status[]'
+        - schema:
+            type: integer
+          in: query
+          name: 'approval_status[]'
+        - schema:
+            type: string
+            default: created_at
+            enum:
+              - created_at
+              - number
+              - status
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          in: query
+          name: order_by_direction
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: 'due_at_range[]'
+          description: 2 dates in array format
+        - schema:
+            type: boolean
+          in: query
+          name: overdue
+          description: 'true = overdue, false = not overdue, null/not present = all'
   '/invoice/invoices/{invoiceId}':
     get:
       summary: Show
