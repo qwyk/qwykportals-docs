@@ -501,6 +501,14 @@ paths:
       description: Returns a Attachment's signed URL which can be used to download the file.
       tags:
         - Common
+  /invoice/invoices:
+    get:
+      summary: Index
+      tags:
+        - Invoice
+      responses: {}
+      operationId: get-invoice-invoices
+      x-internal: true
 components:
   schemas:
     Invoice:
@@ -780,8 +788,6 @@ components:
         - id
         - parent_type
         - parent_id
-      x-tags:
-        - Common
     Charge:
       title: Charge
       type: object
@@ -831,8 +837,6 @@ components:
         - parent_id
         - type
         - service
-      x-tags:
-        - Common
     Entity:
       title: Entity
       type: object
