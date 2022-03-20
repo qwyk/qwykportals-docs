@@ -91,8 +91,6 @@ paths:
         required: true
     get:
       summary: Attachments Index
-      tags:
-        - Warehouse Receipt
       responses:
         '200':
           $ref: '#/components/responses/Attachments'
@@ -131,6 +129,8 @@ paths:
           in: query
           name: order_by_direction
       description: ''
+      tags:
+        - Invoice
     post:
       summary: Attachment Create
       operationId: post-warehouse-warehouse-receipts-warehouseReceiptId-attachments
