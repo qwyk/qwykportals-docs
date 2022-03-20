@@ -159,6 +159,7 @@ paths:
       description: ''
       tags:
         - Invoice
+      x-internal: true
   '/invoice/invoices/{invoiceId}/charges':
     parameters:
       - $ref: '#/components/parameters/invoiceId'
