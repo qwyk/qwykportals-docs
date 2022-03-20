@@ -16,6 +16,14 @@ servers:
   - url: 'https://api.beta.qwykportals.com/api/portals'
     description: Beta
 paths:
+  /invoice/invoices:
+    get:
+      summary: Index
+      tags:
+        - Invoice
+      responses: {}
+      operationId: get-invoice-invoices
+      x-internal: true
   /warehouse/warehouse-receipts:
     get:
       summary: Index
@@ -501,14 +509,6 @@ paths:
       description: Returns a Attachment's signed URL which can be used to download the file.
       tags:
         - Common
-  /invoice/invoices:
-    get:
-      summary: Index
-      tags:
-        - Invoice
-      responses: {}
-      operationId: get-invoice-invoices
-      x-internal: true
 components:
   schemas:
     Invoice:
