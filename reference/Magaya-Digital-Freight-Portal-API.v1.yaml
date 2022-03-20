@@ -503,6 +503,83 @@ paths:
         - Common
 components:
   schemas:
+    Invoice:
+      title: Invoice
+      type: object
+      description: ''
+      x-internal: true
+      properties:
+        id:
+          type: string
+          format: uuid
+        number:
+          type: string
+          example: INV-12345
+        applies_to:
+          $ref: '#/components/schemas/Customer'
+        type:
+          type: integer
+          minimum: 0
+          maximum: 0
+        type_name:
+          type: string
+          enum:
+            - invoice
+        status:
+          type: integer
+          minimum: 0
+          maximum: 1
+        status_name:
+          type: string
+          enum:
+            - open
+            - paid
+        approval_status:
+          type: integer
+          minimum: 0
+          maximum: 2
+        approval_status_name:
+          type: string
+          enum:
+            - none
+            - approved
+            - disputed
+        description:
+          type: string
+        total:
+          $ref: '#/components/schemas/Price'
+        paid:
+          $ref: '#/components/schemas/Price'
+        payment_terms:
+          type:
+            - string
+            - 'null'
+        account:
+          type:
+            - string
+            - 'null'
+        division:
+          type:
+            - string
+            - 'null'
+        notes:
+          type:
+            - string
+            - 'null'
+        created_at:
+          type: string
+          format: date-time
+        due_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        deleted_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
     WarehouseReceipt:
       title: WarehouseReceipt
       type: object
@@ -601,6 +678,7 @@ components:
           type: string
           enum:
             - warehouse-receipt
+            - invoice
         parent_id:
           type: string
           format: uuid
@@ -715,6 +793,7 @@ components:
           type: string
           enum:
             - warehouse-receipt
+            - invoice
         parent_id:
           type: string
           format: uuid
@@ -799,6 +878,7 @@ components:
           type: string
           enum:
             - warehouse-receipt
+            - invoice
         parent_id:
           type: string
           format: uuid
@@ -1001,6 +1081,28 @@ components:
         amount:
           type: number
           example: 100.5
+    Customer:
+      title: Customer
+      type: object
+      x-internal: true
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+    InvoicableTransaction:
+      title: InvoicableTransaction
+      type: object
+      properties:
+        transaction_type:
+          type: string
+          enum:
+            - warehouse-receipt
+        transaction_id:
+          type: string
+          format: uuid
+      x-internal: true
   responses:
     '403':
       description: Forbidden
