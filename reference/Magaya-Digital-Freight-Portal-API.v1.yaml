@@ -54,7 +54,7 @@ paths:
             minimum: 1
           in: query
           name: pageSize
-  '/invoices/invoices/{invoiceId}':
+  '/invoice/invoices/{invoiceId}':
     get:
       summary: Show
       responses:
@@ -77,23 +77,15 @@ paths:
       tags:
         - Invoice
     parameters:
-      - schema:
-          type: string
-        name: invoiceId
-        in: path
-        required: true
-  '/invoices/invoices/{invoiceId}/attachments':
+      - $ref: '#/components/parameters/invoiceId'
+  '/invoice/invoices/{invoiceId}/attachments':
     parameters:
-      - schema:
-          type: string
-        name: invoiceId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/invoiceId'
     get:
       summary: Attachments Index
       responses:
         '200':
-          $ref: '#/components/responses/Attachments'
+          $ref: '#/components/responses/Attachments-List'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -164,6 +156,98 @@ paths:
                 - file
                 - description
       description: ''
+      tags:
+        - Invoice
+  '/invoice/invoices/{invoiceId}/charges':
+    parameters:
+      - $ref: '#/components/parameters/invoiceId'
+    get:
+      summary: Charges Index
+      responses:
+        '200':
+          $ref: '#/components/responses/Charges-List'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-charges
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+        - schema:
+            type: string
+            default: service
+            enum:
+              - quantity
+              - service
+              - price_amount
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          in: query
+          name: order_by_direction
+      description: ''
+      x-internal: false
+      tags:
+        - Invoice
+  '/invoice/invoices/{invoiceId}/events':
+    parameters:
+      - $ref: '#/components/parameters/invoiceId'
+    get:
+      summary: Events Index
+      responses:
+        '200':
+          $ref: '#/components/responses/Events-List'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+        - schema:
+            type: string
+            default: date
+            enum:
+              - created_at
+              - updated_at
+              - date
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          in: query
+          name: order_by_direction
       tags:
         - Invoice
   /warehouse/warehouse-receipts:
@@ -259,27 +343,17 @@ paths:
       operationId: 'get-api-portals-warehouse-receipts-:id'
       x-internal: false
     parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/warehouseReceiptId'
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/attachments':
     parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/warehouseReceiptId'
     get:
       summary: Attachments Index
       tags:
         - Warehouse Receipt
       responses:
         '200':
-          $ref: '#/components/responses/Attachments'
+          $ref: '#/components/responses/Attachments-List'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -352,12 +426,7 @@ paths:
         - Warehouse Receipt
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/cargo-items':
     parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/warehouseReceiptId'
     get:
       summary: Cargo Items Index
       responses:
@@ -414,32 +483,14 @@ paths:
         - Warehouse Receipt
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/charges':
     parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/warehouseReceiptId'
     get:
       summary: Charges Index
       tags:
         - Warehouse Receipt
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Charge'
-                  links:
-                    $ref: '#/components/schemas/PaginationLinks'
-                  meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+          $ref: '#/components/responses/Charges-List'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -479,12 +530,7 @@ paths:
       x-internal: false
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
     parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/warehouseReceiptId'
     get:
       summary: Entities Index
       tags:
@@ -540,32 +586,14 @@ paths:
           name: order_by_direction
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/events':
     parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: warehouseReceiptId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/warehouseReceiptId'
     get:
       summary: Events Index
       tags:
         - Warehouse Receipt
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Event'
-                  links:
-                    $ref: '#/components/schemas/PaginationLinks'
-                  meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+          $ref: '#/components/responses/Events-List'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -1281,7 +1309,7 @@ components:
             example-1:
               value:
                 message: 'No query results for model [{model}] {id}'
-    Attachments:
+    Attachments-List:
       description: Example response
       content:
         application/json:
@@ -1296,9 +1324,54 @@ components:
                 $ref: '#/components/schemas/PaginationLinks'
               meta:
                 $ref: '#/components/schemas/PaginationMeta'
+    Charges-List:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Charge'
+              links:
+                $ref: '#/components/schemas/PaginationLinks'
+              meta:
+                $ref: '#/components/schemas/PaginationMeta'
+    Events-List:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+              links:
+                $ref: '#/components/schemas/PaginationLinks'
+              meta:
+                $ref: '#/components/schemas/PaginationMeta'
   securitySchemes:
     Bearer Token:
       type: http
       scheme: bearer
+  parameters:
+    invoiceId:
+      name: invoiceId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    warehouseReceiptId:
+      name: warehouseReceiptId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
 security:
   - Bearer Token: []
