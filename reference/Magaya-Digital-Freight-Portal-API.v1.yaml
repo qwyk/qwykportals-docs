@@ -123,6 +123,7 @@ paths:
       description: ''
       tags:
         - Invoice
+      x-internal: true
     post:
       summary: Attachment Create
       operationId: post-warehouse-warehouse-receipts-warehouseReceiptId-attachments
@@ -202,7 +203,7 @@ paths:
           in: query
           name: order_by_direction
       description: ''
-      x-internal: false
+      x-internal: true
       tags:
         - Invoice
   '/invoice/invoices/{invoiceId}/events':
@@ -250,6 +251,7 @@ paths:
           name: order_by_direction
       tags:
         - Invoice
+      x-internal: true
   /warehouse/warehouse-receipts:
     get:
       summary: Index
