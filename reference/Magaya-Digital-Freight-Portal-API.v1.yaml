@@ -780,6 +780,8 @@ components:
         - id
         - parent_type
         - parent_id
+      x-tags:
+        - Common
     Charge:
       title: Charge
       type: object
@@ -829,6 +831,8 @@ components:
         - parent_id
         - type
         - service
+      x-tags:
+        - Common
     Entity:
       title: Entity
       type: object
