@@ -21,9 +21,151 @@ paths:
       summary: Index
       tags:
         - Invoice
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                  links:
+                    $ref: '#/components/schemas/PaginationLinks'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '403':
+          $ref: '#/components/responses/403'
       operationId: get-invoice-invoices
       x-internal: true
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            example: 1
+          in: query
+          name: page
+        - schema:
+            type: integer
+            example: 25
+            minimum: 1
+          in: query
+          name: pageSize
+  '/invoices/invoices/{invoiceId}':
+    get:
+      summary: Show
+      tags:
+        - Warehouse Receipt
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Invoice'
+              examples: {}
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: 'get-api-portals-warehouse-receipts-:id'
+      x-internal: true
+    parameters:
+      - schema:
+          type: string
+        name: invoiceId
+        in: path
+        required: true
+  '/invoices/invoices/{invoiceId}/attachments':
+    parameters:
+      - schema:
+          type: string
+        name: invoiceId
+        in: path
+        required: true
+    get:
+      summary: Attachments Index
+      tags:
+        - Warehouse Receipt
+      responses:
+        '200':
+          $ref: '#/components/responses/Attachments'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: get-api-portals-warehouse-receipts-id-cargo-items
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: integer
+            default: 1
+            minimum: 1
+          in: query
+          name: page
+        - schema:
+            type: string
+            enum:
+              - created_at
+              - updated_at
+            default: created_a
+          in: query
+          name: order_by
+        - schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          in: query
+          name: order_by_direction
+      description: ''
+    post:
+      summary: Attachment Create
+      operationId: post-warehouse-warehouse-receipts-warehouseReceiptId-attachments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Attachment'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: |-
+                    Allows: pdf,docx,doc,xlsx,xls,csv,txt,png,jpg,jpeg
+
+                    Max: 2048kb
+                description:
+                  type: string
+                  maxLength: 191
+              required:
+                - file
+                - description
+      description: ''
+      tags:
+        - Warehouse Receipt
   /warehouse/warehouse-receipts:
     get:
       summary: Index
@@ -137,20 +279,7 @@ paths:
         - Warehouse Receipt
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Attachment'
-                  links:
-                    $ref: '#/components/schemas/PaginationLinks'
-                  meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+          $ref: '#/components/responses/Attachments'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -1152,6 +1281,21 @@ components:
             example-1:
               value:
                 message: 'No query results for model [{model}] {id}'
+    Attachments:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attachment'
+              links:
+                $ref: '#/components/schemas/PaginationLinks'
+              meta:
+                $ref: '#/components/schemas/PaginationMeta'
   securitySchemes:
     Bearer Token:
       type: http
