@@ -813,6 +813,8 @@ components:
           $ref: '#/components/schemas/Price'
         paid:
           $ref: '#/components/schemas/Price'
+        due:
+          $ref: '#/components/schemas/Price'
         payment_terms:
           type:
             - string
