@@ -100,6 +100,13 @@ paths:
           in: query
           name: overdue
           description: 'true = overdue, false = not overdue, null/not present = all'
+        - schema:
+            type: integer
+            enum:
+              - 0
+              - 1
+          in: query
+          name: type
   '/invoice/invoices/{invoiceId}':
     get:
       summary: Show
