@@ -63,6 +63,10 @@ paths:
                   oneOf:
                     - $ref: '#/components/schemas/VeemPaymentProviderConfiguration'
                     - $ref: '#/components/schemas/PaymentProviderConfiguration'
+              required:
+                - payment_provider
+                - is_active
+                - configuration
 components:
   schemas:
     PaymentProvider:
@@ -89,6 +93,13 @@ components:
         updated_at:
           type: string
           format: date-time
+      required:
+        - id
+        - payment_provider
+        - configuration
+        - is_active
+        - created_at
+        - updated_at
     PaymentProviderConfiguration:
       title: PaymentProviderConfiguration
       type: object
@@ -101,6 +112,8 @@ components:
         reference_id:
           type: string
           format: uuid
+      required:
+        - reference_id
   securitySchemes:
     JWToken:
       type: http
