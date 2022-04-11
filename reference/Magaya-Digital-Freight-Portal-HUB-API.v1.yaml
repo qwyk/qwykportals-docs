@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: 'PREVIEW: Magaya Digital Freight Portal HUB API'
+  version: '1.0'
+  description: ''
+servers:
+  - url: 'https://api.qwykportals.com/api/hub'
+    description: Production
+  - url: 'https://api.next.qwykportals.com/api/hub'
+    description: Staging
+  - url: 'https://api.beta.qwykportals.com/api/hub'
+    description: Beta
+paths:
+  /settings/payment-providers:
+    get:
+      summary: Payment Providers Index
+      tags:
+        - Settings
+      responses: {}
+      operationId: get-settings-payment-providers
+      x-internal: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PaymentProvider'
+    post:
+      summary: Payment Providers Create
+      operationId: post-settings-payment-providers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PaymentProvider'
+                  '':
+                    type: string
+      tags:
+        - Settings
+      x-internal: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payment_provider:
+                  type: string
+                  enum:
+                    - veem
+                is_active:
+                  type: boolean
+                configuration:
+                  oneOf:
+                    - $ref: '#/components/schemas/VeemPaymentProviderConfiguration'
+                    - $ref: '#/components/schemas/PaymentProviderConfiguration'
+components:
+  schemas:
+    PaymentProvider:
+      title: PaymentProvider
+      type: object
+      x-internal: true
+      properties:
+        id:
+          type: string
+          format: uuid
+        payment_provider:
+          type: string
+          enum:
+            - veem
+        configuration:
+          oneOf:
+            - $ref: '#/components/schemas/VeemPaymentProviderConfiguration'
+            - $ref: '#/components/schemas/PaymentProviderConfiguration'
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    PaymentProviderConfiguration:
+      title: PaymentProviderConfiguration
+      type: object
+      x-internal: true
+    VeemPaymentProviderConfiguration:
+      title: VeemPaymentProviderConfiguration
+      type: object
+      x-internal: true
+      properties:
+        reference_id:
+          type: string
+          format: uuid
+  securitySchemes:
+    JWToken:
+      type: http
+      scheme: bearer
+security:
+  - JWToken: []
