@@ -940,6 +940,13 @@ components:
         - is_on_hold
         - created_at
         - updated_at
+    Payment:
+      title: Payment
+      type: object
+      properties:
+        id:
+          type: string
+      x-internal: true
     Attachment:
       title: Attachment
       type: object

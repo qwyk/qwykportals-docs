@@ -6,7 +6,7 @@ info:
     name: Qwyk
     url: qwyk.io
     email: support@qwyk.io
-  description: |+
+  description: |
     The Shipment Exchange API allows your own systems to interact with Shipments that exist in your QwykPortals instance. It consists of two parts:
 
     #### Webhooks:
@@ -22,8 +22,6 @@ info:
 
     **Deprecated** [Post Booking Confirmation](./QwykPortals-Shipment-Exchange-API.v1.yaml/paths/~1webhooks~1portals~1shipments~1booking-confirmation/post)
     Call this method to confirm a shipment you have received via our Receive a Shipment webhook and let your portal users know their instruction has been accepted.
-
-
 servers:
   - url: 'https://api.qwykportals.com'
     description: QwykPortals API (stable)
@@ -1346,6 +1344,199 @@ components:
       x-tags:
         - Models
       type: object
+      x-examples:
+        example-1:
+          doc_type: shipment_json
+          version: '1.6'
+          shipments:
+            - source_account_id: 1
+              source_system_uid: 9308bf1e41ff4f5898b856465320fa93
+              transmission_uid: 605c3dbbe176b737cc608cda
+              sent_date: '2021-03-25T07:37:31+00:00'
+              booking_submitted_actual: '2021-03-25T07:37:31+00:00'
+              created_by:
+                email: martyn@qwyk.io
+                first_name: Martyn Verhaegen
+                last_name: null
+                username: '1'
+              created_on: '2021-03-25T07:37:30+00:00'
+              forwarder_controlling_company_code: QWYK
+              forwarder_controlling_branch_code: RTM
+              agent_reference: null
+              shipper_reference: null
+              consignee_reference: null
+              forwarder_reference: null
+              house_bill: null
+              master_bill: null
+              lading_port:
+                unlocode: NLRTM
+                description: 'Rotterdam, ZH, NL'
+              arrival_port:
+                unlocode: SGSIN
+                description: 'Singapore, SG'
+              final_destination_port:
+                unlocode: SGSIN
+                description: 'Singapore, SG'
+              ship_from: null
+              shipper:
+                name: Qwyk
+                address_1: Nieuwstraat 7
+                address_2: null
+                address_type: null
+                postal_code: 3311XR
+                city: Dordrecht
+                state: null
+                state_name: ZH
+                country: NL
+                country_name: null
+                phone_number: '624164853'
+                email: martyn@qwyk.io
+                unlocode: null
+                source_party_id: '1'
+                target_party_id: CUSTOMER_ID
+              consignor:
+                name: Qwyk
+                address_1: Nieuwstraat 7
+                address_2: null
+                address_type: null
+                postal_code: 3311XR
+                city: Dordrecht
+                state: ZH
+                state_name: ZH
+                country: NL
+                country_name: Netherlands (the)
+                contact_name: Martyn Verhaegen
+                phone_number: '624164853'
+                email: martyn@qwyk.io
+                unlocode: NLDOR
+                source_party_id: 42
+                target_party_id: CUSTOMER_ID
+              consignee:
+                name: EAGLE COPTERS HOLLAND
+                address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
+                address_2: COLINA
+                address_type: null
+                postal_code: '9340000'
+                city: SANTIAGO
+                state: RM
+                state_name: RM
+                country: NL
+                country_name: Netherlands (the)
+                contact_name: null
+                phone_number: null
+                email: null
+                unlocode: CLSCL
+                source_party_id: 43
+                target_party_id: null
+              notify_party:
+                name: EAGLE COPTERS HOLLAND
+                address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
+                address_2: COLINA
+                address_type: null
+                postal_code: '9340000'
+                city: SANTIAGO
+                state: RM
+                state_name: RM
+                country: NL
+                country_name: Netherlands (the)
+                contact_name: null
+                phone_number: null
+                email: null
+                unlocode: CLSCL
+                source_party_id: 44
+                target_party_id: null
+              ship_to: null
+              importer_of_record:
+                name: Qwyk
+                address_1: Nieuwstraat 7
+                address_2: null
+                address_type: null
+                postal_code: 3311XR
+                city: Dordrecht
+                state: null
+                state_name: ZH
+                country: NL
+                country_name: null
+                contact_name: Martyn Verhaegen
+                phone_number: '624164853'
+                email: martyn@qwyk.io
+                unlocode: null
+                source_party_id: '1'
+                target_party_id: CUSTOMER_ID
+              transport_mode: SEA
+              vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
+              voyage_number: 0FL8ME1MA
+              departure_estimated: '2021-03-30T00:00:00+00:00'
+              arrival_port_estimated: '2021-04-21T00:00:00+00:00'
+              cutoff_time_bol: null
+              cutoff_time_physical: '2021-03-27T00:00:00+00:00'
+              containerization_type: fcl
+              cargo_ready_estimated: '2021-03-25T07:05:27+00:00'
+              carrier_instructions: These are some notes
+              freight_payment_terms: PREPAID
+              inco_term: EXW
+              notes:
+                - note_type: BOOKING MESSAGE
+                  body: 'Booking placed using QwykPortals, retrieve this shipment at http://localhost:4200/shipments/9308bf1e-41ff-4f58-98b8-56465320fa93'
+                - note_type: BOOKING INSTRUCTIONS
+                  body: These are some notes
+              revenue_invoices:
+                - bill_to_id: CUSTOMER_ID
+                  service_invoice_uid: 9308bf1e-4ba5-481e-9b29-c871b4e0996d
+                  currency: EUR
+                  total_due: 995
+                  invoice_lines:
+                    - charge_code: OFR
+                      currency: EUR
+                      description: Freight Charges (freight)
+                      quantity: 1
+                      unit_price: 995
+                      total_cost: 995
+              containers:
+                - container_number: null
+                  delivery_mode: null
+                  size_code: 20G0
+                  source_container_id: 22
+                  type_code: 20GP
+              package_group:
+                - chargeable_weight_kgs: null
+                  commodity_type: null
+                  description_of_goods: Freight All Kinds (FAK)
+                  gross_weight_kgs: 0
+                  marks_and_numbers: null
+                  pack_items: null
+                  package_height_cms: null
+                  package_length_cms: null
+                  package_width_cms: null
+                  package_quantity: 1
+                  package_type_code: CN
+                  package_type_description: 20' Container
+                  product_code: null
+                  product_import_hts: null
+                  source_container_id: 22
+                  source_package_group_id: 22
+                  volume_cbms: 0
+              shipment_legs:
+                - leg_sequence_number: 1
+                  leg_type: Main
+                  transport_mode: SEA
+                  carrier_scac: null
+                  vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
+                  voyage_number: 0FL8ME1MA
+                  departure_estimated: '2021-03-30T00:00:00+00:00'
+                  lading_port:
+                    unlocode: NLRTM
+                    description: 'Rotterdam, ZH, NL'
+                  arrival_estimated: '2021-04-21T00:00:00+00:00'
+                  arrival_port:
+                    unlocode: SGSIN
+                    description: 'Singapore, SG'
+              attachments:
+                - content: BASE64 ENCODED FILE
+                  file_name: testpdf.pdf
+                  file_type_code: null
+                  file_type_description: Test PDF
+                  media_type: application/pdf
       properties:
         doc_type:
           type: string
@@ -1358,26 +1549,7 @@ components:
           uniqueItems: true
           minItems: 1
           items:
-            required:
-              - source_account_id
-              - source_system_uid
-              - transmission_uid
-              - sent_date
-              - booking_submitted_actual
-              - created_on
-              - forwarder_controlling_company_code
-              - forwarder_controlling_branch_code
-              - transport_mode
-              - vessel_name
-              - voyage_number
-              - departure_estimated
-              - arrival_port_estimated
-              - cutoff_time_physical
-              - containerization_type
-              - cargo_ready_estimated
-              - carrier_instructions
-              - freight_payment_terms
-              - inco_term
+            type: object
             properties:
               source_account_id:
                 type: number
@@ -1422,11 +1594,17 @@ components:
               agent_reference: {}
               shipper_reference: {}
               consignee_reference: {}
-              forwarder_reference: {}
-              house_bill: {}
-              master_bill: {}
+              forwarder_reference:
+                type: string
+              house_bill:
+                type: string
+              master_bill:
+                type: string
               lading_port:
                 type: object
+                required:
+                  - unlocode
+                  - description
                 properties:
                   unlocode:
                     type: string
@@ -1434,11 +1612,11 @@ components:
                   description:
                     type: string
                     minLength: 1
-                required:
-                  - unlocode
-                  - description
               arrival_port:
                 type: object
+                required:
+                  - unlocode
+                  - description
                 properties:
                   unlocode:
                     type: string
@@ -1446,9 +1624,6 @@ components:
                   description:
                     type: string
                     minLength: 1
-                required:
-                  - unlocode
-                  - description
               final_destination_port:
                 type: object
                 properties:
@@ -1733,6 +1908,11 @@ components:
               transport_mode:
                 type: string
                 minLength: 1
+                enum:
+                  - OCEAN
+                  - TRUCK
+                  - AIR
+                  - RAIL
               vessel_name:
                 type: string
                 minLength: 1
@@ -1752,6 +1932,9 @@ components:
               containerization_type:
                 type: string
                 minLength: 1
+                enum:
+                  - fcl
+                  - lcl
               cargo_ready_estimated:
                 type: string
                 minLength: 1
@@ -1769,9 +1952,7 @@ components:
                 uniqueItems: true
                 minItems: 1
                 items:
-                  required:
-                    - note_type
-                    - body
+                  type: object
                   properties:
                     note_type:
                       type: string
@@ -1779,16 +1960,15 @@ components:
                     body:
                       type: string
                       minLength: 1
+                  required:
+                    - note_type
+                    - body
               revenue_invoices:
                 type: array
                 uniqueItems: true
                 minItems: 1
                 items:
-                  required:
-                    - bill_to_id
-                    - service_invoice_uid
-                    - currency
-                    - total_due
+                  type: object
                   properties:
                     bill_to_id:
                       type: string
@@ -1806,13 +1986,7 @@ components:
                       uniqueItems: true
                       minItems: 1
                       items:
-                        required:
-                          - charge_code
-                          - currency
-                          - description
-                          - quantity
-                          - unit_price
-                          - total_cost
+                        type: object
                         properties:
                           charge_code:
                             type: string
@@ -1829,15 +2003,24 @@ components:
                             type: number
                           total_cost:
                             type: number
+                        required:
+                          - charge_code
+                          - currency
+                          - description
+                          - quantity
+                          - unit_price
+                          - total_cost
+                  required:
+                    - bill_to_id
+                    - service_invoice_uid
+                    - currency
+                    - total_due
               containers:
                 type: array
                 uniqueItems: true
                 minItems: 1
                 items:
-                  required:
-                    - size_code
-                    - source_container_id
-                    - type_code
+                  type: object
                   properties:
                     container_number: {}
                     delivery_mode: {}
@@ -1849,20 +2032,16 @@ components:
                     type_code:
                       type: string
                       minLength: 1
+                  required:
+                    - size_code
+                    - source_container_id
+                    - type_code
               package_group:
                 type: array
                 uniqueItems: true
                 minItems: 1
                 items:
-                  required:
-                    - description_of_goods
-                    - gross_weight_kgs
-                    - package_quantity
-                    - package_type_code
-                    - package_type_description
-                    - source_container_id
-                    - source_package_group_id
-                    - volume_cbms
+                  type: object
                   properties:
                     chargeable_weight_kgs: {}
                     commodity_type: {}
@@ -1892,19 +2071,21 @@ components:
                       type: number
                     volume_cbms:
                       type: number
+                  required:
+                    - description_of_goods
+                    - gross_weight_kgs
+                    - package_quantity
+                    - package_type_code
+                    - package_type_description
+                    - source_container_id
+                    - source_package_group_id
+                    - volume_cbms
               shipment_legs:
                 type: array
                 uniqueItems: true
                 minItems: 1
                 items:
-                  required:
-                    - leg_sequence_number
-                    - leg_type
-                    - transport_mode
-                    - vessel_name
-                    - voyage_number
-                    - departure_estimated
-                    - arrival_estimated
+                  type: object
                   properties:
                     leg_sequence_number:
                       type: number
@@ -1951,16 +2132,20 @@ components:
                       required:
                         - unlocode
                         - description
+                  required:
+                    - leg_sequence_number
+                    - leg_type
+                    - transport_mode
+                    - vessel_name
+                    - voyage_number
+                    - departure_estimated
+                    - arrival_estimated
               attachments:
                 type: array
                 uniqueItems: true
                 minItems: 1
                 items:
-                  required:
-                    - content
-                    - file_name
-                    - file_type_description
-                    - media_type
+                  type: object
                   properties:
                     content:
                       type: string
@@ -1975,203 +2160,29 @@ components:
                     media_type:
                       type: string
                       minLength: 1
+                  required:
+                    - content
+                    - file_name
+                    - file_type_description
+                    - media_type
+            required:
+              - source_account_id
+              - source_system_uid
+              - transmission_uid
+              - sent_date
+              - booking_submitted_actual
+              - created_on
+              - forwarder_controlling_company_code
+              - forwarder_controlling_branch_code
+              - forwarder_reference
+              - lading_port
+              - arrival_port
+              - transport_mode
+              - containerization_type
       required:
         - doc_type
         - version
         - shipments
-      x-examples:
-        example-1:
-          doc_type: shipment_json
-          version: '1.6'
-          shipments:
-            - source_account_id: 1
-              source_system_uid: 9308bf1e41ff4f5898b856465320fa93
-              transmission_uid: 605c3dbbe176b737cc608cda
-              sent_date: '2021-03-25T07:37:31+00:00'
-              booking_submitted_actual: '2021-03-25T07:37:31+00:00'
-              created_by:
-                email: martyn@qwyk.io
-                first_name: Martyn Verhaegen
-                last_name: null
-                username: '1'
-              created_on: '2021-03-25T07:37:30+00:00'
-              forwarder_controlling_company_code: QWYK
-              forwarder_controlling_branch_code: RTM
-              agent_reference: null
-              shipper_reference: null
-              consignee_reference: null
-              forwarder_reference: null
-              house_bill: null
-              master_bill: null
-              lading_port:
-                unlocode: NLRTM
-                description: 'Rotterdam, ZH, NL'
-              arrival_port:
-                unlocode: SGSIN
-                description: 'Singapore, SG'
-              final_destination_port:
-                unlocode: SGSIN
-                description: 'Singapore, SG'
-              ship_from: null
-              shipper:
-                name: Qwyk
-                address_1: Nieuwstraat 7
-                address_2: null
-                address_type: null
-                postal_code: 3311XR
-                city: Dordrecht
-                state: null
-                state_name: ZH
-                country: NL
-                country_name: null
-                phone_number: '624164853'
-                email: martyn@qwyk.io
-                unlocode: null
-                source_party_id: '1'
-                target_party_id: CUSTOMER_ID
-              consignor:
-                name: Qwyk
-                address_1: Nieuwstraat 7
-                address_2: null
-                address_type: null
-                postal_code: 3311XR
-                city: Dordrecht
-                state: ZH
-                state_name: ZH
-                country: NL
-                country_name: Netherlands (the)
-                contact_name: Martyn Verhaegen
-                phone_number: '624164853'
-                email: martyn@qwyk.io
-                unlocode: NLDOR
-                source_party_id: 42
-                target_party_id: CUSTOMER_ID
-              consignee:
-                name: EAGLE COPTERS HOLLAND
-                address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
-                address_2: COLINA
-                address_type: null
-                postal_code: '9340000'
-                city: SANTIAGO
-                state: RM
-                state_name: RM
-                country: NL
-                country_name: Netherlands (the)
-                contact_name: null
-                phone_number: null
-                email: null
-                unlocode: CLSCL
-                source_party_id: 43
-                target_party_id: null
-              notify_party:
-                name: EAGLE COPTERS HOLLAND
-                address_1: 'AERODROMO DE CHICUREO,CAMINO GUAY-GUAY S/N'
-                address_2: COLINA
-                address_type: null
-                postal_code: '9340000'
-                city: SANTIAGO
-                state: RM
-                state_name: RM
-                country: NL
-                country_name: Netherlands (the)
-                contact_name: null
-                phone_number: null
-                email: null
-                unlocode: CLSCL
-                source_party_id: 44
-                target_party_id: null
-              ship_to: null
-              importer_of_record:
-                name: Qwyk
-                address_1: Nieuwstraat 7
-                address_2: null
-                address_type: null
-                postal_code: 3311XR
-                city: Dordrecht
-                state: null
-                state_name: ZH
-                country: NL
-                country_name: null
-                contact_name: Martyn Verhaegen
-                phone_number: '624164853'
-                email: martyn@qwyk.io
-                unlocode: null
-                source_party_id: '1'
-                target_party_id: CUSTOMER_ID
-              transport_mode: SEA
-              vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
-              voyage_number: 0FL8ME1MA
-              departure_estimated: '2021-03-30T00:00:00+00:00'
-              arrival_port_estimated: '2021-04-21T00:00:00+00:00'
-              cutoff_time_bol: null
-              cutoff_time_physical: '2021-03-27T00:00:00+00:00'
-              containerization_type: fcl
-              cargo_ready_estimated: '2021-03-25T07:05:27+00:00'
-              carrier_instructions: These are some notes
-              freight_payment_terms: PREPAID
-              inco_term: EXW
-              notes:
-                - note_type: BOOKING MESSAGE
-                  body: 'Booking placed using QwykPortals, retrieve this shipment at http://localhost:4200/shipments/9308bf1e-41ff-4f58-98b8-56465320fa93'
-                - note_type: BOOKING INSTRUCTIONS
-                  body: These are some notes
-              revenue_invoices:
-                - bill_to_id: CUSTOMER_ID
-                  service_invoice_uid: 9308bf1e-4ba5-481e-9b29-c871b4e0996d
-                  currency: EUR
-                  total_due: 995
-                  invoice_lines:
-                    - charge_code: OFR
-                      currency: EUR
-                      description: Freight Charges (freight)
-                      quantity: 1
-                      unit_price: 995
-                      total_cost: 995
-              containers:
-                - container_number: null
-                  delivery_mode: null
-                  size_code: 20G0
-                  source_container_id: 22
-                  type_code: 20GP
-              package_group:
-                - chargeable_weight_kgs: null
-                  commodity_type: null
-                  description_of_goods: Freight All Kinds (FAK)
-                  gross_weight_kgs: 0
-                  marks_and_numbers: null
-                  pack_items: null
-                  package_height_cms: null
-                  package_length_cms: null
-                  package_width_cms: null
-                  package_quantity: 1
-                  package_type_code: CN
-                  package_type_description: 20' Container
-                  product_code: null
-                  product_import_hts: null
-                  source_container_id: 22
-                  source_package_group_id: 22
-                  volume_cbms: 0
-              shipment_legs:
-                - leg_sequence_number: 1
-                  leg_type: Main
-                  transport_mode: SEA
-                  carrier_scac: null
-                  vessel_name: CMA CGM ANTOINE DE SAINT EXUPERY
-                  voyage_number: 0FL8ME1MA
-                  departure_estimated: '2021-03-30T00:00:00+00:00'
-                  lading_port:
-                    unlocode: NLRTM
-                    description: 'Rotterdam, ZH, NL'
-                  arrival_estimated: '2021-04-21T00:00:00+00:00'
-                  arrival_port:
-                    unlocode: SGSIN
-                    description: 'Singapore, SG'
-              attachments:
-                - content: BASE64 ENCODED FILE
-                  file_name: testpdf.pdf
-                  file_type_code: null
-                  file_type_description: Test PDF
-                  media_type: application/pdf
     Port:
       title: Port
       type: object

@@ -11,7 +11,7 @@ servers:
   - url: 'https://api.beta.qwykportals.com/api/hub'
     description: Beta
 paths:
-  /settings/payment-providers:
+  /settings-v2/payment-providers:
     get:
       summary: Payment Providers Index
       tags:
@@ -67,6 +67,7 @@ paths:
                 - payment_provider
                 - is_active
                 - configuration
+    parameters: []
 components:
   schemas:
     PaymentProvider:
