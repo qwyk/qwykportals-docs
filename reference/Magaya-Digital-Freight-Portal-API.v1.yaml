@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
-  title: 'PREVIEW: Magaya Digital Freight Portal API'
-  version: '0.0'
+  title: Magaya Digital Freight Portal API
+  version: '4.0'
   license:
     name: Proprietary
   contact:

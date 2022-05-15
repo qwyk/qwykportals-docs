@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
-  title: 'PREVIEW: Magaya Digital Freight Portal HUB API'
-  version: '1.0'
+  title: Magaya Digital Freight Portal Hub API
+  version: '4.0'
   description: ''
 servers:
   - url: 'https://api.qwykportals.com/api/hub'
@@ -18,7 +18,7 @@ paths:
         - Settings
       responses: {}
       operationId: get-settings-payment-providers
-      x-internal: true
+      x-internal: false
       requestBody:
         content:
           application/json:
@@ -73,7 +73,7 @@ components:
     PaymentProvider:
       title: PaymentProvider
       type: object
-      x-internal: true
+      x-internal: false
       properties:
         id:
           type: string
@@ -104,11 +104,11 @@ components:
     PaymentProviderConfiguration:
       title: PaymentProviderConfiguration
       type: object
-      x-internal: true
+      x-internal: false
     VeemPaymentProviderConfiguration:
       title: VeemPaymentProviderConfiguration
       type: object
-      x-internal: true
+      x-internal: false
       properties:
         reference_id:
           type: string
@@ -116,8 +116,12 @@ components:
       required:
         - reference_id
   securitySchemes:
-    JWToken:
-      type: http
-      scheme: bearer
+    Auth0 Client Credentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: 'https://qwyk.eu.auth0.com/oauth/token'
+      description: ''
 security:
-  - JWToken: []
+  - Auth0 Client Credentials: []
