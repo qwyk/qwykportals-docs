@@ -94,6 +94,18 @@ paths:
                     $ref: ./PaginationMeta.yaml
       operationId: get-console-hub-api-clients
       x-internal: true
+      parameters:
+        - schema:
+            type: integer
+            minimum: 1
+            default: 1
+          in: query
+          name: page
+        - schema:
+            type: integer
+            default: 25
+          in: query
+          name: pageSize
   '/console/organizations/{organizationId}/hub-api-clients':
     get:
       summary: Organization API Clients Index
