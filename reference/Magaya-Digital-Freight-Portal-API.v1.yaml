@@ -34,9 +34,9 @@ paths:
                     items:
                       $ref: '#/components/schemas/Invoice'
                   links:
-                    $ref: '#/components/schemas/PaginationLinks'
+                    $ref: ./PaginationLinks.yaml
                   meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+                    $ref: ./PaginationMeta.yaml
         '403':
           $ref: '#/components/responses/403'
       operationId: get-invoice-invoices
@@ -329,9 +329,9 @@ paths:
                     items:
                       $ref: '#/components/schemas/InvoicableTransaction'
                   links:
-                    $ref: '#/components/schemas/PaginationLinks'
+                    $ref: ./PaginationLinks.yaml
                   meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+                    $ref: ./PaginationMeta.yaml
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -354,7 +354,7 @@ paths:
           name: page
       tags:
         - Invoice
-      x-internal: false
+      x-internal: true
   /warehouse/warehouse-receipts:
     get:
       summary: Index
@@ -373,9 +373,9 @@ paths:
                     items:
                       $ref: '#/components/schemas/WarehouseReceipt'
                   links:
-                    $ref: '#/components/schemas/PaginationLinks'
+                    $ref: ./PaginationLinks.yaml
                   meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+                    $ref: ./PaginationMeta.yaml
         '403':
           $ref: '#/components/responses/403'
       operationId: get-api-portals-warehouse-receipts
@@ -547,9 +547,9 @@ paths:
                     items:
                       $ref: '#/components/schemas/CargoItem'
                   links:
-                    $ref: '#/components/schemas/PaginationLinks'
+                    $ref: ./PaginationLinks.yaml
                   meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+                    $ref: ./PaginationMeta.yaml
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -653,9 +653,9 @@ paths:
                     items:
                       $ref: '#/components/schemas/Entity'
                   links:
-                    $ref: '#/components/schemas/PaginationLinks'
+                    $ref: ./PaginationLinks.yaml
                   meta:
-                    $ref: '#/components/schemas/PaginationMeta'
+                    $ref: ./PaginationMeta.yaml
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -1188,131 +1188,6 @@ components:
           example: 100
         unit:
           type: string
-    PaginationLinks:
-      description: ''
-      type: object
-      x-examples:
-        example-1:
-          first: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=1'
-          last: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=13'
-          prev: null
-          next: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=2'
-      properties:
-        first:
-          type: string
-          minLength: 1
-        last:
-          type: string
-          minLength: 1
-        prev:
-          type: string
-        next:
-          type: string
-          minLength: 1
-      required:
-        - first
-        - last
-        - next
-    PaginationMeta:
-      description: ''
-      type: object
-      x-examples:
-        example-1:
-          current_page: 1
-          from: 1
-          last_page: 13
-          links:
-            - url: null
-              label: '&laquo; Previous'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=1'
-              label: '1'
-              active: true
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=2'
-              label: '2'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=3'
-              label: '3'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=4'
-              label: '4'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=5'
-              label: '5'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=6'
-              label: '6'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=7'
-              label: '7'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=8'
-              label: '8'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=9'
-              label: '9'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=10'
-              label: '10'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=11'
-              label: '11'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=12'
-              label: '12'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=13'
-              label: '13'
-              active: false
-            - url: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=2'
-              label: Next &raquo;
-              active: false
-          path: 'http://api.next.qwykportals.com/api/portals/shipments/v2'
-          per_page: 25
-          to: 25
-          total: 323
-      properties:
-        current_page:
-          type: number
-        from:
-          type: number
-        last_page:
-          type: number
-        links:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            type: object
-            properties:
-              url:
-                type: string
-              label:
-                type: string
-                minLength: 1
-              active:
-                type: boolean
-            required:
-              - label
-              - active
-        path:
-          type: string
-          minLength: 1
-        per_page:
-          type: number
-        to:
-          type: number
-        total:
-          type: number
-      required:
-        - current_page
-        - from
-        - last_page
-        - links
-        - path
-        - per_page
-        - to
-        - total
     MagayaCustomer:
       title: MagayaCustomer
       type: object
@@ -1436,9 +1311,9 @@ components:
                 items:
                   $ref: '#/components/schemas/Attachment'
               links:
-                $ref: '#/components/schemas/PaginationLinks'
+                $ref: ./PaginationLinks.yaml
               meta:
-                $ref: '#/components/schemas/PaginationMeta'
+                $ref: ./PaginationMeta.yaml
     Charges-List:
       description: Example response
       content:
@@ -1451,9 +1326,9 @@ components:
                 items:
                   $ref: '#/components/schemas/Charge'
               links:
-                $ref: '#/components/schemas/PaginationLinks'
+                $ref: ./PaginationLinks.yaml
               meta:
-                $ref: '#/components/schemas/PaginationMeta'
+                $ref: ./PaginationMeta.yaml
     Events-List:
       description: Example response
       content:
@@ -1466,9 +1341,9 @@ components:
                 items:
                   $ref: '#/components/schemas/Event'
               links:
-                $ref: '#/components/schemas/PaginationLinks'
+                $ref: ./PaginationLinks.yaml
               meta:
-                $ref: '#/components/schemas/PaginationMeta'
+                $ref: ./PaginationMeta.yaml
   securitySchemes:
     Bearer Token:
       type: http

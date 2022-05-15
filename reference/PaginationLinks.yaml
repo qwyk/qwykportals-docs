@@ -2,6 +2,26 @@ title: PaginationLinks
 x-stoplight:
   id: pfah6jp9fzwkn
 type: object
+description: ''
+x-examples:
+  example-1:
+    first: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=1'
+    last: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=13'
+    prev: null
+    next: 'http://api.next.qwykportals.com/api/portals/shipments/v2?page=2'
 properties:
-  id:
+  first:
     type: string
+    minLength: 1
+  last:
+    type: string
+    minLength: 1
+  prev:
+    type: string
+  next:
+    type: string
+    minLength: 1
+required:
+  - first
+  - last
+  - next

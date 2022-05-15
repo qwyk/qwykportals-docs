@@ -76,8 +76,24 @@ paths:
       summary: Hub API Clients Index
       tags:
         - Console
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HubApiClient'
+                  links:
+                    $ref: ./PaginationLinks.yaml
+                  meta:
+                    $ref: ./PaginationMeta.yaml
       operationId: 'get-console-organizations-:organizationId-api_clients'
+      x-internal: true
     parameters:
       - schema:
           type: integer
@@ -147,10 +163,29 @@ components:
           type: string
         client_secret:
           type: string
+        authorized_as:
+          type: object
+          required:
+            - email
+            - name
+          properties:
+            email:
+              type: string
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
       required:
         - name
         - client_id
         - client_secret
+        - authorized_as
   securitySchemes:
     Auth0 Client Credentials:
       type: oauth2
