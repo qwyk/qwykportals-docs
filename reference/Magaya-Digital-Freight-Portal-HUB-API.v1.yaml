@@ -156,6 +156,7 @@ components:
         id: hgei2lrfmb16s
       type: object
       description: ''
+      x-internal: true
       properties:
         name:
           type: string
@@ -163,7 +164,7 @@ components:
           type: string
         client_secret:
           type: string
-        authorized_as:
+        authorizes_as:
           type: object
           required:
             - email
@@ -185,7 +186,7 @@ components:
         - name
         - client_id
         - client_secret
-        - authorized_as
+        - authorizes_as
   securitySchemes:
     Auth0 Client Credentials:
       type: oauth2
