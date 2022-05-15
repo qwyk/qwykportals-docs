@@ -1,0 +1,7 @@
+title: PaginationLinks
+x-stoplight:
+  id: pfah6jp9fzwkn
+type: object
+properties:
+  id:
+    type: string

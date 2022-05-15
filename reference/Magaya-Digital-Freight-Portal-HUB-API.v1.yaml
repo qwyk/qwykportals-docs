@@ -42,8 +42,11 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/PaymentProvider'
-                  '':
+                  oauth_exchange_token:
                     type: string
+                    description: 'Token to complete the OAuth exchange for Veem, only returned when enable_oauth is try in the provider configuration'
+                required:
+                  - data
       tags:
         - Settings
       x-internal: true
@@ -68,6 +71,19 @@ paths:
                 - is_active
                 - configuration
     parameters: []
+  '/console/organizations/{organizationId}/hub_api_clients':
+    get:
+      summary: Hub API Clients Index
+      tags:
+        - Console
+      responses: {}
+      operationId: 'get-console-organizations-:organizationId-api_clients'
+    parameters:
+      - schema:
+          type: integer
+        name: organizationId
+        in: path
+        required: true
 components:
   schemas:
     PaymentProvider:
@@ -113,8 +129,28 @@ components:
         reference_id:
           type: string
           format: uuid
+        enable_oauth:
+          type: boolean
       required:
         - reference_id
+        - enable_oauth
+    HubApiClient:
+      title: HubApiClient
+      x-stoplight:
+        id: hgei2lrfmb16s
+      type: object
+      description: ''
+      properties:
+        name:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+      required:
+        - name
+        - client_id
+        - client_secret
   securitySchemes:
     Auth0 Client Credentials:
       type: oauth2
@@ -122,6 +158,8 @@ components:
         clientCredentials:
           scopes: {}
           tokenUrl: 'https://qwyk.eu.auth0.com/oauth/token'
-      description: ''
+      description: |-
+        Read the docs:
+        https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow#introduction
 security:
   - Auth0 Client Credentials: []
