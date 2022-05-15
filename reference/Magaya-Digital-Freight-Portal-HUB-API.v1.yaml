@@ -71,9 +71,32 @@ paths:
                 - is_active
                 - configuration
     parameters: []
-  '/console/organizations/{organizationId}/hub_api_clients':
+  /console/hub-api-clients:
     get:
       summary: Hub API Clients Index
+      tags:
+        - Console
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HubApiClient'
+                  links:
+                    $ref: ./PaginationLinks.yaml
+                  meta:
+                    $ref: ./PaginationMeta.yaml
+      operationId: get-console-hub-api-clients
+      x-internal: true
+  '/console/organizations/{organizationId}/hub-api-clients':
+    get:
+      summary: Organization API Clients Index
       tags:
         - Console
       responses:
@@ -164,6 +187,13 @@ components:
           type: string
         client_secret:
           type: string
+        organization:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
         authorizes_as:
           type: object
           required:
