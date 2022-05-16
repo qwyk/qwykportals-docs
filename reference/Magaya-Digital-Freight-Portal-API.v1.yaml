@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Magaya Digital Freight Portal API
+  title: Magaya DFP Portal API
   version: '4.0'
   license:
     name: Proprietary

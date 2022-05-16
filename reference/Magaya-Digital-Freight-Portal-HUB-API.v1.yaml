@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Magaya Digital Freight Portal Hub API
+  title: Magaya DFP Admin API
   version: '4.0'
   description: ''
 servers:
