@@ -152,6 +152,8 @@ paths:
                 - organization_id
                 - user_id
       x-internal: true
+      tags:
+        - Console
   '/console/organizations/{organizationId}/hub-api-clients':
     get:
       summary: Organization API Clients Index
