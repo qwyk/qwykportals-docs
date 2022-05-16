@@ -128,13 +128,11 @@ paths:
               properties:
                 name:
                   type: string
-                organization_id:
-                  type: integer
+                  maxLength: 35
                 user_id:
                   type: integer
               required:
                 - name
-                - organization_id
                 - user_id
       x-internal: true
       tags:
