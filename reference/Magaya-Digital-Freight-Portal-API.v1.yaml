@@ -107,9 +107,9 @@ paths:
       parameters:
         - schema:
             type: string
+            default: application/json
           in: header
           name: Accept
-          description: application/json
   /invoice/invoices:
     get:
       summary: Index
