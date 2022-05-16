@@ -16,6 +16,94 @@ servers:
   - url: 'https://api.beta.qwykportals.com/api/portals'
     description: Beta
 paths:
+  /auth/login:
+    post:
+      summary: Log in
+      operationId: post-auth-login
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_in:
+                    type: integer
+                x-examples:
+                  example-1:
+                    access_token: string
+                    token_type: string
+                    expires_in: 0
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    default: Unauthenticated
+        '403':
+          description: |-
+            Forbidden
+            Valid credentials but not able to continue, check response body `type` and `message` for a reason.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - email-unconfirmed
+                      - account-unconfirmed
+                      - not-allowed-on-site
+                    description: |-
+                      Reasons: 
+                      * email-unconfirmed: the user has not yet confirmed their email address.
+                      * account-unconfirmed: an administrator has not yet approved the account for access.
+                      * not-allowed-on-site: the user is not authorized to access the Site belonging to the `site_id` that was provided 
+                  message:
+                    type: string
+        '412':
+          description: 'Precondition Failed: the account retrieved from Magaya does not match the DFP requirements and needs to be upgraded. Use the value of the X-Upgrade-With header to post additional information before trying to authenticate again. The type indicates the reason for the upgrade.'
+          headers:
+            X-Upgrade-With:
+              schema:
+                type: string
+              description: 'URL to use when upgrading the user account '
+            Access-Control-Expose-Headers:
+              schema:
+                type: string
+                default: X-Upgrade-With
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - account-upgrade-required
+                      - email-unknown
+                    description: |-
+                      Reasons:
+                      * account-upgrade-required: The account found belongs to a company and not an individual, the account needs to be upgraded to a contact account.
+                      * email-unknown: The user was found but does not have an email, it needs to be provided.
+                  message:
+                    type: string
+      tags:
+        - Authentication
+      security: []
+      requestBody:
+        $ref: '#/components/requestBodies/LoginRequest'
+      description: ''
   /invoice/invoices:
     get:
       summary: Index
@@ -1258,6 +1346,43 @@ components:
           type: string
           format: uuid
       x-internal: false
+    LoginMagayaRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        organization_id:
+          type: integer
+        site_id:
+          type: integer
+      x-examples:
+        example-1:
+          username: username
+          password: pa$$word
+          organization_id: 0
+          site_id: 0
+      x-internal: true
+      title: LoginMagayaRequest
+    LoginNativeRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        organization_id:
+          type: integer
+        site_id:
+          type: integer
+      x-examples:
+        example-1:
+          email: user@example.com
+          password: pa$$word
+          organization_id: 0
+          site_id: 0
+      x-internal: true
   responses:
     '403':
       description: Forbidden
@@ -1363,5 +1488,14 @@ components:
       schema:
         type: string
         format: uuid
+  requestBodies:
+    LoginRequest:
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#/components/schemas/LoginNativeRequest'
+              - $ref: '#/components/schemas/LoginMagayaRequest'
+            description: 'Select Native when using a standalone portal, or Magaya when using a portal connectede with Magaya Supply Chain'
 security:
   - Bearer Token: []
