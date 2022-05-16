@@ -104,6 +104,12 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/LoginRequest'
       description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Accept
+          description: application/json
   /invoice/invoices:
     get:
       summary: Index
