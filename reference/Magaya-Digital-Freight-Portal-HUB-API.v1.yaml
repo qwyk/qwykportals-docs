@@ -245,6 +245,8 @@ components:
           type: string
         client_secret:
           type: string
+        audience:
+          type: string
         organization:
           type: object
           required:
