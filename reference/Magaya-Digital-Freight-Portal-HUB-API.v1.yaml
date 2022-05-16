@@ -71,7 +71,7 @@ paths:
                 - is_active
                 - configuration
     parameters: []
-  '/console/hub-api-clients/{hubApiClientId}':
+  /console/hub-api-clients:
     get:
       summary: Hub API Clients Index
       tags:
@@ -106,22 +106,7 @@ paths:
             default: 25
           in: query
           name: pageSize
-    delete:
-      summary: Hub API Clients Delete
-      operationId: delete-console-hub-api-clients
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Console
-      description: ''
-      x-internal: true
-    parameters:
-      - schema:
-          type: string
-        name: hubApiClientId
-        in: path
-        required: true
+    parameters: []
     post:
       summary: Hub API Client Create
       operationId: post-console-hub-api-clients-hubApiClientId
@@ -154,6 +139,20 @@ paths:
       x-internal: true
       tags:
         - Console
+  '/console/hub-api-clients/{hubApiClientId}':
+    parameters:
+      - schema:
+          type: string
+        name: hubApiClientId
+        in: path
+        required: true
+    delete:
+      summary: Hub API Client Delete
+      operationId: delete-console-hub-api-clients-hubApiClientId
+      responses:
+        '200':
+          description: OK
+      x-internal: true
   '/console/organizations/{organizationId}/hub-api-clients':
     get:
       summary: Organization API Clients Index
