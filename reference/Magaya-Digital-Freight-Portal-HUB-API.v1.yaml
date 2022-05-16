@@ -71,7 +71,7 @@ paths:
                 - is_active
                 - configuration
     parameters: []
-  /console/hub-api-clients:
+  '/console/hub-api-clients/{hubApiClientId}':
     get:
       summary: Hub API Clients Index
       tags:
@@ -106,6 +106,52 @@ paths:
             default: 25
           in: query
           name: pageSize
+    delete:
+      summary: Hub API Clients Delete
+      operationId: delete-console-hub-api-clients
+      responses:
+        '200':
+          description: OK
+      tags:
+        - Console
+      description: ''
+      x-internal: true
+    parameters:
+      - schema:
+          type: string
+        name: hubApiClientId
+        in: path
+        required: true
+    post:
+      summary: Hub API Client Create
+      operationId: post-console-hub-api-clients-hubApiClientId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/HubApiClient'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                organization_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+                - name
+                - organization_id
+                - user_id
+      x-internal: true
   '/console/organizations/{organizationId}/hub-api-clients':
     get:
       summary: Organization API Clients Index
@@ -201,6 +247,9 @@ components:
           type: string
         organization:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: integer
@@ -228,7 +277,10 @@ components:
         - name
         - client_id
         - client_secret
+        - organization
         - authorizes_as
+        - created_at
+        - updated_at
   securitySchemes:
     Auth0 Client Credentials:
       type: oauth2
