@@ -833,10 +833,59 @@ paths:
       summary: Inventory Index
       tags:
         - Warehouse
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InventoryListItem'
+                  last_id:
+                    type:
+                      - string
+                      - 'null'
+                    format: uuid
       operationId: get-warehouse-inventory
       x-internal: true
       description: ''
+      parameters:
+        - schema:
+            type: integer
+            minimum: 10
+            maximum: 100
+            default: 25
+          in: query
+          name: page_size
+        - schema:
+            type: string
+            format: uuid
+          in: query
+          name: last_id
+        - schema:
+            type: string
+          in: query
+          name: part_number
+        - schema:
+            type: string
+          in: query
+          name: description
+        - schema:
+            type: string
+          in: query
+          name: model
+        - schema:
+            type: string
+          in: query
+          name: customer
+        - schema:
+            type: string
+          in: query
+          name: manufacturer
   '/common/attachments/{attachmentId}/link':
     parameters:
       - schema:
