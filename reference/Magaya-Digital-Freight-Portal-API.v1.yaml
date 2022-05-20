@@ -451,9 +451,7 @@ paths:
       x-internal: true
   /warehouse/warehouse-receipts:
     get:
-      summary: Index
-      tags:
-        - Warehouse Receipt
+      summary: Warehouse Receipt Index
       responses:
         '200':
           description: OK
@@ -519,12 +517,12 @@ paths:
           in: query
           name: 'created_at_range[]'
           description: 2 dates in array format
+      tags:
+        - Warehouse
     parameters: []
   '/warehouse/warehouse-receipts/{warehouseReceiptId}':
     get:
-      summary: Show
-      tags:
-        - Warehouse Receipt
+      summary: Warehouse Receipt Show
       responses:
         '200':
           description: OK
@@ -541,15 +539,15 @@ paths:
           $ref: '#/components/responses/404'
       operationId: 'get-api-portals-warehouse-receipts-:id'
       x-internal: false
+      tags:
+        - Warehouse
     parameters:
       - $ref: '#/components/parameters/warehouseReceiptId'
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/attachments':
     parameters:
       - $ref: '#/components/parameters/warehouseReceiptId'
     get:
-      summary: Attachments Index
-      tags:
-        - Warehouse Receipt
+      summary: Warehouse Receipt Attachments Index
       responses:
         '200':
           $ref: '#/components/responses/Attachments-List'
@@ -588,6 +586,8 @@ paths:
           in: query
           name: order_by_direction
       description: ''
+      tags:
+        - Warehouse
     post:
       summary: Attachment Create
       operationId: post-warehouse-warehouse-receipts-warehouseReceiptId-attachments
@@ -627,7 +627,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/warehouseReceiptId'
     get:
-      summary: Cargo Items Index
+      summary: Warehouse Receipt Cargo Items Index
       responses:
         '200':
           description: OK
@@ -679,14 +679,12 @@ paths:
           in: query
           name: order_by_direction
       tags:
-        - Warehouse Receipt
+        - Warehouse
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/charges':
     parameters:
       - $ref: '#/components/parameters/warehouseReceiptId'
     get:
-      summary: Charges Index
-      tags:
-        - Warehouse Receipt
+      summary: Warehouse Receipt Charges Index
       responses:
         '200':
           $ref: '#/components/responses/Charges-List'
@@ -727,13 +725,13 @@ paths:
           name: order_by_direction
       description: ''
       x-internal: false
+      tags:
+        - Warehouse
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/entities':
     parameters:
       - $ref: '#/components/parameters/warehouseReceiptId'
     get:
-      summary: Entities Index
-      tags:
-        - Warehouse Receipt
+      summary: Warehouse Receipt Entities Index
       responses:
         '200':
           description: OK
@@ -783,13 +781,13 @@ paths:
             default: asc
           in: query
           name: order_by_direction
+      tags:
+        - Warehouse
   '/warehouse/warehouse-receipts/{warehouseReceiptId}/events':
     parameters:
       - $ref: '#/components/parameters/warehouseReceiptId'
     get:
-      summary: Events Index
-      tags:
-        - Warehouse Receipt
+      summary: Warehouse Receipt Events Index
       responses:
         '200':
           $ref: '#/components/responses/Events-List'
@@ -828,6 +826,17 @@ paths:
             default: desc
           in: query
           name: order_by_direction
+      tags:
+        - Warehouse
+  /warehouse/inventory:
+    get:
+      summary: Inventory Index
+      tags:
+        - Warehouse
+      responses: {}
+      operationId: get-warehouse-inventory
+      x-internal: true
+      description: ''
   '/common/attachments/{attachmentId}/link':
     parameters:
       - schema:
@@ -865,14 +874,6 @@ paths:
       description: Returns a Attachment's signed URL which can be used to download the file.
       tags:
         - Common
-  /warehouse/inventory:
-    get:
-      summary: Your GET endpoint
-      tags:
-        - Warehouse
-      responses: {}
-      operationId: get-warehouse-inventory
-      x-internal: true
 components:
   schemas:
     Invoice:
@@ -1397,6 +1398,55 @@ components:
           organization_id: 0
           site_id: 0
       x-internal: true
+    InventoryListItem:
+      type: object
+      x-examples:
+        example-1:
+          id: 35a96517-bd43-44d7-8b08-5ac485fd5872
+          part_number: MARTYNSTHING
+          model: Test
+          description: Description
+          package: Box
+          manufacturer: null
+          customer: Test Shipper
+          pieces: 0
+          reserved_pieces: 0
+          requested_pieces: 0
+          arriving_pieces: 3
+      properties:
+        id:
+          type: string
+          format: uuid
+        part_number:
+          type: string
+        model:
+          type:
+            - string
+            - 'null'
+        description:
+          type:
+            - string
+            - 'null'
+        package:
+          type:
+            - string
+            - 'null'
+        manufacturer:
+          type:
+            - 'null'
+            - string
+        customer:
+          type:
+            - string
+            - 'null'
+        pieces:
+          type: integer
+        reserved_pieces:
+          type: integer
+        requested_pieces:
+          type: integer
+        arriving_pieces:
+          type: integer
   responses:
     '403':
       description: Forbidden
