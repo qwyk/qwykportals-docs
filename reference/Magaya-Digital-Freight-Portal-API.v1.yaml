@@ -865,6 +865,14 @@ paths:
       description: Returns a Attachment's signed URL which can be used to download the file.
       tags:
         - Common
+  /warehouse/inventory:
+    get:
+      summary: Your GET endpoint
+      tags:
+        - Warehouse
+      responses: {}
+      operationId: get-warehouse-inventory
+      x-internal: true
 components:
   schemas:
     Invoice:
