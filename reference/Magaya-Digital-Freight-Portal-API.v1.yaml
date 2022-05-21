@@ -888,7 +888,7 @@ paths:
           name: manufacturer
   '/warehouse/inventory/{inventoryItemId}':
     get:
-      summary: Inventory Index
+      summary: Inventory Item Show
       tags:
         - Warehouse
       responses:
