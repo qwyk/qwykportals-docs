@@ -886,6 +886,39 @@ paths:
             type: string
           in: query
           name: manufacturer
+  '/warehouse/inventory/{inventoryItemId}':
+    get:
+      summary: Inventory Index
+      tags:
+        - Warehouse
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InventoryItem'
+        '':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventoryItem'
+      operationId: get-warehouse-inventory
+      x-internal: true
+      description: ''
+      parameters: []
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: inventoryItemId
+        in: path
+        required: true
   '/common/attachments/{attachmentId}/link':
     parameters:
       - schema:
@@ -1462,6 +1495,7 @@ components:
           reserved_pieces: 0
           requested_pieces: 0
           arriving_pieces: 3
+      x-internal: true
       properties:
         id:
           type: string
@@ -1482,8 +1516,8 @@ components:
             - 'null'
         manufacturer:
           type:
-            - 'null'
             - string
+            - 'null'
         customer:
           type:
             - string
@@ -1496,6 +1530,137 @@ components:
           type: integer
         arriving_pieces:
           type: integer
+      description: ''
+    InventoryItem:
+      type: object
+      x-examples:
+        example-1:
+          id: 35a96517-bd43-44d7-8b08-5ac485fd5872
+          part_number: MARTYNSTHING
+          model: Test
+          description: Description
+          package: Box
+          manufacturer: null
+          customer: Test Shipper
+          pieces: 0
+          reserved_pieces: 0
+          requested_pieces: 0
+          arriving_pieces: 3
+      title: InventoryItem
+      x-internal: true
+      examples:
+        - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          part_number: string
+          model: string
+          description: string
+          package: string
+          manufacturer: null
+          customer: string
+          pieces: 0
+          reserved_pieces: 0
+          requested_pieces: 0
+          arriving_pieces: 0
+          tracking_number: string
+          commodity_type_name: string
+          amount_per_pallet: 0
+          length: 0
+          width: 0
+          height: 0
+          total_volume: 0
+          total_weight: 0
+          items:
+            - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+              parent_type: warehouse-receipt
+              parent_id: 1c6ca187-e61f-4301-8dcb-0e9749e89eef
+              status: 0
+              status_name: on-hand
+              type_code: 0
+              count: 1
+              quantity: 2
+              package_name: Pallet
+              description: 'Widgets, Non Haz'
+              part_number: string
+              serial_number: string
+              location: '210388'
+              weight:
+                value: 100
+                unit: string
+              volume:
+                value: 100
+                unit: string
+              total_value:
+                currency: USD
+                amount: 100.5
+              is_child: true
+              is_kit: true
+              is_container: true
+              is_really_a_container: true
+              is_vehicle: true
+              is_on_hold: true
+          notes: string
+      properties:
+        id:
+          type: string
+          format: uuid
+        part_number:
+          type: string
+        model:
+          type:
+            - string
+            - 'null'
+        description:
+          type:
+            - string
+            - 'null'
+        package:
+          type:
+            - string
+            - 'null'
+        manufacturer:
+          type:
+            - string
+            - 'null'
+        customer:
+          type:
+            - string
+            - 'null'
+        pieces:
+          type: integer
+        reserved_pieces:
+          type: integer
+        requested_pieces:
+          type: integer
+        arriving_pieces:
+          type: integer
+        tracking_number:
+          type:
+            - string
+            - 'null'
+        commodity_type_name:
+          type:
+            - string
+            - 'null'
+        amount_per_pallet:
+          type: integer
+        length:
+          type: number
+        width:
+          type: number
+        height:
+          type: number
+        total_volume:
+          type: number
+        total_weight:
+          type: number
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CargoItem'
+        notes:
+          type:
+            - string
+            - 'null'
+      description: ''
   responses:
     '403':
       description: Forbidden
