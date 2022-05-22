@@ -517,6 +517,11 @@ paths:
           in: query
           name: 'created_at_range[]'
           description: 2 dates in array format
+        - schema:
+            type: string
+          in: query
+          name: part_number
+          description: Finds warehouse receipts where any of the cargo contains this part number.
       tags:
         - Warehouse
     parameters: []
